@@ -3,9 +3,7 @@
 # *****************************
 # FEATURE PLANS
 # *****************************
-#TRADERS HOTEL
-#KLCC
-#SKYBAR
+#Testing server to github
 
 # 1. View Sessions
 #     No login req
