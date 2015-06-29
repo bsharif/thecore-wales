@@ -144,3 +144,21 @@ CREATE TABLE blog_posts(
     modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
 );
 success!
+timestamp: 2015-06-29T17:43:33.797327
+CREATE TABLE reg_questionnaire(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    specialty CHAR(512),
+    author CHAR(512),
+    email CHAR(512),
+    pursure_a_career TEXT,
+    rotation_useful TEXT,
+    enjoy_most TEXT,
+    challenging_aspects TEXT,
+    typical_patients TEXT,
+    typical_day TEXT,
+    typical_hours TEXT,
+    part_time_training TEXT,
+    teaching_research TEXT,
+    advice TEXT
+);
+success!
