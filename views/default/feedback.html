@@ -1,0 +1,24 @@
+{{extend 'layout.html'}}
+<h1>Session Feedback</h1>
+<!-- {{=BEAUTIFY(response._vars)}} -->
+
+<div style="clear:both" id="details_header">
+    
+<h3 style="float:left">
+    Details
+</h3> <div style="float:left;margin:15px" class="btn btn-warning" onclick="jQuery('#session_details').slideToggle()">Show/Hide</div>
+</div><br>
+
+<div style="clear:both" id="session_details" class="well">    
+{{=session_form}}
+</div>
+<br><br>
+<h3>
+    Feedback Form
+</h3>
+<div id="feedback_form" class="well">
+    
+{{if feedback_form:}}
+{{=feedback_form}}
+{{pass}}
+</div>

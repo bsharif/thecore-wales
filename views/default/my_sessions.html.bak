@@ -1,0 +1,101 @@
+{{extend 'layout.html'}}
+    
+
+<h1>
+    My Sessions
+</h1>
+<h3>Attended Sessions</h3> 
+{{=A('Print Report',_href=URL('print_user_report',vars={'u_id':user_id}),_class="btn btn-info")}}
+    <br><br>
+<div id="attended_sessions" class="panel panel-default">
+      <div class="panel-body">
+              <h4>
+            Upcoming 
+        </h4>
+    {{=upcoming_sessions}} <hr><br>
+                <h4>
+            Previous
+        </h4>    
+    {{=previous_sessions}}
+      </div>
+</div>
+
+<h3>
+    Managed Sessions
+</h3>
+<div id="managed_sessions" class="panel panel-default">
+
+
+  <div class="panel-body">
+              <h4>
+            Sessions Led
+        </h4>
+    {{=leader_sessions}} <hr><br>
+              <h4>
+            Sessions Authored
+        </h4>
+    {{=authored_sessions}}
+  </div>
+</div>
+<script>
+    $(document).ready( function () {
+        $('#data_table_upcoming').DataTable( {
+            responsive: true,
+            scrollX: true,
+            scrollY: 250,
+            searching:false,
+            paging:false,
+            "order": [ 3, 'asc' ],
+            "columnDefs": [
+                            { "orderable": false, "targets": [5,6] }
+                          ]
+
+
+         });
+    } );
+    $(document).ready( function () {
+        $('#data_table_previous').DataTable( {
+            responsive: true,
+            scrollX: true,
+            scrollY: 250,
+            searching:false,
+            paging:false,
+            "order": [ 3, 'asc' ],
+            "columnDefs": [
+                            { "orderable": false, "targets": [5,6] }
+                          ]
+
+
+         });
+    } );
+    $(document).ready( function () {
+        $('#data_table_leader').DataTable( {
+            responsive: true,
+            scrollX: true,
+            scrollY: 250,
+            searching:false,
+            paging:false,
+            "order": [ 3, 'asc' ],
+            "columnDefs": [
+                            { "orderable": false, "targets": [5,6,7,8,9] }
+                          ]
+
+
+         });
+    } );
+    $(document).ready( function () {
+        $('#data_table_authored').DataTable( {
+            responsive: true,
+            scrollX: true,
+            scrollY: 250,
+            searching:false,
+            paging:false,
+            "order": [ 3, 'asc' ],
+            "columnDefs": [
+                            { "orderable": false, "targets": [5,6,7,8,9] }
+                          ]
+
+
+         });
+    } );
+</script>

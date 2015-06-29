@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+db.define_table('blog_posts',
+                Field('title','string'),
+                Field('text','text'),
+                Field('tags','list:string'),
+                auth.signature)

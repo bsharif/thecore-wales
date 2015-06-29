@@ -1,0 +1,33 @@
+{{left_sidebar_enabled=True}}
+
+{{extend 'layout.html'}}
+<div class="container-fluid">
+    <div class="row">
+        <div id="blog_title">
+            {{=H1(blog_post_record.title,)}}
+        </div>
+        <div id="pots_details">
+            {{=EM(blog_post_record.created_by)}} 
+            {{=P(prettydate(blog_post_record.created_on,T))}}
+            
+        </div>
+        <div class="well">    
+        <div id="blog_content">
+                {{=MARKMIN(blog_post_record.blog_content)}}
+            </div>
+            <div id="blog_tags">
+                <br><h4>Tags:</h4>
+                {{for tag in blog_post_record.tags:}}
+                    {{=A(tag,_href='',_class='label label-default')}}
+                {{pass}}
+            </div>
+        </div>
+    </div>  <hr>
+{{pass}}
+</div>
+
+
+
+{{block left_sidebar}}
+{{include 'blog_sidebar.html'}}
+{{pass}}

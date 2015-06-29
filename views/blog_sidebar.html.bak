@@ -1,0 +1,15 @@
+<br><br><ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#">Link</a></li>
+  <li ><a href="#">Link</a></li>
+  <li ><a href="#">Link</a></li>
+</ul>
+
+<h3>Tags:</h3>
+{{for tag in session.blog_tags:}}
+    {{=A(tag,_href='',_class="label label-default")}}
+{{pass}}
+
+<h3>Users:</h3>
+{{for user in session.user_dict:}}
+    {{=A(session.user_dict[user],_href=URL('user_posts',vars={'user_id':user}),_class="label label-default")}}
+{{pass}}

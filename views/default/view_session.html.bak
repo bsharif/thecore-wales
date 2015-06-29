@@ -1,0 +1,34 @@
+{{extend 'layout.html'}}
+
+<div class="container-fluid">
+    <div class="row">
+        <h1>Session Details</h1>
+    {{if request.env.http_referer:}}
+        {{=A('Back',_href=request.env.http_referer,_class="btn btn-primary")}}
+    {{else:}}
+    {{=A('Back',_href="javascript:void(history.go(-1))",_class="btn btn-primary")}}
+    {{pass}}{{=A('Browse',_href=URL('browse'),_class="btn btn-primary")}}
+    {{=A('My Sessions',_href=URL('my_sessions'),_class="btn btn-primary")}}
+    </div>
+    {{if advanced_options:}}
+    <div class="row">
+        <hr><h4>
+            Other Options
+        </h4>
+
+    </div>
+    <div class="row" id="advanced_buttons">
+
+        {{=A('Edit',_class="btn btn-info",_href=URL('edit_session',vars={"s_id":row.id}))}}
+        {{=A('Print Report',_class="btn btn-info",_href=URL('print_session_report',vars={"s_id":session_id}))}}
+    </div>
+    {{pass}}
+    <div class="row">
+        <hr>
+        <div class="well">
+
+        {{=form}}
+
+        </div>
+
+    </div>
