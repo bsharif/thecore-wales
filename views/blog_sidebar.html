@@ -1,8 +1,18 @@
-<br><br><ul class="nav nav-pills nav-stacked">
-  <li class="active"><a href="#">Link</a></li>
+<div id="about_blog">
+    <h1>
+        The Blog.
+    </h1>
+    <p>
+        The blog contains posts with general information about Core Medical Training in Wales. 
+        IN PROGRESS
+    </p>
+    {{=A('Index',_href=URL('index'),_class="btn btn-default")}}
+</div>
+<!-- <br><br><ul class="nav nav-pills nav-stacked">
+  <li class="active"><a href="#">Blog Index</a></li>
   <li ><a href="#">Link</a></li>
   <li ><a href="#">Link</a></li>
-</ul>
+</ul> -->
 
 <h3>Tags:</h3>
 {{for tag in session.blog_tags:}}

@@ -8,8 +8,13 @@
         <div id="blog_title">
             {{=H1(blog_post_record.title,)}}
         </div>
-        <div id="pots_details">
-            {{=EM(blog_post_record.created_by)}} 
+        {{if advanced_options:}}
+            <div id="advanced_options">
+                {{=A('Edit Post',_href=URL('edit_blog_post',vars={'post_id':blog_post_record.id}),_class="btn btn-primary")}}
+        </div>
+        {{pass}}
+        <div id="post_details">
+            Posted by {{=EM(user_name)}} 
             {{=P(prettydate(blog_post_record.created_on,T))}}
             
         </div>
@@ -20,7 +25,7 @@
             <div id="blog_tags">
                 <br><h4>Tags:</h4>
                 {{for tag in blog_post_record.tags:}}
-                    {{=A(tag,_href='',_class='label label-default')}}
+                    {{=A(tag,_href=URL('view_tag',args=tag),_class='label label-default')}}
                 {{pass}}
             </div>
         </div>

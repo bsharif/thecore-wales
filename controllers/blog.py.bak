@@ -3,8 +3,13 @@
 import datetime
 from gluon.tools import prettydate
 
-session.blog_tags = get_blog_tags()
-session.user_dict = get_users_list()
+def get_user_name(user_id):
+    user_record = db(db.auth_user.id==user_id).select().first()
+    first_name = user_record.first_name
+    last_name = user_record.last_name
+    full_name = str(first_name +" " + last_name)
+    return full_name
+
 def index():
     all_posts = db(db.blog_posts).select(db.blog_posts.ALL,orderby=~db.blog_posts.created_on)
     return locals()
@@ -37,6 +42,7 @@ def get_users_list():
         user_dict[user] = user_name
     return user_dict
 
+@auth.requires_membership('administrator')
 def edit_blog_post():
     post_id = request.vars.post_id
     form=SQLFORM(db.blog_posts, post_id, showid=False)
@@ -49,7 +55,13 @@ def edit_blog_post():
 def view_blog_post():
     post_id = request.vars.post_id
     blog_post_record = db(db.blog_posts.id==post_id).select().first()
-        
+    user_name = get_user_name(blog_post_record.created_by)
+    advanced_options=False
+    if auth:
+        user_id = auth.user_id
+        if auth.has_membership('administrator'):
+            advanced_options=True
+
     return locals()
     
 
@@ -58,3 +70,12 @@ def user_posts():
     user_record = db(db.auth_user.id==user_id).select().first()
     user_posts = db(db.blog_posts.created_by==user_id).select(db.blog_posts.ALL,orderby=~db.blog_posts.created_on)
     return locals()
+
+def view_tag():
+    tag_name = request.args(0)
+#     user_record = db(db.auth_user.id==user_id).select().first()
+    blog_posts = db(db.blog_posts.tags.contains(tag_name)).select(db.blog_posts.ALL,orderby=~db.blog_posts.created_on)
+    return locals()
+
+session.blog_tags = get_blog_tags()
+session.user_dict = get_users_list()
