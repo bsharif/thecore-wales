@@ -78,6 +78,10 @@ auth.settings.extra_fields['auth_user']= [
     Field('email_notifications','boolean',default=True)]     
 # for default hospital choices make reference to the hospitals table defined above - and require that the value equals something from that DB
 #***************************************************************
+#Make email addresses case insensitive
+auth.settings.email_case_sensitive = False
+
+#
 
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)

@@ -1,0 +1,203 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"con",
+				"contains"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Preferences: Browse Packages"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 153.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ben/web2py/applications/welcome/routes.example.py",
+		"/home/ben/web2py/routes.py",
+		"/home/ben/Dropbox/Projects/thecore-wales/id_rsa",
+		"/home/ben/web2py/applications/thecore_wales/databases/storage.sqlite",
+		"/home/ben/Downloads/PDF-Split/script.py",
+		"/home/ben/.ssh/id_rsa.pub",
+		"/home/ben/Dropbox/Projects/Sepsis Study/2015/Flowchart_ODK_System.xml",
+		"/home/ben/Downloads/PDF-Split/1_Certificates.pdf",
+		"/etc/default/grub",
+		"/home/ben/Dropbox/Projects/javascript/index.html",
+		"/home/ben/SepsisTools/Final-Exports/Export-19-06-15-2243.json",
+		"/home/ben/SepsisTools/Final-Exports/Sepsis Study 2015 Data-NoAnalysisRows.csv",
+		"/home/ben/SepsisTools/Final-Exports/data.json",
+		"/home/ben/Dropbox/Projects/Sepsis Study/DataCollection/ODK/SepisStudy2015-06-07.xml",
+		"/home/ben/SepsisTools/Final-Exports/pykchart.html",
+		"/home/ben/Downloads/WhatsApp Chat with Sepsis study 2015 HL .txt",
+		"/home/ben/Downloads/Jit/jit.js",
+		"/home/ben/.cache/.fr-nXwDYJ/SepisStudy2015-ForPaper/template.json"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"micmill",
+			", ",
+			"\n",
+			"wmh-17462-F3\nwmh-17462-F3\nwmh",
+			"organs",
+			"completed",
+			"--",
+			"<>",
+			"--",
+			"	",
+			"Sepsis Molly: ",
+			" = ",
+			"'no'"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"; ",
+			", ",
+			"interventions",
+			"organs",
+			":",
+			"::",
+			"<>",
+			"--",
+			"",
+			" != ",
+			"'yes'",
+			"'dont_know'"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 148.0
+	},
+	"replace":
+	{
+		"height": 74.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
