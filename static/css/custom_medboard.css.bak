@@ -1,11 +1,16 @@
-#index_box1 {
-
+.v-align {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
 }
 
-#index_box2 {
 
+.blog-title{
+    color: #404040;
+    font-weight:bold
 }
 
-#index_box2 {
+.blog-title:hover{
     
+    color: #0085a1
 }
