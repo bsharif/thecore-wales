@@ -11,6 +11,6 @@
 }
 
 .blog-title:hover{
-    
+    text-decoration: none;
     color: #0085a1
 }

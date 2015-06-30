@@ -1,17 +1,23 @@
 <div id="about_blog">
         {{=H1(A('The Blog',_href=URL('index'),_class="blog-title"))}}
-        <p class="lead">
+            <div class="panel panel-default">
+  <div class="panel-body">
+    <p class="lead">
             The blog contains posts with general information about Core Medical Training in Wales. 
         </p>
-        <p>
+  </div>
+  <div class="panel-footer"><p>
             Maintained by <em>Holly Morgan</em> and <em>Melanie Nana</em>.
-    </p>
+    </p></div>
+</div>
+    
+        
 </div>
 
 <div id="most_recent_post">
     <h3>Most recent post:</h3>
     {{most_recent_post = session.most_recent_post}}
-    {{=H3(most_recent_post.title,_class="blog-title")}}
+    {{=H4(most_recent_post.title,_class="blog-title")}}
 </div>
 
 <div id="navigation">

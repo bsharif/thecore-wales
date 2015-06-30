@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
         <div id="blog_title">
-            {{=H1(blog_post_record.title,)}}
+            {{=H1(blog_post_record.title,_class="blog-title")}}
         </div>
         {{if advanced_options:}}
             <div id="advanced_options">
@@ -14,12 +14,11 @@
         </div>
         {{pass}}
         <div id="post_details">
-            Posted by {{=EM(user_name)}} 
-            {{=P(prettydate(blog_post_record.created_on,T))}}
+            <h3>Posted by {{=EM(A(user_name,_href=URL('user_posts',vars={'user_id':blog_post_record.created_by})))}} - {{=SPAN(prettydate(blog_post_record.created_on,T))}}</h3>
             
         </div>
-        <div class="well">    
-        <div id="blog_content">
+
+       <div id="blog_content">
                 {{=MARKMIN(blog_post_record.blog_content)}}
             </div>
             <div id="blog_tags">
@@ -28,7 +27,6 @@
                     {{=A(tag,_href=URL('view_tag',args=tag),_class='label label-default')}}
                 {{pass}}
             </div>
-        </div>
     </div>  <hr>
 {{pass}}
 </div>
