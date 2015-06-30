@@ -9,7 +9,9 @@
 </div>
 
 <div id="most_recent_post">
-    
+    <h3>Most recent post:</h3>
+    {{most_recent_post = session.most_recent_post}}
+    {{=H3(most_recent_post.title,_class="blog-title")}}
 </div>
 
 <div id="navigation">

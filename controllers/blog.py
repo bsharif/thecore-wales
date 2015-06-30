@@ -10,8 +10,14 @@ def get_user_name(user_id):
     full_name = str(first_name +" " + last_name)
     return full_name
 
+def blog_sidebar():
+#     most_recent_post = db(db.blog_posts).select(db.blog_posts,orderby=~db.blog_posts.created_on).first()
+#     most_recent_post = "Hello World"
+    return locals()
 def index():
     all_posts = db(db.blog_posts).select(db.blog_posts.ALL,orderby=~db.blog_posts.created_on)
+    most_recent_post = db(db.blog_posts).select(orderby=~db.blog_posts.created_on).first()
+    session.most_recent_post = most_recent_post
     return locals()
 
 def new_blog_post():

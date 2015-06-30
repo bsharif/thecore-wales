@@ -7,7 +7,7 @@
     user_record = db(db.auth_user.id==user_id).select().first()
     first_name = user_record.first_name
     last_name = user_record.last_name
-    full_name = str(first_name +" " + last_name)
+    full_name = str(first_name + " " + last_name)
     return full_name}}
 
 <div class="container-fluid">
@@ -19,13 +19,11 @@
                 <h1>{{=A(post.title,_href=URL('view_blog_post',vars={'post_id':post.id}),_class="text-uppercase blog-title")}}</h1>
                 <h3>Posted by {{=EM(A(get_user_name(post.created_by),_href=URL('user_posts',vars={'user_id':post.created_by})))}} - {{=SPAN(prettydate(post.created_on,T))}}</h3>
             </div>
-        
-        
             <div id="blog_tags">
-                <br><h4>Tags:</h4>
+                <h4>Tags:
                 {{for tag in post.tags:}}
                     {{=SPAN(A(tag,_href='',_class='label label-default'))}}
-                {{pass}}
+                {{pass}}</h4>
             </div>
         
     </div>  <hr>

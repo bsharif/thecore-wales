@@ -1,12 +1,11 @@
 <div id="about_blog">
-    <h1>
-        The Blog.
-    </h1>
-    <p>
-        The blog contains posts with general information about Core Medical Training in Wales. 
-        IN PROGRESS
+        {{=H1(A('The Blog',_href=URL('index'),_class="blog-title"))}}
+        <p class="lead">
+            The blog contains posts with general information about Core Medical Training in Wales. 
+        </p>
+        <p>
+            Maintained by <em>Holly Morgan</em> and <em>Melanie Nana</em>.
     </p>
-    {{=A('Index',_href=URL('default','index'),_class="btn btn-default")}}
 </div>
 <!-- <br><br><ul class="nav nav-pills nav-stacked">
   <li class="active"><a href="#">Blog Index</a></li>
