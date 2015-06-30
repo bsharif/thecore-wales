@@ -7,6 +7,7 @@ db.define_table('blog_posts',
                 auth.signature)
 
 db.define_table('reg_questionnaire',
+                Field('specialty_slug','string',requires=IS_SLUG()),
                 Field('specialty','string'),
                 Field('author','string'),
                 Field('email','string'),
@@ -19,4 +20,5 @@ db.define_table('reg_questionnaire',
                 Field('typical_hours','text'),
                 Field('part_time_training','text'),
                 Field('teaching_research','text'),
-                Field('advice','text'))
+                Field('advice','text'),
+                auth.signature)

@@ -5,7 +5,7 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.logo = A(B('TheCore'),XML('&trade;&nbsp;'),
+response.logo = A(B('TheCore.Wales'),XML('&trade;&nbsp;'),
                   _class="navbar-brand",_href=URL('index'),
                   _id="thecore-logo")
 response.title = request.application.replace('_',' ').title()

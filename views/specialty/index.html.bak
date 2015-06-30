@@ -6,11 +6,6 @@
     Choose a specialty from the menu to learn more.
 </h3>
 
-{{if advanced_options:}}
-            <div id="advanced_options">
-                {{=A('Add New',_href=URL('add_new'),_class="btn btn-primary")}} <br><br>
-    {{pass}}
-
 {{block left_sidebar}}
 {{include 'specialty_sidebar.html'}}
 {{pass}}

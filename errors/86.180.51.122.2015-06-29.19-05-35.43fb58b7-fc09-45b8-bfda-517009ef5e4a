@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> global name 'specialty_list' is not defined"
+p3
+sS'layer'
+p4
+S'/root/web2py/applications/thecore_wales/controllers/specialty.py'
+p5
+sS'code'
+p6
+S"# -*- coding: utf-8 -*-\ndef index(): \n    specialty_dict = {} \n    specialty_records = db(db.reg_questionnaire).select()\n    for specialty in specialty_records:\n        specialty_list[specialty.specialty_slug] = specialty.specialty\n    return locals()\n\n\ndef view():\n    specialty = request.args(0)\n    specialty_record = db(db.req_questionnaire.specialty==specialty).select().first()\n    \n    return locals()\n    \ndef add_new():\n    form_labels = {'pursure_a_career':'What made you decide to pursue a career in this specialty?','rotation_useful':'What rotations did you do in your training and were any particularly helpful?','enjoy_most':'What do you most enjoy about the specialty?','challenging_aspects':'Are there any aspects of the specialty you find challenging/ frustrating?','typical_patients':'Are there typical patient groups and if so what are they like?','typical_day':'What does the typical day in the life of a  registrar for this specialty involve?','typical_hours':'What are the typical working hours?','part_time_training':'Is there any opportunity for part time training?','teaching_research':'Are there many opportunities for teaching/research/managerial positions within the specialty?','advice':'Do you have any advice for someone considering a career in this specialty?'}\n    \n    form = SQLFORM(db.reg_questionnaire,\n                  labels=form_labels)\n    if form.process().accepted:\n        response.flash = 'Record Added'\n        redirect(URL('index'))\n    return locals()\n\nresponse._vars=response._caller(index)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/root/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/root/web2py/applications/thecore_wales/controllers/specialty.py", line 26, in <module>\n  File "/root/web2py/gluon/globals.py", line 412, in <lambda>\n    self._caller = lambda f: f()\n  File "/root/web2py/applications/thecore_wales/controllers/specialty.py", line 6, in index\n    specialty_list[specialty.specialty_slug] = specialty.specialty\nNameError: global name \'specialty_list\' is not defined\n'
+p11
+s.

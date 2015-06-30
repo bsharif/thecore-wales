@@ -28,6 +28,8 @@ response.menu = [
     (T('Home'), False, URL('default', 'index'), []),
     (T('Browse'), False, URL('default', 'browse'), []),
     (T('My Sessions'), False, URL('default', 'my_sessions'), []),
+    (T('Blog'), False, URL('blog', 'index'), []),
+    (T('Career Advice'), False, URL('specialty', 'index'), []),
 
 ]
 if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator') or auth.has_membership('session_lead'):

@@ -2,7 +2,7 @@
 {{extend 'layout.html'}}
 <h1>{{=specialty_record.specialty}}</h1>
 <h3>
-    Author: {{=specialty_record.author}} <br>{{=EM(specialty_record.email)}}
+    Author: {{=specialty_record.author}} <br>{{=specialty_record.email}}
 </h3>
  {{if advanced_options:}}
             <div id="advanced_options">

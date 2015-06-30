@@ -162,3 +162,18 @@ CREATE TABLE reg_questionnaire(
     advice TEXT
 );
 success!
+timestamp: 2015-06-29T18:56:06.524756
+ALTER TABLE reg_questionnaire ADD specialty_slug TEXT;
+success!
+success!
+timestamp: 2015-06-29T19:48:03.823906
+ALTER TABLE reg_questionnaire ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE;
+timestamp: 2015-06-29T19:48:03.828354
+ALTER TABLE reg_questionnaire ADD is_active CHAR(1);
+timestamp: 2015-06-29T19:48:03.831653
+ALTER TABLE reg_questionnaire ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE;
+timestamp: 2015-06-29T19:48:03.837394
+ALTER TABLE reg_questionnaire ADD created_on TIMESTAMP;
+timestamp: 2015-06-29T19:48:03.846235
+ALTER TABLE reg_questionnaire ADD modified_on TIMESTAMP;
+success!
