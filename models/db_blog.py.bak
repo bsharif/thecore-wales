@@ -20,4 +20,5 @@ db.define_table('reg_questionnaire',
                 Field('typical_hours','text'),
                 Field('part_time_training','text'),
                 Field('teaching_research','text'),
-                Field('advice','text'))
+                Field('advice','text'),
+                auth.signature)

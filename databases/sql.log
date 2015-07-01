@@ -177,3 +177,6 @@ ALTER TABLE reg_questionnaire ADD created_on TIMESTAMP;
 timestamp: 2015-06-29T19:48:03.846235
 ALTER TABLE reg_questionnaire ADD modified_on TIMESTAMP;
 success!
+timestamp: 2015-07-01T18:12:43.148880
+ALTER TABLE reg_questionnaire ADD happy_to_contact TEXT;
+success!
