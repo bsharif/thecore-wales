@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
-# -*- coding: utf-8 -*-
 db.define_table('blog_posts',
                 Field('title','string'),
                 Field('blog_content','text'),
                 Field('tags','list:string'),
                 auth.signature)
 
+#reg questionnaire
 db.define_table('reg_questionnaire',
                 Field('specialty_slug','string',requires=IS_SLUG()),
                 Field('specialty','string'),

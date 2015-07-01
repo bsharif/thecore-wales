@@ -1436,3 +1436,5 @@
 [2015-07-01 18:16:02] EDIT thecore_wales/views/specialty/view.html: 0
 [2015-07-01 18:17:30] EDIT thecore_wales/controllers/specialty.py: 3
 [2015-07-01 18:17:57] EDIT thecore_wales/controllers/specialty.py: 0
+[2015-07-01 18:33:02] EDIT thecore_wales/views/default/index.html: 0
+[2015-07-01 18:33:21] EDIT thecore_wales/models/db_blog.py: 0
