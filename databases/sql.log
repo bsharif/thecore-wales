@@ -180,3 +180,6 @@ success!
 timestamp: 2015-07-01T18:12:43.148880
 ALTER TABLE reg_questionnaire ADD happy_to_contact TEXT;
 success!
+success!
+success!
+success!
