@@ -11,14 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "/home/ben/web2py/routes.py",
-			"settings":
-			{
-				"buffer_size": 90,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -64,8 +56,10 @@
 	},
 	"file_history":
 	[
-		"/home/ben/web2py/applications/thecore_wales/models/db.py",
+		"/home/ben/web2py/applications/thecore_wales/views/default/index.html",
+		"/home/ben/web2py/applications/thecore_wales/.gitignore",
 		"/home/ben/web2py/routes.py",
+		"/home/ben/web2py/applications/thecore_wales/models/db.py",
 		"/home/ben/web2py/applications/welcome/routes.example.py",
 		"/home/ben/Dropbox/Projects/thecore-wales/id_rsa",
 		"/home/ben/web2py/applications/thecore_wales/databases/storage.sqlite",
@@ -101,6 +95,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"applications/*/",
 			"case_sensitive",
 			"micmill",
 			", ",
@@ -122,6 +117,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"",
 			"; ",
 			", ",
 			"interventions",
@@ -144,35 +140,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/home/ben/web2py/routes.py",
-					"settings":
-					{
-						"buffer_size": 90,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -236,6 +205,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 362.0,
 	"status_bar_visible": true
 }
