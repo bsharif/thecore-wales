@@ -3,9 +3,18 @@
 <div class="container-fluid" style="margin-top:25px">
     <div class="row">
         <div class="col-md-3"></div>
+        <div class="col-md-6 slick-class">
+          <div>{{=IMG(_src='http://www.jssor.com/img/home/01.jpg')}}</div>
+          <div>your content</div>
+          <div>your content</div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
         <div class="jumbotron col-md-6">
           <h1>TheCore.Wales</h1>
-          <p>Clinic booking system for Core Medical Trainees in Wales...</p>
+          <p>The Ultimate Online Resource for Core Medical Trainees in Wales</p>
             <p>{{=A('Browse Sessions',_href=URL('browse'),_class="btn btn-primary btn-lg",_role="button")}} </p>
         </div>
         <div class="col-md-3"></div>

@@ -26,7 +26,9 @@
     <link rel="stylesheet" href="{{=URL('static','css/custom_medboard.css')}}">
     <link rel="shortcut icon" href="{{=URL('static','images/favicon.ico')}}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{{=URL('static','images/favicon.png')}}">
-    
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','slick/slick.css')}}"/>
+    <link rel="stylesheet" type="text/css" href="{{=URL('static','slick/slick-theme.css')}}"/>
+				
     <!-- All JavaScript at the bottom, except for Modernizr which enables
          HTML5 elements & feature detects -->
     <script src="{{=URL('static','js/modernizr-2.8.3.min.js')}}"></script>
@@ -146,5 +148,14 @@
     {{pass}}
     <!-- Share ============================y============ -->
 <!--     <script src="{{=URL('static','js/share.js',vars=dict(static=URL('static','images')))}}"></script> -->
+      <script type="text/javascript" src="{{=URL('static','slick/slick.min.js')}}"></script>
+      <script>
+          $(document).ready(function(){
+              $('.slick-class').slick({
+                  autoplay: true,
+                  autoplaySpeed: 500,
+              });
+            });
+      </script>
   </body>
 </html>
