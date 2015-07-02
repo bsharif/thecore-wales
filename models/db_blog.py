@@ -20,5 +20,6 @@ db.define_table('reg_questionnaire',
                 Field('part_time_training','text'),
                 Field('teaching_research','text'),
                 Field('advice','text'),
-#                 Field('happy_to_contact','text'),
+                Field('happy_to_contact','text'),
                 auth.signature)
+# db.reg_questionnaire.drop()

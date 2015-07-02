@@ -12,18 +12,10 @@
 	"buffers":
 	[
 		{
-			"file": "models/db_blog.py",
+			"file": ".gitignore",
 			"settings":
 			{
-				"buffer_size": 1059,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/default/index.html",
-			"settings":
-			{
-				"buffer_size": 3883,
+				"buffer_size": 31,
 				"line_ending": "Unix"
 			}
 		}
@@ -31,16 +23,24 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 75.0,
+		"height": 392.0,
 		"selected_items":
 		[
 			[
-				"pyth",
-				"Set Syntax: Python"
+				"package control",
+				"Package Control: Discover Packages"
 			],
 			[
 				"pack",
+				"Preferences: Browse Packages"
+			],
+			[
+				"instal",
 				"Package Control: Install Package"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
 			],
 			[
 				"insta",
@@ -55,7 +55,7 @@
 				"Set Syntax: JSON"
 			]
 		],
-		"width": 449.0
+		"width": 444.0
 	},
 	"console":
 	{
@@ -72,8 +72,10 @@
 	},
 	"file_history":
 	[
-		"/home/ben/web2py/applications/thecore_wales/.gitignore",
+		"/home/ben/.config/monitors.xml",
+		"/home/ben/web2py/applications/thecore_wales/models/db_blog.py",
 		"/home/ben/web2py/applications/thecore_wales/views/default/index.html",
+		"/home/ben/web2py/applications/thecore_wales/.gitignore",
 		"/home/ben/web2py/routes.py",
 		"/home/ben/web2py/applications/thecore_wales/models/db.py",
 		"/home/ben/web2py/applications/welcome/routes.example.py",
@@ -156,58 +158,28 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "models/db_blog.py",
+					"file": ".gitignore",
 					"settings":
 					{
-						"buffer_size": 1059,
+						"buffer_size": 31,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								936,
-								936
+								31,
+								31
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage",
-							"tab_size": 8,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "views/default/index.html",
-					"settings":
-					{
-						"buffer_size": 3883,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								341,
-								341
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

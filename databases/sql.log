@@ -183,3 +183,102 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+DROP TABLE reg_questionnaire;
+success!
+timestamp: 2015-07-02T18:36:29.496035
+CREATE TABLE reg_questionnaire(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    specialty_slug CHAR(512),
+    specialty CHAR(512),
+    author CHAR(512),
+    email CHAR(512),
+    pursure_a_career TEXT,
+    rotation_useful TEXT,
+    enjoy_most TEXT,
+    challenging_aspects TEXT,
+    typical_patients TEXT,
+    typical_day TEXT,
+    typical_hours TEXT,
+    part_time_training TEXT,
+    teaching_research TEXT,
+    advice TEXT,
+    happy_to_contact TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
+DROP TABLE reg_questionnaire;
+success!
+timestamp: 2015-07-02T18:36:34.755539
+CREATE TABLE reg_questionnaire(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    specialty_slug CHAR(512),
+    specialty CHAR(512),
+    author CHAR(512),
+    email CHAR(512),
+    pursure_a_career TEXT,
+    rotation_useful TEXT,
+    enjoy_most TEXT,
+    challenging_aspects TEXT,
+    typical_patients TEXT,
+    typical_day TEXT,
+    typical_hours TEXT,
+    part_time_training TEXT,
+    teaching_research TEXT,
+    advice TEXT,
+    happy_to_contact TEXT,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE
+);
+success!
