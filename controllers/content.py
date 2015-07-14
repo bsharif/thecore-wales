@@ -27,6 +27,19 @@ def generate_links():
 	session.links_dict = links_dict
 
 
+def edit_links():
+	fields = (db.menu_links.title,db.menu_links.page_link,db.menu_links.hierarchy_position,db.menu_links.parent_link)
+	grid = SQLFORM.grid(db.menu_links,
+						searchable=False,
+						create=True,
+						editable=True,
+						deletable=True,
+						details=False,
+						paginate=999,
+						sortable=False,
+						csv=False,
+						fields=fields)
+	return locals()
 
 def index():
 	page_id = 11

@@ -1,0 +1,33 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+<br>
+<h1>Edit Links</h1>
+{{=grid}}
+<br><br><br>
+{{block left_sidebar}}
+<br>
+<div class="panel panel-default">
+<div class="panel-heading">
+{{=SPAN(_class="glyphicon glyphicon-home")}} {{=A('Home',_href=URL('index'))}}
+</div></div>
+<div class="panel panel-info">
+<div class="panel-heading">
+Help for Editing Links
+</div>
+<div class="panel-body">
+<h4>Title</h4>
+<p>Title is the name of the link seen in the left sidebar</p>
+<h4>Page Link</h4>
+<p>This is the page that the link is connected to. </p>
+<h4>Hierarchy Position</h4>
+<p>Options are 1, 2 or 3. <br>
+Top Level links: 1 <br>
+Sub-Level links: 2 <br>
+Sub-sub-Level links: 3 <br>
+
+<h4>Parent Link</h4>
+If choosing a heirarchy positon of 1 then leave this blank.<br>
+If choosing a heirarchy positon of 2 or 3 then choose the parent page for this link. 
+</div>
+</div>
+{{pass}}
