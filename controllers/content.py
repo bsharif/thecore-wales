@@ -29,14 +29,14 @@ def generate_links():
 
 def edit_links():
 	fields = (db.menu_links.title,db.menu_links.page_link,db.menu_links.hierarchy_position,db.menu_links.parent_link)
-	grid = SQLFORM.grid(db.menu_links,
+	grid = SQLFORM.grid(db.menu_links,orderby=db.menu_links.hierarchy_position,
 						searchable=False,
 						create=True,
 						editable=True,
 						deletable=True,
 						details=False,
 						paginate=999,
-						sortable=False,
+						sortable=True,
 						csv=False,
 						fields=fields)
 	return locals()
