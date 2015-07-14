@@ -1443,3 +1443,9 @@
 [2015-07-02 18:31:55] EDIT thecore_wales/models/db_blog.py: 1
 [2015-07-02 18:33:13] EDIT thecore_wales/models/db_blog.py: 0
 [2015-07-02 18:33:33] EDIT thecore_wales/models/db_blog.py: 1
+[2015-07-13 23:09:17] CREATE cms_section.py: 0
+[2015-07-13 23:21:08] EDIT thecore_wales/controllers/content.py: 5
+[2015-07-13 23:21:12] EDIT thecore_wales/controllers/content.py: -5
+[2015-07-13 23:33:12] CREATE content.py: 0
+[2015-07-13 23:33:25] DELETE thecore_wales/views/content/new_post.html: -2
+[2015-07-13 23:33:58] CREATE content/index.html: 0

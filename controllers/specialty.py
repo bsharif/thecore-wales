@@ -4,6 +4,7 @@ def get_form_labels():
     return form_labels
 
 
+
 def index(): 
     specialty_dict = {} 
     specialty_records = db(db.reg_questionnaire).select()

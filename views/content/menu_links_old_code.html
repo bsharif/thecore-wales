@@ -1,0 +1,129 @@
+<br><br><br>
+<ul>
+	<li> Test </li>
+	<li> Test </li>
+	<li> Test </li>
+	<li> Test </li>
+	<li> Test </li>
+	<li> Test </li>
+
+</ul>
+{{links_dict = session.links_dict}}
+{{for link in links_dict['level1']:}}
+	L1 - {{=A(links_dict['all_links'][link].title,_href=URL('page',args=[link]))}}
+	<br>
+	{{for sub_link in links_dict['level1'][link]:}}
+		&nbsp;&nbsp;&nbsp;&nbsp;L2 - {{=A(links_dict['all_links'][sub_link].title,_href=URL('page',args=[sub_link]))}} <br>
+
+		{{for sub_sub_link in links_dict['level2'][sub_link]:}}
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;L3 - {{=A(links_dict['all_links'][sub_sub_link].title,_href=URL('page',args=[sub_sub_link]))}} <br>
+		{{pass}}
+
+	{{pass}}
+{{pass}}
+
+{{links_dict = session.links_dict}}
+{{for link in links_dict['level1']:}}
+	<ul class="list-group">
+		<li class="list-group-item">{{=A(links_dict['all_links'][link].title,_href=URL('page',args=[link]))}}
+		{{for sub_link in links_dict['level1'][link]:}}
+		<ul class="list-group"><li class="list-group-item">{{=A(links_dict['all_links'][sub_link].title,_href=URL('page',args=[sub_link]))}} 
+		
+		
+		{{for sub_sub_link in links_dict['level2'][sub_link]:}} 
+			<ul class="list-group">
+			<li class="list-group-item">
+				{{=A(links_dict['all_links'][sub_sub_link].title,_href=URL('page',args=[sub_sub_link]))}} </li> </li> </li> 
+				</ul>
+		{{pass}}
+	</ul>
+	{{pass}}
+</ul>	
+{{pass}}
+
+
+ <div class="panel-group" id="accordion1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseOne">Collapsible Group Item #1
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">Panel 1</div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseTwo">Collapsible Group Item #2
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="panel-body">
+                            <h4 class="panel-title">Heading</h4>
+                            <div class="panel-group" id="accordion21">
+                                <div class="panel">
+                                    <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoOne">View details 2.1 »
+                                    </a>
+                                    <div id="collapseTwoOne" class="panel-collapse collapse">
+                                        <div class="panel-body">Details 1</div>
+                                    </div>
+                                </div>
+                                <div class="panel ">
+                                    <a data-toggle="collapse" data-parent="#accordion21" href="#collapseTwoTwo">View details 2.2 »
+                                    </a>
+                                    <div id="collapseTwoTwo" class="panel-collapse collapse">
+                                        <div class="panel-body">Details 2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapseThree">Collapsible Group Item #3
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+
+                        <div class="panel-group" id="accordion2">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeOne">Collapsible Group Item #3.1
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThreeOne" class="panel-collapse collapse in">
+                                    <div class="panel-body">Panel 3.1</div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordion2" href="#collapseThreeTwo">Collapsible Group Item #3.2
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThreeTwo" class="panel-collapse collapse">
+                                    <div class="panel-body">Panel 3.2</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>

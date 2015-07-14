@@ -1,0 +1,8 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+<br>
+{{=XML(page.page_content)}}
+
+{{block left_sidebar}}
+{{include 'content/menu_links.html'}}
+{{pass}}

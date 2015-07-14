@@ -30,7 +30,8 @@ response.menu = [
     (T('My Sessions'), False, URL('default', 'my_sessions'), []),
     (T('Blog'), False, URL('blog', 'index'), []),
     (T('Career Advice'), False, URL('specialty', 'index'), []),
-
+    (T('Main Content'), False, URL('content', 'index'), []),
+    
 ]
 if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator') or auth.has_membership('session_lead'):
     response.menu += [

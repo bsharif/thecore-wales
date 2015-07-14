@@ -1,0 +1,25 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+<br>
+<h1>Create a New Link</h1><br>
+{{=form}}
+
+{{block left_sidebar}}
+<br>
+<div class="panel panel-info">
+<div class="panel-heading">
+Help for New Link
+</div>
+<div class="panel-body">
+<p>>Hierarchy Position <br>
+Options are 1, 2 or 3. <br>
+Top Level links: 1 <br>
+Sub-Level links: 2 <br>
+Sub-sub-Level links: 3 <br>
+<br>
+>Parent Link: <br>
+If choosing a heirarchy positon of 1 then leave this blank. <br>
+If choosing a heirarchy positon of 2 or 3 then choose the parent page for this link. </p>
+</div>
+</div>
+{{pass}}
