@@ -1,3 +1,0 @@
-{{extend 'layout.html'}}
-<h1>This is the specialty/edit_post.html template</h1>
-{{=BEAUTIFY(response._vars)}}

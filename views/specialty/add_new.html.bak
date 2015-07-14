@@ -1,2 +1,0 @@
-{{extend 'layout.html'}}
-<h1>Add advice for a new specialty</h1>
