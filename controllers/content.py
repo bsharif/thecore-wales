@@ -53,6 +53,26 @@ def index():
 	return locals()
 
 
+def events_sidebar():
+
+	events = db(db.events).select()
+	advanced_options=False
+	if auth:
+		user_id = auth.user_id
+		if auth.has_membership('administrator'):
+			advanced_options=True
+	return dict(events=events,advanced_options=advanced_options)
+
+def events():
+	page_id = 11
+	event_id = request.args(0)
+	event = db(db.events.id==event_id).select().first()
+	advanced_options=False
+	if auth:
+		user_id = auth.user_id
+		if auth.has_membership('administrator'):
+			advanced_options=True
+	return locals()
 
 def page():
 	page_id=request.args(0)
