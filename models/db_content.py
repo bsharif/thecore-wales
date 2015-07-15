@@ -45,4 +45,5 @@ db.define_table('events',
 
 db.events.event_date.requires = IS_DATETIME(format=T('%d-%m-%y'),error_message='Must be dd-mm-yy')
 
-# db.events.drop()
+
+

@@ -6,3 +6,7 @@
 {{block left_sidebar}}
 {{include 'content/menu_links.html'}}
 {{pass}}
+
+{{block right_sidebar}}
+{{=LOAD('content','events_sidebar.load',ajax=True)}}
+{{end}}
