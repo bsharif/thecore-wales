@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"ad",
+				"advanced_options"
+			],
+			[
+				"even",
+				"event_date"
+			],
+			[
+				"def",
+				"default"
+			],
+			[
+				"page_",
+				"page_link"
+			],
+			[
+				"c",
+				"col-sm-offset-3"
+			],
+			[
 				"new",
 				"new_page"
 			],
@@ -24,10 +44,6 @@
 				"slug"
 			],
 			[
-				"page_",
-				"page_slug"
-			],
-			[
 				"re",
 				"request"
 			],
@@ -40,35 +56,10 @@
 	"buffers":
 	[
 		{
-			"file": "views/content/page.html",
-			"settings":
-			{
-				"buffer_size": 158,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/content/menu_links.html",
-			"settings":
-			{
-				"buffer_size": 728,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/content/edit_page.html",
-			"settings":
-			{
-				"buffer_size": 69,
-				"line_ending": "Unix",
-				"name": "{{extend 'layour.html'}}"
-			}
-		},
-		{
 			"file": "views/content/new_page.html",
 			"settings":
 			{
-				"buffer_size": 69,
+				"buffer_size": 351,
 				"line_ending": "Unix"
 			}
 		},
@@ -76,15 +67,26 @@
 			"file": "views/content/new_link.html",
 			"settings":
 			{
-				"buffer_size": 69,
+				"buffer_size": 572,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "models/db_cms.py",
+			"contents": "{{left_sidebar_enabled=True}}\n{{right_sidebar_enabled=True}}\n{{extend 'layout.html'}}\n\n<div class=\"row\">\n<br><br>\n{{=XML(page.page_content)}}\n</div>\n\n{{block left_sidebar}}\n{{include 'content/menu_links.html'}}\n{{end}}\n\n\n\n{{block right_sidebar}}\n{{=LOAD('content','events_sidebar.load',ajax=True)}}\n{{end}}",
+			"file": "views/content/index.html",
+			"file_size": 374,
+			"file_write_time": 1437000720000000,
 			"settings":
 			{
-				"buffer_size": 916,
+				"buffer_size": 306,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/layout.html",
+			"settings":
+			{
+				"buffer_size": 7526,
 				"line_ending": "Unix"
 			}
 		},
@@ -92,7 +94,55 @@
 			"file": "controllers/content.py",
 			"settings":
 			{
-				"buffer_size": 1628,
+				"buffer_size": 3345,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/content/events.html",
+			"settings":
+			{
+				"buffer_size": 765,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/content/page.html",
+			"settings":
+			{
+				"buffer_size": 244,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "models/db_content.py",
+			"settings":
+			{
+				"buffer_size": 1577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/content/events_sidebar.load",
+			"settings":
+			{
+				"buffer_size": 1042,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/web2py_ajax.html",
+			"settings":
+			{
+				"buffer_size": 849,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/content/menu_links.html",
+			"settings":
+			{
+				"buffer_size": 1675,
 				"line_ending": "Unix"
 			}
 		}
@@ -169,6 +219,26 @@
 	},
 	"file_history":
 	[
+		"/home/ben/web2py/applications/thecore_wales/.gitignore",
+		"/home/ben/web2py/applications/thecore_wales/models/db_cms.py",
+		"/home/ben/web2py/applications/thecore_wales/models/db1.py",
+		"/home/ben/web2py/applications/thecore_wales/views/content/edit_links.html",
+		"/home/ben/web2py/applications/thecore_wales/models/menu.py",
+		"/home/ben/web2py/applications/thecore_wales/views/default/index.html",
+		"/home/ben/web2py/applications/thecore_wales/views/content/events_sidebar.load",
+		"/home/ben/web2py/applications/thecore_wales/views/content/edit_page.html",
+		"/home/ben/web2py/applications/thecore_wales/views/content/menu_links_old_code.html",
+		"/home/ben/web2py/applications/thecore_wales/views/content/menu_links.html",
+		"/home/ben/Downloads/certs/default-ssl.conf",
+		"/home/ben/web2py/applications/thecore_wales/views/content/page.html",
+		"/home/ben/Documents/list-of-dev-things/README.md",
+		"/home/ben/Downloads/certs/000-default.conf",
+		"/home/ben/Downloads/certs/default.conf",
+		"/home/ben/Downloads/certs/000-default.conf.BAK",
+		"/home/ben/Downloads/certs/ssl-access.log",
+		"/home/ben/Downloads/certs/error.log",
+		"/home/ben/Downloads/certs/self_signed.info",
+		"/home/ben/web2py/applications/thecore_wales/controllers/content.py",
 		"/etc/NetworkManager/system-connections/wifi-hotspot",
 		"/etc/default/grub",
 		"/home/ben/web2py/applications/thecore_wales/controllers/specialty.py",
@@ -184,9 +254,7 @@
 		"/home/ben/web2py/applications/thecore_wales/views/default/about.html",
 		"/home/ben/web2py/applications/thecore_wales/static/css/custom_medboard.css",
 		"/etc/apt/sources.list",
-		"/home/ben/web2py/applications/thecore_wales/views/default/index.html",
 		"/home/ben/Downloads/bibtex-sepsis-odk-website",
-		"/home/ben/web2py/applications/thecore_wales/.gitignore",
 		"/home/ben/web2py/applications/thecore_wales/views/layout.html",
 		"/home/ben/web2py/applications/thecore_wales/models/db_blog.py",
 		"/home/ben/web2py/applications/thecore_wales/views/specialty/view.html",
@@ -217,7 +285,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			""
@@ -228,6 +296,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"danger",
+			"strftime",
 			"request",
 			"}}",
 			"bold",
@@ -281,23 +351,22 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "views/content/page.html",
+					"file": "views/content/new_page.html",
 					"settings":
 					{
-						"buffer_size": 158,
+						"buffer_size": 351,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								141,
-								141
+								302,
+								302
 							]
 						],
 						"settings":
@@ -312,24 +381,23 @@
 				},
 				{
 					"buffer": 1,
-					"file": "views/content/menu_links.html",
+					"file": "views/content/new_link.html",
 					"settings":
 					{
-						"buffer_size": 728,
+						"buffer_size": 572,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								532,
-								532
+								102,
+								102
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -339,23 +407,22 @@
 				},
 				{
 					"buffer": 2,
-					"file": "views/content/edit_page.html",
+					"file": "views/content/index.html",
 					"settings":
 					{
-						"buffer_size": 69,
+						"buffer_size": 306,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69,
-								69
+								222,
+								222
 							]
 						],
 						"settings":
 						{
-							"auto_name": "{{extend 'layour.html'}}",
 							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
@@ -366,82 +433,78 @@
 				},
 				{
 					"buffer": 3,
-					"file": "views/content/new_page.html",
+					"file": "views/layout.html",
 					"settings":
 					{
-						"buffer_size": 69,
+						"buffer_size": 7526,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69,
-								69
+								1786,
+								1786
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 108.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "views/content/new_link.html",
+					"file": "controllers/content.py",
 					"settings":
 					{
-						"buffer_size": 69,
+						"buffer_size": 3345,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								69,
-								69
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 1,
-			"sheets":
-			[
-				{
-					"buffer": 5,
-					"file": "models/db_cms.py",
-					"settings":
-					{
-						"buffer_size": 916,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								916,
-								916
+								1254,
+								1254
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Python/Python.tmLanguage",
 							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 486.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/content/events.html",
+					"settings":
+					{
+						"buffer_size": 765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								610,
+								610
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -451,26 +514,133 @@
 				},
 				{
 					"buffer": 6,
-					"file": "controllers/content.py",
+					"file": "views/content/page.html",
 					"settings":
 					{
-						"buffer_size": 1628,
+						"buffer_size": 244,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1608,
-								1608
+								244,
+								244
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/HTML/HTML.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 270.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "models/db_content.py",
+					"settings":
+					{
+						"buffer_size": 1577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1576,
+								1576
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "views/content/events_sidebar.load",
+					"settings":
+					{
+						"buffer_size": 1042,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1033,
+								1033
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "views/web2py_ajax.html",
+					"settings":
+					{
+						"buffer_size": 849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								849,
+								849
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "views/content/menu_links.html",
+					"settings":
+					{
+						"buffer_size": 1675,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								579,
+								579
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -495,18 +665,11 @@
 				0,
 				1,
 				1
-			],
-			[
-				1,
-				0,
-				2,
-				1
 			]
 		],
 		"cols":
 		[
 			0.0,
-			0.5,
 			1.0
 		],
 		"rows":
@@ -530,6 +693,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"layo",
+				"views/layout.html"
+			]
 		],
 		"width": 0.0
 	},
@@ -545,6 +712,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 283.0,
+	"side_bar_width": 515.0,
 	"status_bar_visible": true
 }
