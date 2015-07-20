@@ -9,3 +9,23 @@
 {{block left_sidebar}}
 {{include 'content/menu_links.html'}}
 {{pass}}
+
+
+<!-- {{left_sidebar_enabled=True}}
+{{right_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+
+<div class="row">
+<br><br>
+{{=XML(page.page_content)}}
+</div>
+
+{{block left_sidebar}}
+{{include 'content/menu_links.html'}}
+{{end}}
+
+
+
+{{block right_sidebar}}
+{{=LOAD('content','events_sidebar.load',ajax=True)}}
+{{end}} -->

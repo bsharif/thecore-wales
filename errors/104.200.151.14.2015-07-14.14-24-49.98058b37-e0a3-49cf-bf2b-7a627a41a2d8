@@ -1,0 +1,697 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.IOError'> [Errno 13] Permission denied: '/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p3
+sS'layer'
+p4
+S'/home/www-data/web2py/applications/thecore_wales/models/db_cms.py'
+p5
+sS'code'
+p6
+S"# -*- coding: utf-8 -*-\nfrom plugin_ckeditor import CKEditor\n \nckeditor = CKEditor(db)\n \nckeditor.define_tables()\n\n# db.define_table('cms_demo', \n# \tField('title', length=255), \n# \tField('is_public', 'boolean', default=True), \n# \tField('full_text', 'text', widget=ckeditor.widget)\n# \t)\n# db.cms_demo.drop()\n\ndb.define_table('static_pages',\n\tField('title', length=255), \n\tField('is_public', 'boolean', default=True), \n\tField('page_content', 'text', widget=ckeditor.widget),\n\tauth.signature,\n\tformat='%(title)s - %(id)s'\n\t)\n\ndb.define_table('menu_links',\n\tField('title', length=255), \n\tField('page_link','reference static_pages'),\n\tField('hierarchy_position','integer',requires=IS_IN_SET(['1','2','3'])),\n\tField('parent_link','reference menu_links'),\n\tauth.signature,\n\tformat='%(title)s - %(id)s'\n\t)\n\ndb.menu_links.parent_link.requires=IS_EMPTY_OR(IS_IN_DB(db,db.menu_links.id,'%(title)s - %(id)s'))\n\n# db.static_pages.drop()\n# db.menu_links.drop()"
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__getslice__'
+p12
+S"<method-wrapper '__getslice__' of exceptions.IOError object>"
+p13
+sS'__str__'
+p14
+S"<method-wrapper '__str__' of exceptions.IOError object>"
+p15
+sS'__reduce__'
+p16
+S'<built-in method __reduce__ of exceptions.IOError object>'
+p17
+sS'__dict__'
+p18
+S'{}'
+p19
+sS'__sizeof__'
+p20
+S'<built-in method __sizeof__ of exceptions.IOError object>'
+p21
+sS'__init__'
+p22
+S"<method-wrapper '__init__' of exceptions.IOError object>"
+p23
+sS'__setattr__'
+p24
+S"<method-wrapper '__setattr__' of exceptions.IOError object>"
+p25
+sS'__reduce_ex__'
+p26
+S'<built-in method __reduce_ex__ of exceptions.IOError object>'
+p27
+sS'__new__'
+p28
+S'<built-in method __new__ of type object>'
+p29
+sS'errno'
+p30
+S'13'
+p31
+sS'__format__'
+p32
+S'<built-in method __format__ of exceptions.IOError object>'
+p33
+sS'__class__'
+p34
+S"<type 'exceptions.IOError'>"
+p35
+sS'filename'
+p36
+S"'/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p37
+sS'__doc__'
+p38
+S"'I/O operation failed.'"
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of exceptions.IOError object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of exceptions.IOError object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of exceptions.IOError object>"
+p45
+sS'args'
+p46
+S"(13, 'Permission denied')"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of exceptions.IOError object>'
+p51
+sS'strerror'
+p52
+S"'Permission denied'"
+p53
+sS'__delattr__'
+p54
+S"<method-wrapper '__delattr__' of exceptions.IOError object>"
+p55
+sS'__repr__'
+p56
+S"<method-wrapper '__repr__' of exceptions.IOError object>"
+p57
+sS'__hash__'
+p58
+S"<method-wrapper '__hash__' of exceptions.IOError object>"
+p59
+ssS'evalue'
+p60
+S"[Errno 13] Permission denied: '/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p61
+sS'request'
+p62
+cgluon.html
+XML_unpickle
+p63
+(S's.q\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>thecore_wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>109.149.220.213-1026fb01-451e-4776-a6a2-979eff64eacc<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_thecore_wales</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14-40499c98-86cb-49ff-94f6-e5685bd9e797<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_thecore_wales_bak</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14-b21a5a1a-533e-486f-b257-b4592e0fe8c7<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14-7248958f-bf56-4ddf-8198-838f51a6d3e9<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wp-settings-time-3</td><td style="vertical-align:top;">:</td><td><div>1435157252<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTEXT_DOCUMENT_ROOT</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTEXT_PREFIX</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">DOCUMENT_ROOT</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">GATEWAY_INTERFACE</td><td style="vertical-align:top;">:</td><td><div>CGI/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-GB,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>wp-settings-time-3=1435157252; session_id_welcome=104.200.151.14-7248958f-bf56-4ddf-8198-838f51a6d3e9; session_id_admin=109.149.220.213-1026fb01-451e-4776-a6a2-979eff64eacc; session_id_thecore_wales_bak=104.200.151.14-b21a5a1a-533e-486f-b257-b4592e0fe8c7; session_id_thecore_wales=104.200.151.14-40499c98-86cb-49ff-94f6-e5685bd9e797</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>thecore.wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_TRANSLATED</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>55874</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_SCHEME</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_URI</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_FILENAME</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_ADDR</td><td style="vertical-align:top;">:</td><td><div>46.101.19.130</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_ADMIN</td><td style="vertical-align:top;">:</td><td><div>[no address given]</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>thecore.wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SIGNATURE</td><td style="vertical-align:top;">:</td><td><div>&lt;address&gt;Apache/2.4.7 (Ubuntu) Server at thecore.wales Port 443&lt;/address&gt;\n</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Apache/2.4.7 (Ubuntu)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SSL_TLS_SNI</td><td style="vertical-align:top;">:</td><td><div>thecore.wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/www-data/web2py/applications/thecore_wales_BAK/&#x27;, &#x27;/home/www-data/web2py/applications/thecore_wales/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">context_document_root</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">context_prefix</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">document_root</td><td style="vertical-align:top;">:</td><td><div>/var/www</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gateway_interface</td><td style="vertical-align:top;">:</td><td><div>CGI/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-GB,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>wp-settings-time-3=1435157252; session_id_welcome=104.200.151.14-7248958f-bf56-4ddf-8198-838f51a6d3e9; session_id_admin=109.149.220.213-1026fb01-451e-4776-a6a2-979eff64eacc; session_id_thecore_wales_bak=104.200.151.14-b21a5a1a-533e-486f-b257-b4592e0fe8c7; session_id_thecore_wales=104.200.151.14-40499c98-86cb-49ff-94f6-e5685bd9e797</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>thecore.wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.132 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>thecore.wales</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.application_group</td><td style="vertical-align:top;">:</td><td><div>thecore.wales|</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.callable_object</td><td style="vertical-align:top;">:</td><td><div>application</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.enable_sendfile</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.handler_script</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.input_chunked</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.listener_host</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.listener_port</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.process_group</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.queue_start</td><td style="vertical-align:top;">:</td><td><div>1436898289895446</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.request_handler</td><td style="vertical-align:top;">:</td><td><div>wsgi-script</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.script_reloading</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>3</div></td></tr><tr><td><div>4</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_application_group</td><td style="vertical-align:top;">:</td><td><div>thecore.wales|</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_callable_object</td><td style="vertical-align:top;">:</td><td><div>application</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_enable_sendfile</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_handler_script</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_input_chunked</td><td style="vertical-align:top;">:</td><td><div>0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_listener_host</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_listener_port</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_process_group</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_queue_start</td><td style="vertical-align:top;">:</td><td><div>1436898289895446</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_request_handler</td><td style="vertical-align:top;">:</td><td><div>wsgi-script</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_script_reloading</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">mod_wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>3</div></td></tr><tr><td><div>4</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_translated</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>55874</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_scheme</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/thecore_wales/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_filename</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/wsgihandler.py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_addr</td><td style="vertical-align:top;">:</td><td><div>46.101.19.130</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_admin</td><td style="vertical-align:top;">:</td><td><div>[no address given]</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>thecore.wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>443</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_signature</td><td style="vertical-align:top;">:</td><td><div>&lt;address&gt;Apache/2.4.7 (Ubuntu) Server at thecore.wales Port 443&lt;/address&gt;\n</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Apache/2.4.7 (Ubuntu)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">ssl_tls_sni</td><td style="vertical-align:top;">:</td><td><div>thecore.wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_original_uri</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.11.2-stable+timestamp.2015.05.30.16.33.24</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Log object at 0x7fbb818ffc70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;built-in method file_wrapper of mod_wsgi.Adapter object at 0x7fbb817fc198&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Input object at 0x7fbb818ffc30&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Log object at 0x7fbb818ffc70&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;built-in method file_wrapper of mod_wsgi.Adapter object at 0x7fbb817fc198&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;mod_wsgi.Input object at 0x7fbb818ffc30&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>https</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/applications/thecore_wales/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;/home/www-data/web2py/applications/thecore_wales_BAK/&#x27;, &#x27;/home/www-data/web2py/applications/thecore_wales/&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>127.0.1.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>thecore.wales</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.11.2-stable+timestamp.2015.05.30.16.33.24</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_sheduler</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2015, 7, 14, 14, 24, 49, 896401)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2015, 7, 14, 18, 24, 49, 896436)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x7fbb818ffd10&gt;</div></td></tr></table></div>'
+tRp64
+sS'frames'
+p65
+(lp66
+(dp67
+S'file'
+p68
+S'/home/www-data/web2py/gluon/restricted.py'
+p69
+sS'dump'
+p70
+(dp71
+S'environment'
+p72
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, ...}"
+p73
+sS'ccode'
+p74
+S'<code object <module> at 0x7fbb819f3930, file "/...ications/thecore_wales/models/db_cms.py", line 2>'
+p75
+ssS'lnum'
+p76
+I227
+sS'lines'
+p77
+(dp78
+I224
+S'            ccode = code'
+p79
+sI225
+S'        else:'
+p80
+sI226
+S'            ccode = compile2(code, layer)'
+p81
+sI227
+S'        exec ccode in environment'
+p82
+sI228
+S'    except HTTP:'
+p83
+sI229
+S'        raise'
+p84
+sI230
+S'    except RestrictedError:'
+p85
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p86
+sI222
+S'    try:'
+p87
+sI223
+S'        if isinstance(code, types.CodeType):'
+p88
+ssS'call'
+p89
+S"(code='# -*- coding: utf-8 -*-\\nfrom plugin_ckeditor imp...\\n\\n# db.static_pages.drop()\\n# db.menu_links.drop()', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'AppConfig': <function AppConfig>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, ...}, layer='/home/www-data/web2py/applications/thecore_wales/models/db_cms.py')"
+p90
+sS'func'
+p91
+S'restricted'
+p92
+sa(dp93
+g68
+S'/home/www-data/web2py/applications/thecore_wales/models/db_cms.py'
+p94
+sg70
+(dp95
+S'builtinformat'
+p96
+S'<built-in function format>'
+p97
+ssg76
+I29
+sg77
+(dp98
+I32
+S"db.menu_links.parent_link.requires=IS_EMPTY_OR(IS_IN_DB(db,db.menu_links.id,'%(title)s - %(id)s'))"
+p99
+sI33
+S''
+sI24
+S"\tField('title', length=255),"
+p100
+sI25
+S"\tField('page_link','reference static_pages'),"
+p101
+sI26
+S"\tField('hierarchy_position','integer',requires=IS_IN_SET(['1','2','3'])),"
+p102
+sI27
+S"\tField('parent_link','reference menu_links'),"
+p103
+sI28
+S'\tauth.signature,'
+p104
+sI29
+S"\tformat='%(title)s - %(id)s'"
+p105
+sI30
+S'\t)'
+p106
+sI31
+S''
+ssg89
+S'()'
+p107
+sg91
+S'<module>'
+p108
+sa(dp109
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/base.py'
+p110
+sg70
+(dp111
+S'fields'
+p112
+S'(<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <Table auth_signature (id,is_active,created_on,created_by,modified_on,modified_by)>)'
+p113
+sS'self'
+p114
+S'<DAL uri="sqlite://storage.sqlite">'
+p115
+sS'args'
+p116
+S"{'format': '%(title)s - %(id)s'}"
+p117
+sS'tablename'
+p118
+S"'menu_links'"
+p119
+sS'table'
+p120
+S'undefined'
+p121
+sS'self.lazy_define_table'
+p122
+S'<bound method DAL.lazy_define_table of <DAL uri="sqlite://storage.sqlite">>'
+p123
+ssg76
+I819
+sg77
+(dp124
+I814
+S'                    % (tablename,invalid_args))'
+p125
+sI815
+S'        if self._lazy_tables and tablename not in self._LAZY_TABLES:'
+p126
+sI816
+S'            self._LAZY_TABLES[tablename] = (tablename,fields,args)'
+p127
+sI817
+S'            table = None'
+p128
+sI818
+S'        else:'
+p129
+sI819
+S'            table = self.lazy_define_table(tablename,*fields,**args)'
+p130
+sI820
+S'        if not tablename in self.tables:'
+p131
+sI821
+S'            self.tables.append(tablename)'
+p132
+sI822
+S'        return table'
+p133
+sI823
+S''
+ssg89
+S'(self=<DAL uri="sqlite://storage.sqlite">, tablename=\'menu_links\', *fields=(<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <Table auth_signature (id,is_active,created_on,created_by,modified_on,modified_by)>), **args={\'format\': \'%(title)s - %(id)s\'})'
+p134
+sg91
+S'define_table'
+p135
+sa(dp136
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/base.py'
+p137
+sg70
+(dp138
+S'polymodel'
+p139
+S'None'
+p140
+ssg76
+I858
+sg77
+(dp141
+I853
+S'            try:'
+p142
+sI854
+S'                GLOBAL_LOCKER.acquire()'
+p143
+sI855
+S'                self._lastsql = self._adapter.create_table('
+p144
+sI856
+S'                    table,migrate=migrate,'
+p145
+sI857
+S'                    fake_migrate=fake_migrate,'
+p146
+sI858
+S'                    polymodel=polymodel)'
+p147
+sI859
+S'            finally:'
+p148
+sI860
+S'                GLOBAL_LOCKER.release()'
+p149
+sI861
+S'        else:'
+p150
+sI862
+S'            table._dbt = None'
+p151
+ssg89
+S'(self=<DAL uri="sqlite://storage.sqlite">, tablename=\'menu_links\', *fields=(<pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <pydal.objects.Field object>, <Table auth_signature (id,is_active,created_on,created_by,modified_on,modified_by)>), **args={\'format\': \'%(title)s - %(id)s\'})'
+p152
+sg91
+S'lazy_define_table'
+p153
+sa(dp154
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p155
+sg70
+(dp156
+S'fake_migrate'
+p157
+S'False'
+p158
+ssg76
+I495
+sg77
+(dp159
+I490
+S'            if sql_fields != sql_fields_old:'
+p160
+sI491
+S'                self.migrate_table('
+p161
+sI492
+S'                    table,'
+p162
+sI493
+S'                    sql_fields, sql_fields_old,'
+p163
+sI494
+S'                    sql_fields_aux, None,'
+p164
+sI495
+S'                    fake_migrate=fake_migrate'
+p165
+sI496
+S'                    )'
+p166
+sI497
+S'        return query'
+p167
+sI498
+S''
+sI499
+S'    def migrate_table('
+p168
+ssg89
+S'(self=<pydal.adapters.sqlite.SQLiteAdapter object>, table=<Table menu_links (id,title,page_link,hierarchy_...e,created_on,created_by,modified_on,modified_by)>, migrate=True, fake_migrate=False, polymodel=None)'
+p169
+sg91
+S'create_table'
+p170
+sa(dp171
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p172
+sg70
+(dp173
+S'table'
+p174
+S'<Table menu_links (id,title,page_link,hierarchy_...e,created_on,created_by,modified_on,modified_by)>'
+p175
+sS'self'
+p176
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p177
+sS'self.log'
+p178
+S'<bound method SQLiteAdapter.log of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p179
+ssg76
+I625
+sg77
+(dp180
+I620
+S'                self.save_dbt(table,sql_fields_current)'
+p181
+sI621
+S''
+sI622
+S'        if metadata_change and not (query and db._adapter.commit_on_alter_table):'
+p182
+sI623
+S'            db.commit()'
+p183
+sI624
+S'            self.save_dbt(table,sql_fields_current)'
+p184
+sI625
+S"            self.log('success!\\n', table)"
+p185
+sI626
+S''
+sI627
+S'    def save_dbt(self,table, sql_fields_current):'
+p186
+sI628
+S"        tfile = self.file_open(table._dbt, 'wb')"
+p187
+sI629
+S'        pickle.dump(sql_fields_current, tfile)'
+p188
+ssg89
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, table=<Table menu_links (id,title,page_link,hierarchy_...e,created_on,created_by,modified_on,modified_by)>, sql_fields={'created_by': {'length': 512, 'notnull': False, 'sortable': 8, 'sql': 'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE', 'type': 'reference auth_user', 'unique': False}, 'created_on': {'length': 512, 'notnull': False, 'sortable': 7, 'sql': 'TIMESTAMP', 'type': 'datetime', 'unique': False}, 'hierarchy_position': {'length': 512, 'notnull': False, 'sortable': 4, 'sql': 'INTEGER', 'type': 'integer', 'unique': False}, 'id': {'length': 512, 'notnull': False, 'sortable': 1, 'sql': 'INTEGER PRIMARY KEY AUTOINCREMENT', 'type': 'id', 'unique': False}, 'is_active': {'length': 512, 'notnull': False, 'sortable': 6, 'sql': 'CHAR(1)', 'type': 'boolean', 'unique': False}, 'modified_by': {'length': 512, 'notnull': False, 'sortable': 10, 'sql': 'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE', 'type': 'reference auth_user', 'unique': False}, 'modified_on': {'length': 512, 'notnull': False, 'sortable': 9, 'sql': 'TIMESTAMP', 'type': 'datetime', 'unique': False}, 'page_link': {'length': 512, 'notnull': False, 'sortable': 3, 'sql': 'INTEGER REFERENCES static_pages (id) ON DELETE CASCADE', 'type': 'reference static_pages', 'unique': False}, 'parent_link': {'length': 512, 'notnull': False, 'sortable': 5, 'sql': 'INTEGER REFERENCES menu_links (id) ON DELETE CASCADE', 'type': 'reference menu_links', 'unique': False}, 'title': {'length': 255, 'notnull': False, 'sortable': 2, 'sql': 'CHAR(255)', 'type': 'string', 'unique': False}}, sql_fields_old={'created_by': {'length': 512, 'notnull': False, 'sortable': 8, 'sql': 'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE', 'type': 'reference auth_user', 'unique': False}, 'created_on': {'length': 512, 'notnull': False, 'sortable': 7, 'sql': 'TIMESTAMP', 'type': 'datetime', 'unique': False}, 'hierarchy_position': {'length': 512, 'notnull': False, 'sortable': 4, 'sql': 'INTEGER', 'type': 'integer', 'unique': False}, 'id': {'length': 512, 'notnull': False, 'sortable': 1, 'sql': 'INTEGER PRIMARY KEY AUTOINCREMENT', 'type': 'id', 'unique': False}, 'is_active': {'length': 512, 'notnull': False, 'sortable': 6, 'sql': 'CHAR(1)', 'type': 'boolean', 'unique': False}, 'modified_by': {'length': 512, 'notnull': False, 'sortable': 10, 'sql': 'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE', 'type': 'reference auth_user', 'unique': False}, 'modified_on': {'length': 512, 'notnull': False, 'sortable': 9, 'sql': 'TIMESTAMP', 'type': 'datetime', 'unique': False}, 'page_link': {'length': 512, 'notnull': False, 'sortable': 3, 'sql': 'INTEGER REFERENCES static_pages (id) ON DELETE CASCADE', 'type': 'reference static_pages', 'unique': False}, 'parent_link': {'length': 512, 'notnull': False, 'sortable': 5, 'sql': 'INTEGER REFERENCES menu_links (id) ON DELETE CASCADE', 'type': 'reference menu_links', 'unique': False}, 'parent_page': {'length': 512, 'notnull': False, 'sortable': 6, 'sql': 'INTEGER REFERENCES menu_links (id) ON DELETE CASCADE', 'type': 'reference menu_links', 'unique': False}, ...}, sql_fields_aux={'created_by': {'sql': 'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE'}, 'created_on': {'sql': 'TIMESTAMP'}, 'hierarchy_position': {'sql': 'INTEGER'}, 'id': {'sql': 'INTEGER PRIMARY KEY AUTOINCREMENT'}, 'is_active': {'sql': 'CHAR(1)'}, 'modified_by': {'sql': 'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE'}, 'modified_on': {'sql': 'TIMESTAMP'}, 'page_link': {'sql': 'INTEGER REFERENCES static_pages (id) ON DELETE CASCADE'}, 'parent_link': {'sql': 'INTEGER REFERENCES menu_links (id) ON DELETE CASCADE'}, 'title': {'sql': 'CHAR(255)'}}, logfile=None, fake_migrate=False)"
+p189
+sg91
+S'migrate_table'
+p190
+sa(dp191
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p192
+sg70
+(dp193
+S'table'
+p194
+S'<Table menu_links (id,title,page_link,hierarchy_...e,created_on,created_by,modified_on,modified_by)>'
+p195
+sS'self'
+p196
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p197
+sS'logfile'
+p198
+g121
+sS'table._loggername'
+p199
+S"'/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p200
+sS'self.file_open'
+p201
+S'<bound method SQLiteAdapter.file_open of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p202
+ssg76
+I208
+sg77
+(dp203
+I203
+S'        if table and table._dbt and writelog and self.folder:'
+p204
+sI204
+S'            if isabs:'
+p205
+sI205
+S'                table._loggername = logfilename'
+p206
+sI206
+S'            else:'
+p207
+sI207
+S'                table._loggername = pjoin(self.folder, logfilename)'
+p208
+sI208
+S"            logfile = self.file_open(table._loggername, 'ab')"
+p209
+sI209
+S'            logfile.write(message)'
+p210
+sI210
+S'            self.file_close(logfile)'
+p211
+sI211
+S''
+sI212
+S''
+ssg89
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, message='success!\\n', table=<Table menu_links (id,title,page_link,hierarchy_...e,created_on,created_by,modified_on,modified_by)>)"
+p212
+sg91
+S'log'
+p213
+sa(dp214
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py'
+p215
+sg70
+(dp216
+S'mode'
+p217
+S"'ab'"
+p218
+sS'portalocker.LockedFile'
+p219
+S"<class 'pydal.contrib.portalocker.LockedFile'>"
+p220
+sS'global portalocker'
+p221
+S"<module 'pydal.contrib.portalocker' from '/home/...luon/packages/dal/pydal/contrib/portalocker.pyc'>"
+p222
+sS'fileobj'
+p223
+g121
+sS'filename'
+p224
+S"'/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p225
+ssg76
+I151
+sg77
+(dp226
+I146
+S'        return exists(filename)'
+p227
+sI147
+S''
+sI148
+S"    def file_open(self, filename, mode='rb', lock=True):"
+p228
+sI149
+S'        #to be used ONLY for files that on GAE may not be on filesystem'
+p229
+sI150
+S'        if lock:'
+p230
+sI151
+S'            fileobj = portalocker.LockedFile(filename,mode)'
+p231
+sI152
+S'        else:'
+p232
+sI153
+S'            fileobj = open(filename,mode)'
+p233
+sI154
+S'        return fileobj'
+p234
+sI155
+S''
+ssg89
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, filename='/home/www-data/web2py/applications/thecore_wales/databases/sql.log', mode='ab', lock=True)"
+p235
+sg91
+S'file_open'
+p236
+sa(dp237
+g68
+S'/home/www-data/web2py/gluon/packages/dal/pydal/contrib/portalocker.py'
+p238
+sg70
+(dp239
+S'mode.replace'
+p240
+S'<built-in method replace of str object>'
+p241
+sS'self'
+p242
+S'<pydal.contrib.portalocker.LockedFile object>'
+p243
+sS'filename'
+p244
+S"'/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p245
+sS'mode'
+p246
+S"'ab'"
+p247
+sS'self.file'
+p248
+S'None'
+p249
+sS'builtinopen'
+p250
+S'<built-in function open>'
+p251
+ssg76
+I118
+sg77
+(dp252
+I113
+S'        self.file = None'
+p253
+sI114
+S"        if 'r' in mode:"
+p254
+sI115
+S'            self.file = open(filename, mode)'
+p255
+sI116
+S'            lock(self.file, LOCK_SH)'
+p256
+sI117
+S"        elif 'w' in mode or 'a' in mode:"
+p257
+sI118
+S"            self.file = open(filename, mode.replace('w', 'a'))"
+p258
+sI119
+S'            lock(self.file, LOCK_EX)'
+p259
+sI120
+S"            if not 'a' in mode:"
+p260
+sI121
+S'                self.file.seek(0)'
+p261
+sI122
+S'                self.file.truncate()'
+p262
+ssg89
+S"(self=<pydal.contrib.portalocker.LockedFile object>, filename='/home/www-data/web2py/applications/thecore_wales/databases/sql.log', mode='ab')"
+p263
+sg91
+g22
+sasS'pyver'
+p264
+S'Python 2.7.6: /usr/bin/python (prefix: /usr)'
+p265
+sS'session'
+p266
+g63
+(S's\x1a\x00\x00\x00<div><table></table></div>'
+tRp267
+sS'etype'
+p268
+S"<type 'exceptions.IOError'>"
+p269
+sS'date'
+p270
+S'Tue Jul 14 14:24:49 2015'
+p271
+sS'response'
+p272
+g63
+(S's\xd6\x16\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x7fbb828eee68&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_thecore_wales</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14-40499c98-86cb-49ff-94f6-e5685bd9e797<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>bootstrap3_inline</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/index/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_thecore_wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>/home/www-data/web2py/applications/thecore_wales/sessions/104.200.151.14-641dab14-c3ed-4367-89c3-8869e5519258</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>e451df1beaaf84c67a7a2308c5bee8b9</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>104.200.151.14-641dab14-c3ed-4367-89c3-8869e5519258</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_thecore_wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_locked</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>thecore_wales</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/index.html</div></td></tr></table></div>'
+tRp273
+sS'locals'
+p274
+(dp275
+S'self'
+p276
+S'<pydal.contrib.portalocker.LockedFile object>'
+p277
+sS'mode'
+p278
+S"'ab'"
+p279
+sg36
+S"'/home/www-data/web2py/applications/thecore_wales/databases/sql.log'"
+p280
+sssS'traceback'
+p281
+S'Traceback (most recent call last):\n  File "/home/www-data/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/www-data/web2py/applications/thecore_wales/models/db_cms.py", line 29, in <module>\n    format=\'%(title)s - %(id)s\'\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/base.py", line 819, in define_table\n    table = self.lazy_define_table(tablename,*fields,**args)\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/base.py", line 858, in lazy_define_table\n    polymodel=polymodel)\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py", line 495, in create_table\n    fake_migrate=fake_migrate\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py", line 625, in migrate_table\n    self.log(\'success!\\n\', table)\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py", line 208, in log\n    logfile = self.file_open(table._loggername, \'ab\')\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/adapters/base.py", line 151, in file_open\n    fileobj = portalocker.LockedFile(filename,mode)\n  File "/home/www-data/web2py/gluon/packages/dal/pydal/contrib/portalocker.py", line 118, in __init__\n    self.file = open(filename, mode.replace(\'w\', \'a\'))\nIOError: [Errno 13] Permission denied: \'/home/www-data/web2py/applications/thecore_wales/databases/sql.log\'\n'
+p282
+s.

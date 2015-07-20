@@ -1,4 +1,6 @@
-cache
-databases
-errors
-sessions
+#cache
+#databases
+#errors
+#sessions
+#static
+#uploads
