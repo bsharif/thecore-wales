@@ -1,4 +1,5 @@
 {{left_sidebar_enabled=True}}
+{{right_sidebar_enabled=True}}
 {{extend 'layout.html'}}
 
 <div class="row">
@@ -8,6 +9,7 @@
 
 {{block left_sidebar}}
 {{include 'content/menu_links.html'}}
+<<<<<<< HEAD
 {{pass}}
 
 
@@ -19,13 +21,22 @@
 <br><br>
 {{=XML(page.page_content)}}
 </div>
+=======
+{{end}}
+>>>>>>> 6b78ea2c7a7eb1e713324d7270501cb2f3c7a967
 
 {{block left_sidebar}}
 {{include 'content/menu_links.html'}}
 {{end}}
 
+<<<<<<< HEAD
 
 
 {{block right_sidebar}}
 {{=LOAD('content','events_sidebar.load',ajax=True)}}
 {{end}} -->
+=======
+{{block right_sidebar}}
+{{=LOAD('content','events_sidebar.load',ajax=True)}}
+{{end}}
+>>>>>>> 6b78ea2c7a7eb1e713324d7270501cb2f3c7a967

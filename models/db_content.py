@@ -13,8 +13,8 @@ ckeditor.define_tables()
 # db.cms_demo.drop()
 
 db.define_table('static_pages',
-	Field('title', length=255), 
-	Field('is_public', 'boolean', default=True), 
+	Field('title', length=255, requires=IS_NOT_EMPTY()), 
+	Field('is_public', 'boolean', default=True, readable=False, writable=False), 
 	Field('page_content', 'text', widget=ckeditor.widget),
 	auth.signature,
 	format='%(title)s - %(id)s'
@@ -31,5 +31,19 @@ db.define_table('menu_links',
 
 db.menu_links.parent_link.requires=IS_EMPTY_OR(IS_IN_DB(db,db.menu_links.id,'%(title)s - %(id)s'))
 
-# db.static_pages.drop()
-# db.menu_links.drop()
+db.define_table('events',
+	Field('title','string',requires=IS_NOT_EMPTY()),
+	Field('description','text',requires=IS_NOT_EMPTY(),widget=ckeditor.widget),
+	Field('event_location','string',requires=IS_NOT_EMPTY()),
+	Field('event_venue','string',requires=IS_NOT_EMPTY()),
+	Field('event_date','date'),
+	Field('event_time','time',requires=IS_TIME(error_message='Must be HH:MM:SS!')),
+	Field('info_link','string',requires=IS_URL(error_message='Must be a URL')),
+	Field('is_public','boolean',default=True),
+	auth.signature
+	)
+
+db.events.event_date.requires = IS_DATETIME(format=T('%d-%m-%y'),error_message='Must be dd-mm-yy')
+
+
+

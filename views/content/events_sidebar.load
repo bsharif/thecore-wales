@@ -1,0 +1,36 @@
+{{from gluon.tools import prettydate}}
+{{from datetime import datetime}}
+<br>
+<h1>Events</h1>
+{{advanced_options = False}}
+{{if advanced_options:}}
+<div class="panel panel-default">
+<div class="panel-heading">
+Advanced Options - Events
+</div>
+<div class="panel-body">
+{{=A('Edit This Page',_href=URL('edit_page.html',args=[11]),_class="btn btn-warning btn-sm")}} 
+{{=A('New Page',_href=URL('new_page'),_class="btn btn-primary btn-sm")}}
+{{=A('Edit Links',_href=URL('edit_links'),_class="btn btn-info btn-sm")}}
+
+</div>
+
+</div>
+{{pass}}
+{{for event in events:}}
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{=A(event.title,_href=URL('events.html',args=[event.id]),_class="")}}</h3>
+  </div>
+  <div class="panel-body">
+    <p>Location: {{=event.event_location}}</p>
+	<p>Date: {{=event.event_date.strftime('%d-%m-%Y')}}</p>
+	<p>Time: {{=event.event_time.strftime('%H:%M')}}</p>
+	{{=A('More Info',_href=URL('events.html',args=[event.id]),_class="btn btn-default")}}
+  </div>
+</div>
+<hr>
+
+
+{{pass}}
