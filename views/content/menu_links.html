@@ -1,10 +1,4 @@
-{{links_dict = session.links_dict}}
-<br><br>
 
-<div class="panel panel-default">
-<div class="panel-heading">
-{{=SPAN(_class="glyphicon glyphicon-home")}} {{=A('Home',_href=URL('index'))}}
-</div></div>
 {{if advanced_options:}}
 <div class="panel panel-default">
 <div class="panel-heading">
@@ -19,27 +13,5 @@ Advanced Options
 
 </div>
 {{pass}}
-<div class="panel-group" id="accordion1">
-{{for link in links_dict['level1']:}}
-			<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion1" href="#collapse{{=link}}">{{=links_dict['all_links'][link].title}}
-                        </a>
-                    </h4>
-                </div>
-                <div id="collapse{{=link}}" class="panel-collapse collapse in">
-                    <div class="panel-body">
-                    	{{for sub_link in links_dict['level1'][link]:}}
-						{{=DIV(A(links_dict['all_links'][sub_link].title,_href=URL('page',args=[links_dict['all_links'][sub_link].page_link])))}}
-							{{for sub_sub_link in links_dict['level2'][sub_link]:}} 
-								&#8627;{{=A(links_dict['all_links'][sub_sub_link].title,_href=URL('page',args=[links_dict['all_links'][sub_sub_link].page_link]))}}
-							{{pass}}
-						{{pass}}
 
-                    </div>
-                </div>
-            </div>
-{{pass}}
-</div>
 

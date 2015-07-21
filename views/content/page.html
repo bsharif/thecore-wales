@@ -1,12 +1,15 @@
 {{left_sidebar_enabled=True}}
 {{extend 'layout.html'}}
+<div class="row">
 <br>
 {{=XML(page.page_content)}}
-
+</div>
 {{block left_sidebar}}
+<br>
+{{=H1(parent_link.title)}}
+
 {{include 'content/menu_links.html'}}
+{{=MENU(sidebar_links,_class="nav nav-pills nav-stacked",active_url=URL(),li_active="active")}}
+
 {{pass}}
 
-{{block right_sidebar}}
-{{=LOAD('content','events_sidebar.load',ajax=True)}}
-{{end}}

@@ -90,6 +90,15 @@ def generate_links():
 	session.links_dict = links_dict
 
 
+def make_menu(records):
+  menu = []
+  
+  for record in records:
+    link_tuple = (record.title,request.args(0)==record.page_link,URL('content','page',args=[record.page_link]),[])
+    menu.append(link_tuple)
+  return menu
+
+
 def edit_links():
 	fields = (db.menu_links.title,db.menu_links.page_link,db.menu_links.hierarchy_position,db.menu_links.parent_link)
 	grid = SQLFORM.grid(db.menu_links,orderby=db.menu_links.hierarchy_position,
@@ -146,6 +155,15 @@ def page():
 		user_id = auth.user_id
 		if auth.has_membership('administrator'):
 			advanced_options=True
+	menu_link_record = db(db.menu_links.page_link==page_id).select().first()
+	parent_link = db(db.menu_links.id==menu_link_record.parent_link).select().first()
+	if not parent_link:
+		parent_link = menu_link_record
+	sidebar_records = db((db.menu_links.hierarchy_position==2)&(db.menu_links.parent_link==menu_link_record.parent_link)).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+	sidebar_links = []
+	for record in sidebar_records:
+		link_tuple = (record.title,record.page_link==int(page_id),URL('content','page',args=[record.page_link]),[])
+		sidebar_links.append(link_tuple)
 	return locals()
 
 def edit_page():
