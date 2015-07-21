@@ -18,7 +18,8 @@ response.meta.keywords = 'core medical training, cmt, wales, clinics, clinic, bo
 response.meta.generator = 'Web2py Web Framework'
 
 ## your http://google.com/analytics id
-response.google_analytics_id = None
+response.google_analytics_id = "UA-65368621-1"
+
 
 #########################################################################
 ## this is the main application menu add/remove items as required
