@@ -1,6 +1,69 @@
 # -*- coding: utf-8 -*-
 # try something like
 
+###################################################
+# response.ttt = db((db.page.showinmenu==1)&(db.page.active==1)).select(db.page.id, db.page.menutext, db.page.pageurl, db.page.parent, orderby=db.page.parent|db.page.sort|db.page.menutext)
+# response.tttmenu = [dict(),dict()]
+# for subpage in response.ttt:
+#     response.tttmenu[0][str(subpage.id)] = [subpage.menutext, subpage.pageurl, subpage.parent]
+
+#     if str(subpage.parent) in response.tttmenu[1]:
+#         response.tttmenu[1][str(subpage.parent)].append(subpage.id)
+#     else:
+#         response.tttmenu[1][str(subpage.parent)] = [subpage.id]
+
+
+# def buildmenu(parent, menu):
+#     html = []
+#     if menu[1][str(parent)]:
+
+#         for itemid in menu[1][str(parent)]:
+#             if str(itemid) in menu[1]:
+#                 #children
+#                 pageurlarg=str(menu[0][str(itemid)][1])
+#                 html.append((str(menu[0][str(itemid)][0]), False, URL('aptcms', 'pages', 'index', args=pageurlarg.split("/")), buildmenu(itemid, menu)))
+#             else:
+#                 #no children
+#                 pageurlarg=str(menu[0][str(itemid)][1])
+#                 html.append((str(menu[0][str(itemid)][0]), False, URL('aptcms', 'pages', 'index', args=pageurlarg.split("/"))))
+#     return html
+
+# response.menu = buildmenu(0, response.tttmenu)
+##############################
+
+# def make_menu(records,sub_records):
+# 	menu = []
+	
+# 	for record in records:
+# 		sub_menu = []
+# 		for sub_record in sub_records:
+# 			if sub_record.parent_link == record.id:
+# 				sub_link_tuple = (sub_record.title,False,URL('page',args=[sub_record.page_link]),[])
+# 				sub_menu.append(sub_link_tuple)
+# 		link_tuple = (record.title,False,URL('page',args=[record.page_link]),sub_menu)
+# 		menu.append(link_tuple)
+# 	return menu
+
+# def menu_links_new():
+
+# 	level1_records = db(db.menu_links.hierarchy_position==1).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+# 	level2_records = db(db.menu_links.hierarchy_position==2).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+# 	# menu = []
+# 	# children_menu = []
+# 	# for record in level1_records:
+# 	# 	children_records = db((db.menu_links.hierarchy_position==2)&(db.menu_links.parent_link==record.id)).\
+# 	# 						select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+# 	# 	for children_record in children_records:
+# 	# 		children_tuple = (children_record.title, False, URL('page',args=[children_record.page_link],),[]) 
+# 	# 		children_menu.append(children_tuple)
+# 	# 	test_link = ('HellWorld',False,URL('page'),[])
+
+# 	# 	link_tuple = (record.title, False, URL('page',args=[record.page_link],),children_menu)
+# 	# 	menu.append(link_tuple)
+# 	menu = make_menu(level1_records,level2_records)
+# 	test = "HELLO"
+# 	response.menu = menu
+# 	return locals()
 def generate_links():
 	links_dict = {}
 	links_dict['all_links'] = {}

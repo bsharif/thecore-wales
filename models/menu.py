@@ -6,18 +6,19 @@
 #########################################################################
 
 response.logo = A(B('The Core'),XML('&trade;&nbsp;'),
-                  _class="navbar-brand",_href=URL('index'),
+                  _class="navbar-brand",_href=URL('default','index'),
                   _id="thecore-logo")
 response.title = request.application.replace('_',' ').title()
 response.subtitle = ''
 
 ## read more at http://dev.w3.org/html5/markup/meta.name.html
 response.meta.author = 'Ben Sharif <SharifBS@cardiff.ac.uk>'
-response.meta.description = 'TheCore.Wales - Clinic booking system for Core Medical Trainees in Wales.'
+response.meta.description = 'The Core Wales - The Ultimate Online Resource for Core Medical Trainees in Wales.'
 response.meta.keywords = 'core medical training, cmt, wales, clinics, clinic, booking'
 response.meta.generator = 'Web2py Web Framework'
 
 ## your http://google.com/analytics id
+# response.google_analytics_id = 'UA-65368621-1'
 response.google_analytics_id = None
 
 
@@ -25,29 +26,59 @@ response.google_analytics_id = None
 ## this is the main application menu add/remove items as required
 #########################################################################
 
-response.menu = [
-    (T('Home'), False, URL('default', 'index'), []),
-    (T('Browse'), False, URL('default', 'browse'), []),
-    (T('My Sessions'), False, URL('default', 'my_sessions'), []),
-    (T('Blog'), False, URL('blog', 'index'), []),
-    (T('Career Advice'), False, URL('specialty', 'index'), []),
-    (T('Main Content'), False, URL('content', 'index'), []),
-    
-]
+#Custom Menu Constructor
+def make_menu(records,sub_records):
+  menu = []
+  
+  for record in records:
+    sub_menu = []
+    for sub_record in sub_records:
+      if sub_record.parent_link == record.id:
+        sub_link_tuple = (sub_record.title,False,URL('content','page',args=[sub_record.page_link]),[])
+        sub_menu.append(sub_link_tuple)
+    link_tuple = (record.title,False,URL('content','page',args=[record.page_link]),sub_menu)
+    menu.append(link_tuple)
+  return menu
+
+#get the level1 and level2 links for the menu
+level1_records = db(db.menu_links.hierarchy_position==1).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+level2_records = db(db.menu_links.hierarchy_position==2).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+
+#call make_menu and pass in the records and subrecords 
+response.menu=make_menu(level1_records,level2_records)
+
+# response.menu = [
+#     (T('Home'), False, URL('default', 'index'), []),
+#     # (T('Browse'), False, URL('default', 'browse'), []),
+#     # (T('My Sessions'), False, URL('default', 'my_sessions'), []),
+#     # (T('Blog'), False, URL('blog', 'index'), []),
+#     # (T('Career Advice'), False, URL('specialty', 'index'), []),
+#     (T('Main Content'), False, URL('content', 'index'), [
+#         # (T('Home'), False, URL('default', 'index'), []),
+#         # (T('Home'), False, URL('default', 'index'), []),
+#       ]),   
+#               ]
+
 if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator') or auth.has_membership('session_lead'):
     response.menu += [
-    (T('New Single Session'), False, URL('default', 'new_session'), []),
-    (T('New Repeating Session'), False, URL('default', 'new_repeating_session'), [])    
-    ]
-elif auth.user_id:
-        response.menu += [
-    (T('Upgrade Access Level'), False, URL('default', 'access_key'), []) 
-        ]
+    (T('ADMIN SECTION'), False, URL('#'), [
+      (T('New Single Session'), False, URL('default', 'new_session'), []),
+      (T('New Repeating Session'), False, URL('default', 'new_repeating_session'), []),
+      (T('Admin Page'), False, URL('default', 'admin_page'), []),    
+      
+      ]),
     
-if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator'):
-    response.menu += [
-        (T('Admin Page'), False, URL('default', 'admin_page'), []),
     ]
+
+# elif auth.user_id:
+#         response.menu += [
+#     (T('Upgrade Access Level'), False, URL('default', 'access_key'), []) 
+#         ]
+    
+# if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator'):
+#     response.menu += [
+#         (T('Admin Page'), False, URL('default', 'admin_page'), []),
+#     ]
 
 DEVELOPMENT_MENU = False
 
