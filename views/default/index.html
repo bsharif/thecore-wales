@@ -1,6 +1,6 @@
 {{left_sidebar_enabled = False}}
 {{extend 'layout.html'}}
-<div class="container-fluid" style="margin-top:25px">
+<div class="container-fluid" style="margin-top:20px">
     <!-- <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-6 slick-class">
@@ -11,7 +11,7 @@
         </div>
         <div class="col-md-3"></div>
     </div> -->
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-3"></div>
         <div class="jumbotron col-md-6">
           <h1>The Core</h1>
@@ -19,9 +19,77 @@
             <p>{{=A('Browse Sessions',_href=URL('browse'),_class="btn btn-primary btn-lg",_role="button")}} </p>
         </div>
         <div class="col-md-3"></div>
+    </div> -->
+    <div class="row" >
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <a href="http://thecore.wales/">
+                      <img class="img-responsive center-block" src="http://lorempixel.com/1200/400/nature/5" alt="...">
+                      <div class="carousel-caption">
+                        <h1>The Core</h1>
+                        <p class="surround-text">The Ultimate Online Resource <br>for Core Medical Trainees in Wales</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://thecore.wales/">
+
+                      <img class="img-responsive center-block" src="http://lorempixel.com/1200/400/nature/1" alt="...">
+                      <div class="carousel-caption">
+                        <h1>Find Clinics</h1>
+                        <p class="surround-text">Struggling to attend clinics? Book now.</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://thecore.wales/">
+
+                      <img class="img-responsive center-block" src="http://lorempixel.com/1200/400/nature/3" alt="...">
+                      <div class="carousel-caption">
+                        <h1>CMT Advice</h1>
+                        <p class="surround-text">Get all the info you need about CMT in Wales</p>
+                      </div>
+                    </a>
+                </div>
+                <div class="item">
+                    <a href="http://thecore.wales/">
+
+                      <img class="img-responsive center-block" src="http://lorempixel.com/1200/400/nature/6" alt="...">
+                      <div class="carousel-caption">
+                        <h1>ECG of the Week</h1>
+                        <p class="surround-text">Discuss and contribute</p>
+                      </div>
+                    </a>
+                </div>
+              </div>
+
+              <!-- Controls -->
+              <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
     </div>
 
-    <div class="row">
+    <div class="row" style="margin-top:20px">
         <div class="col-md-3">
         </div>        
         <div class="col-md-6">
