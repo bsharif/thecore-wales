@@ -27,14 +27,18 @@ response.google_analytics_id = None
 #########################################################################
 
 #Custom Menu Constructor
-def make_menu(records,sub_records):
+def make_menu(records,sub_records,sub_sub_records):
   menu = []
-  
   for record in records:
     sub_menu = []
     for sub_record in sub_records:
+      sub_sub_menu = []
+      for sub_sub_record in sub_sub_records:
+        if sub_sub_record.parent_link == sub_record.id:
+          sub_sub_link_tuple = (sub_sub_record.title,False,URL('content','page',args=[sub_sub_record.page_link]),[])
+          sub_sub_menu.append(sub_sub_link_tuple)
       if sub_record.parent_link == record.id:
-        sub_link_tuple = (sub_record.title,False,URL('content','page',args=[sub_record.page_link]),[])
+        sub_link_tuple = (sub_record.title,False,URL('content','page',args=[sub_record.page_link]),sub_sub_menu)
         sub_menu.append(sub_link_tuple)
     link_tuple = (record.title,False,URL('content','page',args=[record.page_link]),sub_menu)
     menu.append(link_tuple)
@@ -43,9 +47,10 @@ def make_menu(records,sub_records):
 #get the level1 and level2 links for the menu
 level1_records = db(db.menu_links.hierarchy_position==1).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
 level2_records = db(db.menu_links.hierarchy_position==2).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
+level3_records = db(db.menu_links.hierarchy_position==3).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
 
 #call make_menu and pass in the records and subrecords 
-response.menu=make_menu(level1_records,level2_records)
+response.menu=make_menu(level1_records,level2_records,level3_records)
 
 # response.menu = [
 #     (T('Home'), False, URL('default', 'index'), []),
