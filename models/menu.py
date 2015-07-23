@@ -5,7 +5,8 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.logo = A(B('The Core'),XML('&trade;&nbsp;'),
+#{{=SPAN(_class="glyphicon glyphicon-globe")}} 
+response.logo = A(B(SPAN(_class="glyphicon glyphicon-globe"),' The Core'),XML('&trade;&nbsp;'),
                   _class="navbar-brand",_href=URL('default','index'),
                   _id="thecore-logo")
 response.title = request.application.replace('_',' ').title()
@@ -52,19 +53,9 @@ level3_records = db(db.menu_links.hierarchy_position==3).select(db.menu_links.AL
 #call make_menu and pass in the records and subrecords 
 response.menu=make_menu(level1_records,level2_records,level3_records)
 
-# response.menu = [
-#     (T('Home'), False, URL('default', 'index'), []),
-#     # (T('Browse'), False, URL('default', 'browse'), []),
-#     # (T('My Sessions'), False, URL('default', 'my_sessions'), []),
-#     # (T('Blog'), False, URL('blog', 'index'), []),
-#     # (T('Career Advice'), False, URL('specialty', 'index'), []),
-#     (T('Main Content'), False, URL('content', 'index'), [
-#         # (T('Home'), False, URL('default', 'index'), []),
-#         # (T('Home'), False, URL('default', 'index'), []),
-#       ]),   
-#               ]
 
-if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator') or auth.has_membership('session_lead'):
+
+if auth.has_membership('hospital') or auth.has_membership('administrator') or auth.has_membership('session_lead'):
     response.menu += [
     (T('ADMIN SECTION'), False, URL('#'), [
       (T('New Single Session'), False, URL('default', 'new_session'), []),
@@ -75,15 +66,6 @@ if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.h
     
     ]
 
-# elif auth.user_id:
-#         response.menu += [
-#     (T('Upgrade Access Level'), False, URL('default', 'access_key'), []) 
-#         ]
-    
-# if auth.has_membership('hospital') or auth.has_membership('undergrad') or auth.has_membership('administrator'):
-#     response.menu += [
-#         (T('Admin Page'), False, URL('default', 'admin_page'), []),
-#     ]
 
 DEVELOPMENT_MENU = False
 

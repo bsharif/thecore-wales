@@ -103,7 +103,7 @@ def grant_new_access():
                 access_level = single_key.access_level
                 if access_level == 'session_lead':
                     auth.add_membership(2, user_id)
-                elif access_level == 'undergrad':
+                elif access_level == 'medic_user':
                     auth.add_membership(3, user_id)
                 elif access_level == 'hospital':
                     auth.add_membership(4, user_id)

@@ -14,7 +14,7 @@ ckeditor.define_tables()
 
 db.define_table('static_pages',
 	Field('title', length=255, requires=IS_NOT_EMPTY()), 
-	Field('is_public', 'boolean', default=True, readable=False, writable=False), 
+	Field('is_public', 'boolean', default=True), 
 	Field('page_content', 'text', widget=ckeditor.widget),
 	auth.signature,
 	format='%(title)s - %(id)s'

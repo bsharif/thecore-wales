@@ -39,7 +39,7 @@ body {
 
 /*fix for navbar collapsing too late*/
 /*set to collapse at anything less than 1490 (because there's too much stuff in the top menu)*/
-@media (max-width: 1490px) {
+/*@media (max-width: 990px) {
     .navbar-header {
         float: none;
     }
@@ -75,4 +75,18 @@ body {
         display:block !important;
     }
 }
+*/
 
+@media only screen and (max-width: 999px) {
+    /* rules that only apply for canvases narrower than 1000px */
+}
+@media only screen and (device-width: 768px) and (orientation: landscape) {
+    /* rules for iPad in landscape orientation **/
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* iPhone, Android rules here */
+    .navbar>li>a{
+        font-size: 8px;
+        padding: 0 0 0 0;
+    }
+}

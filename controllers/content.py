@@ -73,10 +73,14 @@ def page():
 	#get page content
 	page_id=request.args(0)
 	page = db(db.static_pages.id==page_id).select().first()
-	if request.args(1):
-		page = db(db.static_pages.id==request.args(1)).select().first()
-	#don't need old link generation stuff
-	# generate_links()
+	
+	#check if page is a public page and if user has appropriate access
+	if not page.is_public:
+		if not auth:
+			redirect(URL('default','failed_auth'))
+		elif not auth.has_membership('hospital') and not auth.has_membership('medic_user') and not auth.has_membership('administrator') and not auth.has_membership('session_lead'):
+			redirect(URL('default','failed_auth'))
+
 
 	#if admin then give admin options
 	advanced_options=False
