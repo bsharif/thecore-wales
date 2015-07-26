@@ -87,6 +87,12 @@ auth.settings.email_case_sensitive = False
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
 
+
+
+
+
+
+
 ## configure email
 mail = auth.settings.mailer
 # mail.settings.server = 'logging' if request.is_local else myconf.take('smtp.server')

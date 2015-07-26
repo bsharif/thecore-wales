@@ -10,20 +10,13 @@
 
 <div id="most_recent_post">
     <h3>Most recent post:</h3>
-    {{most_recent_post = session.most_recent_post}}
-    {{=H4(most_recent_post.title,_class="blog-title")}}
 </div>
 
 <div id="navigation">
     
 <h3>Tags:</h3>
-{{for tag in session.blog_tags:}}
-    {{=A(tag,_href=URL('view_tag',args=tag),_class="label label-default")}}
-{{pass}}
+
 
 <h3>Users:</h3>
-{{for user in session.user_dict:}}
-    {{=A(session.user_dict[user],_href=URL('user_posts',vars={'user_id':user}),_class="label label-default")}}
-{{pass}}
 
 </div>

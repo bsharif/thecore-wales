@@ -1,0 +1,59 @@
+{{from gluon.tools import prettydate}}
+
+{{left_sidebar_enabled=True}}
+
+
+{{def get_user_name(user_id):
+    user_record = db(db.auth_user.id==user_id).select().first()
+    first_name = user_record.first_name
+    last_name = user_record.last_name
+    full_name = str(first_name + " " + last_name)
+    return full_name}}
+
+
+{{extend 'layout.html'}}
+{{if blog_post_record:}}
+    <div class="row">
+        <div id="blog_title">
+            {{=H1(blog_post_record.title,_class="blog-title")}}
+        </div>
+        {{if advanced_options:}}
+            <div id="advanced_options">
+                {{=A('Edit Post',_href=URL('edit_blog_post',vars={'post_id':blog_post_record.id}),_class="btn btn-primary")}}
+        </div>
+        {{pass}}
+        <div id="post_details">
+            <h4>Posted by {{=EM(A(user_name,_href=URL('view_user',args=[blog_post_record.created_by])))}} under {{=A(category_record.category_name,_href=URL('view_category',args=[category_record.id]))}} - {{=SPAN(prettydate(blog_post_record.created_on,T))}}</h4>
+            
+        </div>
+
+       <div id="blog_content">
+                {{=XML(blog_post_record.body)}}
+            </div>
+            <div id="blog_tags">
+                <br><h4>Tags:</h4>
+                    {{=A("tag",_href=URL('view_tag',args=['tag']),_class='label label-default')}}
+            </div>
+    </div>  <hr>
+{{pass}}
+
+<h3>Comments</h3>
+{{for comment in blog_comment_records:}}
+<div class="row">
+<div class="comment_details">
+    <strong>{{=get_user_name(comment.created_by)}}</strong>
+    {{=SPAN(prettydate(comment.created_on,T))}}
+</div>
+<div class="comment_body">
+{{=MARKMIN(comment.comment_body)}}
+</div>
+<hr>
+</div>
+{{pass}}
+</div>
+
+{{pass}}
+
+
+{{block left_sidebar}}
+{{pass}}
