@@ -105,7 +105,7 @@ def grant_new_access():
                     auth.add_membership(2, user_id)
                 elif access_level == 'medic_user':
                     auth.add_membership(3, user_id)
-                elif access_level == 'hospital':
+                elif access_level == 'ecg_poster':
                     auth.add_membership(4, user_id)
                 elif access_level == 'administrator':
                     auth.add_membership(5, user_id)

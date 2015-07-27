@@ -1,0 +1,43 @@
+<div id="about_blog">
+        {{=H1(A('The Blog',_href=URL('blog','index',extension=False),_class="blog-title"))}}
+        <p class="lead">
+            The blog contains posts with general information about Core Medical Training in Wales. 
+        </p>
+        
+</div>
+
+{{if advanced_options:}}
+            <div id="advanced_options">
+                {{=A('New Blog Post',_href=URL('new_post',extension=False),_class="btn btn-primary")}}
+                {{=A('New Tag',_href=URL('new_tag',extension=False),_class="btn btn-primary")}}
+				{{if request.args(0):}}
+                {{=A('Edit Post',_href=URL('edit_blog_post',args=[request.args(0)],extension=False),_class="btn btn-primary")}} 
+                {{pass}}
+        </div>
+        {{pass}}
+{{if ecg_poster:}}
+            <div id="ecg_poster">
+                {{=A('New ECG',_href=URL('new_post',extension=False),_class="btn btn-primary")}}
+        </div>
+        {{pass}}
+<div id="navigation">
+<h3>Most recent post:</h3>
+<ul>
+{{=LI(A(most_recent_post['title'],_href=URL('view',args=[most_recent_post.id],extension=False)))}}
+</ul>
+<h3>Categories</h3>
+<ul>
+{{for category in blog_categories:}}
+{{=LI(A(category.category_name,_href=URL('view_category',args=[category.id],extension=False)))}}
+{{pass}}
+</ul>
+<h3>Tags:</h3>
+{{for tag in blog_tags:}}
+{{=SPAN(A(tag.tagname,_href=URL('view_tag',args=[tag.id],extension=False),_class='label label-default'))}}
+{{pass}}
+<h3>Users:</h3>
+{{for user in users_list:}}
+{{=SPAN(A(users_list[user],_href=URL('view_user',args=[user],extension=False),_class='label label-primary'))}}
+{{pass}}
+
+</div>

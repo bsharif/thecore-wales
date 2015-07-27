@@ -68,7 +68,7 @@ db.define_table('hospitals',
 db.define_table('access_keys',
                 Field('unique_key','string'),
                 Field('key_active','boolean',default=True),
-                Field('access_level','string',requires=IS_IN_SET(('session_lead','medic_user','hospital','administrator'))))
+                Field('access_level','string',requires=IS_IN_SET(('session_lead','medic_user','ecg_poster','administrator'))))
 #***************************************************************
 #ADD CUSTOM FIELDS TO AUTH USER 
 #CUSTOM FIELD = DEFAULT HOSPITAL, ACCESS_KEY, EMAIL NOTIFICATIONS
@@ -110,7 +110,7 @@ auth.settings.registration_requires_approval = False
 auth.settings.reset_password_requires_verification = True
 
 #>>>>>>>>>>custom failed auth page
-auth.settings.on_failed_authorization =     URL('failed_auth')
+auth.settings.on_failed_authorization = URL('default','failed_auth')
 
 #########################################################################
 ## Define your tables below (or better in another model file) for example

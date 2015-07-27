@@ -2,6 +2,7 @@
 {{left_sidebar_enabled=True}}
 
 {{extend 'layout.html'}}
+<h1>Posts under {{=category_name['category_name']}}</h1>
 
 {{def get_user_name(user_id):
     user_record = db(db.auth_user.id==user_id).select().first()
@@ -10,29 +11,34 @@
     full_name = str(first_name + " " + last_name)
     return full_name}}
 
-<div class="container-fluid">
-<h1>All Blog Posts</h1>
+{{def get_tag_name(tag_id):
+    tag_record = db(db.blog_tags.id==tag_id).select().first()
+    tag_name = tag_record.tagname
+    return tag_name
+    }}
+
+
+
 {{for post in all_posts:}}
     <div class="row">
         
             <div id="blog_title">
                 <h1>{{=A(post.title,_href=URL('view',args=[post.id]),_class="text-uppercase blog-title")}}</h1>
-                <h4>Posted by {{=EM(A(get_user_name(post.created_by),_href=URL('view_user',args=[post.created_by])))}} - {{=SPAN(prettydate(post.created_on,T))}}</h4>
+                <h3>Posted by {{=EM(A(get_user_name(post.created_by),_href=URL('view_user',args=[post.created_by])))}} 
+                    - {{=SPAN(prettydate(post.created_on,T))}}</h3>
             </div>
             <div id="blog_tags">
+                
                 <h4>Tags:
                     {{for tag in post.blog_tags:}}
-                        {{=SPAN(A(tag.tagname,_href=URL('view_category',args=[tag.id],extension=False),_class='label label-default'))}}
+                    {{=SPAN(A(get_tag_name(tag),_href=URL('view_tag',args=[tag]),_class='label label-default'))}}
                     {{pass}}
                 </h4>
+
             </div>
         
     </div>  <hr>
 {{pass}}
-
-
-</div>
-
 
 
 {{block left_sidebar}}

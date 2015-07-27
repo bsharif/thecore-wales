@@ -15,12 +15,12 @@ db.define_table('blog_categories',
 
 db.define_table('blog_posts',
     Field('title'),
-    # Field('slug'),
     Field('category','reference blog_categories',requires=IS_IN_DB(db, 'blog_categories.id', '%(category_name)s')),
-    Field('body', 'text', widget=ckeditor.widget),
-    # Field('blog_content','text'),
-    Field('excerpt', 'text'),
     Field('blog_tags', 'list:reference blog_tags'),
+    Field('body', 'text', widget=ckeditor.widget),
+    # Field('slug'),
+    # Field('blog_content','text'),
+    # Field('excerpt', 'text'),
     auth.signature,
     format='%(title)s')
 

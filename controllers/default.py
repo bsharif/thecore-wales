@@ -17,7 +17,7 @@ import requests
 ##############################
 
 def index():
-
+    recent_ecg = db(db.blog_posts.category==2).select(orderby=db.blog_posts.created_on).first()
     return locals()
 
 def test():
@@ -843,7 +843,7 @@ def access_key():
                     auth.add_membership(2, user_id)
                 elif access_level == 'medic_user':
                     auth.add_membership(3, user_id)
-                elif access_level == 'hospital':
+                elif access_level == 'ecg_poster':
                     auth.add_membership(4, user_id)
                 elif access_level == 'administrator':
                     auth.add_membership(5, user_id)

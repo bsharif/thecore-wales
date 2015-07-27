@@ -27,6 +27,7 @@ response.google_analytics_id = None
 ## this is the main application menu add/remove items as required
 #########################################################################
 
+response.menu = [(T('Blog'), False, URL('blog', 'index'), [])]
 #Custom Menu Constructor
 def make_menu(records,sub_records,sub_sub_records):
   menu = []
@@ -51,7 +52,7 @@ level2_records = db(db.menu_links.hierarchy_position==2).select(db.menu_links.AL
 level3_records = db(db.menu_links.hierarchy_position==3).select(db.menu_links.ALL,orderby=db.menu_links.link_position)
 
 #call make_menu and pass in the records and subrecords 
-response.menu=make_menu(level1_records,level2_records,level3_records)
+response.menu+=make_menu(level1_records,level2_records,level3_records)
 
 
 

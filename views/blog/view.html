@@ -10,34 +10,47 @@
     full_name = str(first_name + " " + last_name)
     return full_name}}
 
+{{def get_tag_name(tag_id):
+    tag_record = db(db.blog_tags.id==tag_id).select().first()
+    tag_name = tag_record.tagname
+    return tag_name
+    }}
+
 
 {{extend 'layout.html'}}
 {{if blog_post_record:}}
     <div class="row">
         <div id="blog_title">
-            {{=H1(blog_post_record.title,_class="blog-title")}}
+            {{=H1(blog_post_record.title,_class="")}}
         </div>
         {{if advanced_options:}}
             <div id="advanced_options">
-                {{=A('Edit Post',_href=URL('edit_blog_post',vars={'post_id':blog_post_record.id}),_class="btn btn-primary")}}
+                {{=A('Edit Post',_href=URL('edit_blog_post',args=[blog_post_record.id]),_class="btn btn-primary")}}
         </div>
         {{pass}}
         <div id="post_details">
             <h4>Posted by {{=EM(A(user_name,_href=URL('view_user',args=[blog_post_record.created_by])))}} under {{=A(category_record.category_name,_href=URL('view_category',args=[category_record.id]))}} - {{=SPAN(prettydate(blog_post_record.created_on,T))}}</h4>
             
         </div>
-
+        <hr>
        <div id="blog_content">
-                {{=XML(blog_post_record.body)}}
-            </div>
-            <div id="blog_tags">
-                <br><h4>Tags:</h4>
-                    {{=A("tag",_href=URL('view_tag',args=['tag']),_class='label label-default')}}
-            </div>
+            {{=XML(blog_post_record.body)}}
+        </div>
+        <div id="blog_tags">
+            <br><h4>Tags:
+                    {{for tag in blog_post_record.blog_tags:}}
+                    {{=SPAN(A(get_tag_name(tag),_href=URL('view_tag',args=[tag]),_class='label label-default'))}}
+                    {{pass}}
+                </h4>
+        </div>
     </div>  <hr>
 {{pass}}
 
 <h3>Comments</h3>
+{{=A('Post Comment',_href=URL('post_comment',args=[blog_post_record.id]),_class="btn btn-primary")}}<br><br>
+{{if not blog_comment_records:}}
+<p>No comments yet....</p>
+{{pass}}
 {{for comment in blog_comment_records:}}
 <div class="row">
 <div class="comment_details">
@@ -53,7 +66,9 @@
 </div>
 
 {{pass}}
-
+<br><br>
 
 {{block left_sidebar}}
+{{=LOAD('blog','blog_sidebar.load',ajax=True)}}
+
 {{pass}}

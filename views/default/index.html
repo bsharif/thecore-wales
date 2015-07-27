@@ -1,25 +1,7 @@
 {{left_sidebar_enabled = False}}
 {{extend 'layout.html'}}
 <div class="container-fluid" >
-    <!-- <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6 slick-class">
-          <div>{{=IMG(_src='http://www.jssor.com/img/home/01.jpg')}}</div>
-          <div>{{=IMG(_src='http://www.jssor.com/img/home/02.jpg')}}</div>
-          <div>{{=IMG(_src='http://www.jssor.com/img/home/03.jpg')}}</div>
-          <div>{{=IMG(_src='http://www.jssor.com/img/home/04.jpg')}}</div>
-        </div>
-        <div class="col-md-3"></div>
-    </div> -->
-    <!-- <div class="row">
-        <div class="col-md-3"></div>
-        <div class="jumbotron col-md-6">
-          <h1>The Core</h1>
-          <p>The Ultimate Online Resource for Core Medical Trainees in Wales</p>
-            <p>{{=A('Browse Sessions',_href=URL('browse'),_class="btn btn-primary btn-lg",_role="button")}} </p>
-        </div>
-        <div class="col-md-3"></div>
-    </div> -->
+    
     <div class="row" >
         <div class="col-md-3"></div>
         <div class="col-md-6">
@@ -64,7 +46,7 @@
                     </a>
                 </div>
                 <div class="item">
-                    <a href="http://thecore.wales/">
+                    <a href="http://thecore.wales/blog/view/{{=recent_ecg.id}}">
                       
                       {{=IMG(_src=URL('static','images/ecg_carousel.jpg'),_class="img-responsive center-block")}}
                       <div class="carousel-caption">

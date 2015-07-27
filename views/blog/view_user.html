@@ -9,7 +9,7 @@
     <div class="row">
         
             <div id="blog_title">
-                <h1>{{=A(post.title,_href=URL('view',vars={'post_id':post.id}),_class="text-uppercase blog-title")}}</h1>
+                <h1>{{=A(post.title,_href=URL('view',args=[post.id]),_class="text-uppercase blog-title")}}</h1>
                 <h3>Posted by {{=EM(A(user_name,_href=URL('view_user',args=[user_id])))}} 
                     - {{=SPAN(prettydate(post.created_on,T))}}</h3>
             </div>
@@ -26,4 +26,6 @@
 
 
 {{block left_sidebar}}
+{{=LOAD('blog','blog_sidebar.load',ajax=True)}}
+
 {{pass}}
