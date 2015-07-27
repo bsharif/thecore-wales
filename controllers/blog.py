@@ -72,7 +72,7 @@ def new_tag():
         redirect(URL('blog','index'))
     return locals()
 
-
+@auth.requires_login()
 def post_comment():
     blog_post_id = request.args(0)
     form = SQLFORM(db.blog_comments,fields=['comment_body'])
