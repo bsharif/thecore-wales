@@ -2,29 +2,18 @@
 {{left_sidebar_enabled=True}}
 {{extend 'layout.html'}}
 
+<h1>All Events</h1> <hr>
+{{for event in all_events:}}
 <div class="row">
-<br>
-{{=H1(event.title)}} 
-<div class="panel panel-default">
-  
-  <div class="panel-body">
-  	<p>{{=XML(event.description)}}
-  		<hr>
-    <p><strong>Location:</strong> {{=event.event_location}}</p>
-    <p><strong>Venue:</strong> {{=event.event_venue}}</p>
-	<p><strong>Date:</strong> {{=event.event_date.strftime('%d-%m-%Y')}}</p>
-	<p><strong>Time:</strong> {{=event.event_time.strftime('%H:%M')}}</p>
-	<p><strong>Link:</strong> {{=A(event.info_link,_href=event.info_link)}}</p>
-  </div>
-</div>
-</div>
+{{=H3(A(event.title,_href=URL('view_event',args=[event.id])))}}
+{{=P(event.event_date)}}
+</div><hr>
+{{pass}}	
 
-
- 
 {{block right_sidebar}}
-{{=LOAD('content','events_sidebar.load',ajax=True)}}
+{{=LOAD('content','events_right_sidebar.load',ajax=True)}}
 {{end}}
 
 {{block left_sidebar}}
-{{include 'content/menu_links.html'}}
+{{include 'content/events_left_sidebar.load'}}
 {{pass}}

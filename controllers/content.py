@@ -36,18 +36,19 @@ def edit_links():
 	return locals()
 
 def index():
-	page_id = 11
-	page = db(db.static_pages.id==page_id).select().first()
-	generate_links()
-	advanced_options=False
-	if auth:
-		user_id = auth.user_id
-		if auth.has_membership('administrator'):
-			advanced_options=True
+	redirect(URL('default','index'))
+	# page_id = 11
+	# page = db(db.static_pages.id==page_id).select().first()
+	
+	# advanced_options=False
+	# if auth:
+	# 	user_id = auth.user_id
+	# 	if auth.has_membership('administrator'):
+	# 		advanced_options=True
 	return locals()
 
 
-def events_sidebar():
+def events_right_sidebar():
 
 	events = db(db.events).select()
 	advanced_options=False
@@ -58,6 +59,18 @@ def events_sidebar():
 	return dict(events=events,advanced_options=advanced_options)
 
 def events():
+	page_id = 11
+	event_id = request.args(0)
+	if event_id: redirect(URL('view_event',args=[event_id]))
+	all_events = db(db.events.id).select()
+	advanced_options=False
+	if auth:
+		user_id = auth.user_id
+		if auth.has_membership('administrator'):
+			advanced_options=True
+	return locals()
+
+def view_event():
 	page_id = 11
 	event_id = request.args(0)
 	event = db(db.events.id==event_id).select().first()
