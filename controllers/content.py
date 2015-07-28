@@ -20,7 +20,7 @@ def make_menu(records,sub_records,sub_sub_records,current_page):
     menu.append(link_tuple)
   return menu
 
-
+@auth.requires_membership('administrator')
 def edit_links():
 	fields = (db.menu_links.title,db.menu_links.page_link,db.menu_links.hierarchy_position,db.menu_links.parent_link)
 	grid = SQLFORM.grid(db.menu_links,orderby=db.menu_links.hierarchy_position,
@@ -80,7 +80,7 @@ def view_event():
 		if auth.has_membership('administrator'):
 			advanced_options=True
 	return locals()
-
+@auth.requires_membership('administrator')
 def edit_event():
 	event_id = request.args(0)
 	event = db(db.events.id==event_id).select().first()
@@ -94,13 +94,15 @@ def edit_event():
 		redirect(URL('view_event',args=[event_id]))
 	return locals()
 
-
+@auth.requires_membership('administrator')
 def new_event():
 	form = SQLFORM(db.events)
 	if form.process().accepted:
 		response.flash = "Event Added"
 		redirect(URL('view_event',args=[form.vars.id]))
 	return locals()
+
+
 def page():
 
 	#get page content
@@ -161,6 +163,7 @@ def page():
 
 	return locals()
 
+@auth.requires_membership('administrator')
 def edit_page():
     page_id=request.args(0)
     page = db(db.static_pages.id==page_id).select().first()
@@ -174,6 +177,7 @@ def edit_page():
         redirect(URL('page',args=[page_id]))
     return locals()
 
+@auth.requires_membership('administrator')
 def new_page():
 	form = SQLFORM(db.static_pages)
 	session.new_page_title = None
@@ -186,6 +190,7 @@ def new_page():
 		redirect(URL('new_link'))
 	return locals()
 
+@auth.requires_membership('administrator')
 def new_link():
 	page_id = request.vars.page_id
 	fields = ['hierarchy_position','parent_link']

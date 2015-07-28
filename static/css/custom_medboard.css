@@ -37,6 +37,20 @@ body {
 
 }
 
+/*ul.nav.navbar-nav > li {
+        font-size: 14px;
+        padding-top: 15px;
+        padding-right: 7px;
+        padding-left: 7px;
+        padding-bottom: 15px;
+        /*margin: 0 0 0 0;*/
+    }
+
+ul.nav.navbar-nav > li > a{
+        font-size: 14px;
+        padding: 0px;
+        /*margin: 0 0 0 0;*/
+    }*/
 /*fix for navbar collapsing too late*/
 /*set to collapse at anything less than 1490 (because there's too much stuff in the top menu)*/
 /*@media (max-width: 990px) {
@@ -85,8 +99,9 @@ body {
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
     /* iPhone, Android rules here */
-    .navbar>li>a{
-        font-size: 8px;
+    .collapse.navbar-collapse.navbar-ex1-collapse>ul>li>a{
+        /*font-size: 8px;
         padding: 0 0 0 0;
+        margin: 0 0 0 0;*/
     }
 }
