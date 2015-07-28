@@ -1,6 +1,6 @@
 {{from gluon.tools import prettydate}}
+{{right_sidebar_enabled=True}}
 {{left_sidebar_enabled=True}}
-
 {{extend 'layout.html'}}
 <h1>Posts by {{=user_record.first_name + " " + user_record.last_name}}</h1>
 
@@ -28,4 +28,8 @@
 {{block left_sidebar}}
 {{=LOAD('blog','blog_sidebar.load',ajax=True)}}
 
-{{pass}}
+{{end}}
+
+{{block right_sidebar}}
+{{=LOAD('content','events_right_sidebar.load',ajax=True)}}
+{{end}}

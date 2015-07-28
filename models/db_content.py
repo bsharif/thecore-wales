@@ -37,7 +37,7 @@ db.define_table('events',
 	Field('description','text',requires=IS_NOT_EMPTY(),widget=ckeditor.widget),
 	Field('event_location','string',requires=IS_NOT_EMPTY()),
 	Field('event_venue','string',requires=IS_NOT_EMPTY()),
-	Field('event_date','date'),
+	Field('event_date','date',requires = IS_DATE(format=T('%d-%m-%y'),error_message='Must be dd-mm-yy')),
 	Field('event_start_time','time',requires=IS_TIME(error_message='Must be HH:MM:SS!')),
 	Field('event_end_time','time',requires=IS_TIME(error_message='Must be HH:MM:SS!')),
 	Field('info_link','string',requires=IS_URL(error_message='Must be a URL')),
@@ -45,7 +45,6 @@ db.define_table('events',
 	auth.signature
 	)
 
-db.events.event_date.requires = IS_DATETIME(format=T('%d-%m-%y'),error_message='Must be dd-mm-yy')
 
 
 

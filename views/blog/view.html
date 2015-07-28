@@ -1,8 +1,9 @@
 {{from gluon.tools import prettydate}}
 
 {{left_sidebar_enabled=True}}
+{{right_sidebar_enabled=True}}
 
-
+{{extend 'layout.html'}}
 {{def get_user_name(user_id):
     user_record = db(db.auth_user.id==user_id).select().first()
     first_name = user_record.first_name
@@ -17,7 +18,6 @@
     }}
 
 
-{{extend 'layout.html'}}
 {{if blog_post_record:}}
     <div class="row">
         <div id="blog_title">
@@ -71,4 +71,8 @@
 {{block left_sidebar}}
 {{=LOAD('blog','blog_sidebar.load',ajax=True)}}
 
-{{pass}}
+{{end}}
+
+{{block right_sidebar}}
+{{=LOAD('content','events_right_sidebar.load',ajax=True)}}
+{{end}}

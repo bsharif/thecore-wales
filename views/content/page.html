@@ -1,4 +1,6 @@
 {{left_sidebar_enabled=True}}
+{{right_sidebar_enabled=True}}
+
 {{extend 'layout.html'}}
 <div class="row" id="main_page_content">
 {{=XML(page.page_content)}}
@@ -13,5 +15,8 @@
 
 {{include 'content/menu_links.html'}}
 {{=MENU(sidebar,_class="nav nav-pills nav-stacked",active_url=URL(),li_active="active")}}
+{{end}}
 
-
+{{block right_sidebar}}
+{{=LOAD('content','events_right_sidebar.load',ajax=True)}}
+{{end}}

@@ -5,6 +5,20 @@
 <div class="row">
 <br>
 {{=H1(event.title)}} 
+
+{{if advanced_options:}}
+<div class="panel panel-default">
+<div class="panel-heading">
+Advanced Options - Events
+</div>
+<div class="panel-body">
+{{=A('Edit This Event',_href=URL('edit_event',args=[event.id],extension=False),_class="btn btn-warning btn-sm")}} 
+{{=A('New Event',_href=URL('new_event',extension=False),_class="btn btn-primary btn-sm")}}
+
+</div>
+</div>
+{{pass}}
+
 <div class="panel panel-default">
   
   <div class="panel-body">
@@ -22,7 +36,7 @@
 
  
 {{block right_sidebar}}
-{{=LOAD('content','events_sidebar.load',ajax=True)}}
+{{=LOAD('content','events_right_sidebar.load',ajax=True)}}
 {{end}}
 
 {{block left_sidebar}}

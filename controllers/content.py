@@ -81,6 +81,26 @@ def view_event():
 			advanced_options=True
 	return locals()
 
+def edit_event():
+	event_id = request.args(0)
+	event = db(db.events.id==event_id).select().first()
+	buttons = [DIV(TAG.button('Save',_type="submit",_class="btn btn-primary"), \
+    				A('Cancel Edit',_href=URL('view_event',args=[event_id]),_class="btn btn-danger"), \
+    				_class="col-sm-9 col-sm-offset-4")]
+
+	form = SQLFORM(db.events, event, buttons=buttons)
+	if form.process().accepted:
+		response.flash = "Event Edited"
+		redirect(URL('view_event',args=[event_id]))
+	return locals()
+
+
+def new_event():
+	form = SQLFORM(db.events)
+	if form.process().accepted:
+		response.flash = "Event Added"
+		redirect(URL('view_event',args=[form.vars.id]))
+	return locals()
 def page():
 
 	#get page content
@@ -143,8 +163,6 @@ def page():
 
 def edit_page():
     page_id=request.args(0)
-    if request.args(1):
-    	page_id=request.args(1)
     page = db(db.static_pages.id==page_id).select().first()
     buttons = [DIV(TAG.button('Save',_type="submit",_class="btn btn-primary"), \
     				A('Cancel Edit',_href=URL('page',args=[page_id]),_class="btn btn-danger"), \

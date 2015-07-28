@@ -6,14 +6,13 @@
 {{for event in all_events:}}
 <div class="row">
 {{=H3(A(event.title,_href=URL('view_event',args=[event.id])))}}
-{{=P(event.event_date)}}
+{{=P("Location  - " + event.event_location)}}{{=P("Date - " + event.event_date.strftime('%d-%m-%Y'))}}
 </div><hr>
 {{pass}}	
-
 {{block right_sidebar}}
 {{=LOAD('content','events_right_sidebar.load',ajax=True)}}
 {{end}}
 
 {{block left_sidebar}}
 {{include 'content/events_left_sidebar.load'}}
-{{pass}}
+{{end}}
