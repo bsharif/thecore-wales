@@ -1,9 +1,16 @@
 {{from gluon.tools import prettydate}}
-
-{{left_sidebar_enabled=True}}
 {{right_sidebar_enabled=True}}
-
+{{left_sidebar_enabled=True}}
 {{extend 'layout.html'}}
+
+{{block left_sidebar}}
+LEFT
+{{end}}
+
+{{block right_sidebar}}
+RIGHT
+{{end}}
+
 {{def get_user_name(user_id):
     user_record = db(db.auth_user.id==user_id).select().first()
     first_name = user_record.first_name
@@ -44,7 +51,6 @@
                 </h4>
         </div>
     </div>  <hr>
-{{pass}}
 
 <h3>Comments</h3>
 {{=A('Post Comment',_href=URL('post_comment',args=[blog_post_record.id]),_class="btn btn-primary")}}<br><br>
@@ -62,15 +68,14 @@
 </div>
 <hr>
 </div>
-{{pass}}
-</div>
 
 {{pass}}
-<br><br>
+{{pass}}
+
+
 
 {{block left_sidebar}}
 {{=LOAD('blog','blog_sidebar.load',ajax=True)}}
-
 {{end}}
 
 {{block right_sidebar}}
