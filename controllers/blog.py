@@ -82,6 +82,7 @@ def post_comment():
         redirect(URL('view',args=[blog_post_id]))
     
     return locals()
+    
 def get_users_list():
     all_posts = db(db.blog_posts).select(db.blog_posts.created_by)
     user_list = []

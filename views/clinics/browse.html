@@ -1,0 +1,62 @@
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+<h1>Browse Sessions</h1>
+
+<div class="row">
+
+  <div class="col-md-12">
+           <h4>
+      Choose hospital:
+      </h4> <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        {{=current_hospital}}<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+
+        <li>{{=A('ALL',_href=URL('browse',args=['ALL']))}}</li>
+        <li class="divider"></li>
+        {{for hospital in hospitals_list:}}
+          <li>
+              {{=A(hospital,_href=URL('browse',args=[hospital]))}}
+
+          </li>
+        {{pass}}
+      </ul>
+    </div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-8">
+{{=grid}}
+
+</div>
+</div>
+
+
+
+
+
+
+<script>
+//     initialise the data table
+//     setting responsive to true allows it to adapt to viewport size
+    $(document).ready( function () {
+        $('#data_table').DataTable( {
+            responsive: true,
+            scrollX: true,
+            scrollY: 500,
+            "lengthMenu": [ 10, 25, 50, 100 ],
+            "order": [ 2, 'asc' ],
+//             TODO fix ordering disabler if not displaying holpital column
+//             "columnDefs": [
+//                             { "orderable": false, "targets": [4,5] }
+//                           ]
+
+
+         });
+    } );
+</script>
+
+{{block left_sidebar}}
+{{=LOAD('clinics','clinics_sidebar.load',ajax=True)}}
+{{end}}

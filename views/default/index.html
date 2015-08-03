@@ -12,6 +12,7 @@
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
               </ol>
 
               <!-- Wrapper for slides -->
@@ -26,7 +27,7 @@
                     </a>
                 </div>
                 <div class="item">
-                    <a href="http://thecore.wales/">
+                    <a href="http://thecore.wales/clinics/">
 
                       {{=IMG(_src=URL('static','images/nature1.jpg'),_class="img-responsive center-block")}}
                       <div class="carousel-caption">
@@ -40,20 +41,32 @@
 
                       {{=IMG(_src=URL('static','images/nature3.jpg'),_class="img-responsive center-block")}}
                       <div class="carousel-caption">
-                        <h1>CMT Advice</h1>
-                        <p class="surround-text">Get all the info you need about CMT in Wales</p>
+                        <h1>Behind the Headlines</h1>
+                        <!-- <p class="surround-text"></p> -->
                       </div>
                     </a>
                 </div>
                 <div class="item">
-                    <a href="http://thecore.wales/blog/view/{{=recent_ecg.id}}">
+                    <a href="http://thecore.wales/content/events">
                       
-                      {{=IMG(_src=URL('static','images/ecg_carousel.jpg'),_class="img-responsive center-block")}}
+                      {{=IMG(_src=URL('static','images/nature5.jpg'),_class="img-responsive center-block")}}
                       <div class="carousel-caption">
-                        <h1>ECG of the Week</h1>
-                        <p class="surround-text">Discuss and contribute</p>
+                        <h1>Events</h1>
+                        <p class="surround-text">Find events related to CMT</p>
                       </div>
                     </a>
+                </div>
+                
+                <div class="item">
+                      <a href="http://thecore.wales/blog/view/{{=recent_ecg.id}}">
+                        
+                        {{=IMG(_src=URL('static','images/ecg_carousel.jpg'),_class="img-responsive center-block")}}
+                        <div class="carousel-caption">
+                          <h1>ECG of the Week</h1>
+                          <p class="surround-text">Discuss and contribute</p>
+                        </div>
+                      </a>
+                  </div>
                 </div>
               </div>
 
