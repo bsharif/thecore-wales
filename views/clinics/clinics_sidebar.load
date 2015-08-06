@@ -1,9 +1,19 @@
 <h1>Book Clinics</h1>
 
-<p>Sidebar Text</p><br>
-<p>Sidebar Text</p><br>
-<p>Sidebar Text</p><br>
-<p>Sidebar Text</p><br>
-<p>Sidebar Text</p><br>
-<p>Sidebar Text</p><br>
-<p>Sidebar Text</p><br>
+{{if request.function == "my_sessions":}}
+<ul class="nav nav-pills nav-stacked">
+  {{=LI(A('Home',_href=URL('default','index',extension=False)))}}
+  {{=LI(A('Browse Sessions',_href=URL('clinics','browse',extension=False)))}}
+  {{=LI(A('My Sessions',_href=URL('clinics','my_sessions',extension=False)),_class="active")}}
+</ul>
+
+{{pass}}
+
+
+
+<!-- <ul class="nav nav-pills nav-stacked">
+  {{=LI(A('Home',_href=URL('default','index',extension=False)))}}
+  {{=LI(A('Browse Sessions',_href=URL('clinics','browse',extension=False),_class="active"))}}
+  {{=LI(A('My Sessions',_href=URL('clinics','my_sessions',extension=False)))}}
+</ul> -->
+

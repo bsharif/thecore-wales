@@ -18,7 +18,9 @@ db.define_table('sessions',
                 Field('hospital','reference hospitals'), #default is set in the function that creates the form - eg. new_session()
                 Field('session_type','reference session_types'), 
 
-                Field('session_lead','reference auth_user', default=auth.user_id),
+                Field('session_lead','reference auth_user', default=auth.user_id,readable=False,writable=False),
+                Field('session_lead_name','string'),
+                Field('session_lead_email','string',requires=IS_EMAIL(error_message="Invalid email address")),
                 #author field has been superseded by auth.signature (much more versatile and automatic)
                 #Field('author','reference auth_user', default=auth.user_id,writable=False,readable=False),   #need to make add this in production >> readable=False, writable=False
                 Field('title','string'),                    #apparently its good practice to define a length for string fields, maybe at production time?
@@ -47,13 +49,10 @@ restrict_lead_query = ((db.auth_user.id == db.auth_membership.user_id)&
 db.sessions.session_lead.requires=IS_IN_DB(db(restrict_lead_query), db.auth_user.id, '%(first_name)s %(last_name)s (%(email)s)')
 
 db.sessions.title.requires = IS_NOT_EMPTY()
-# db.sessions.description.requires
-# db.sessions.session_location.requires
+
 db.sessions.start_datetime.requires = IS_DATETIME(format=T('%d-%m-%y %H:%M'),error_message='Must be dd-mm-yy HH:MM')
 db.sessions.duration.requires = IS_INT_IN_RANGE(5,500,error_message="Enter a time between 5 and 500 minutes")
 db.sessions.max_attendees.requires = IS_NOT_EMPTY() 
-# db.sessions.current_attendees.requires
-# db.sessions.attendee_ids.requires
 
 
 

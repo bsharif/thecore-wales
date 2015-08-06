@@ -59,9 +59,9 @@ response.menu+=make_menu(level1_records,level2_records,level3_records)
 if auth.has_membership('hospital') or auth.has_membership('administrator') or auth.has_membership('session_lead'):
     response.menu += [
     (T('ADMIN SECTION'), False, URL('#'), [
-      (T('New Single Session'), False, URL('default', 'new_session'), []),
-      (T('New Repeating Session'), False, URL('default', 'new_repeating_session'), []),
-      (T('Admin Page'), False, URL('default', 'admin_page'), []),    
+      (T('New Single Session'), False, URL('clinics', 'new_session'), []),
+      (T('New Repeating Session'), False, URL('clinics', 'new_repeating_session'), []),
+      (T('Admin Page'), False, URL('clinics', 'admin_page'), []),    
       
       ]),
     
