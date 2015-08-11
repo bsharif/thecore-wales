@@ -21,8 +21,28 @@
 	background: #222;
 	/*text-transform: uppercase;*/
 	opacity: 0.7;
+    /*font-size: 20px;        */
+
 }
 
+.carousel-heading{
+    /*font-size: 80px;*/
+}
+
+
+/*.carousel-control.left, 
+.carousel-control.right {
+    background-image: none;
+    width: 5%;
+    height: 50%;
+    color:#000;
+
+}*/
+
+div.index-bottom{
+    margin-left: 25px;
+    margin-right: 25px;
+}
 #main_page_content > hr {
     border: 0;
     height: 2px;
@@ -30,6 +50,7 @@
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 
 }
+
 
 body {
     padding-top:70px;

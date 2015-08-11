@@ -45,6 +45,11 @@ db.define_table('events',
 	auth.signature
 	)
 
-
+db.define_table('notices',
+	Field('title','string',requires=IS_NOT_EMPTY()),
+	Field('description','text',requires=IS_NOT_EMPTY(),widget=ckeditor.widget),
+	Field('is_public','boolean',default=True, readable=False, writable=False),
+	auth.signature
+	)
 
 

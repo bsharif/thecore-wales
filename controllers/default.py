@@ -20,10 +20,10 @@ def index():
     recent_ecg = db(db.blog_posts.category==2).select(orderby=db.blog_posts.created_on).first()
     return locals()
 
-def test():
+def carousel():
     
+    recent_ecg = db(db.blog_posts.category==2).select(orderby=db.blog_posts.created_on).first()
     return locals()
-
 
 @auth.requires(lambda: auth.has_membership('session_lead') or auth.has_membership('undergrad'))
 def new_session():

@@ -1,0 +1,11 @@
+<h1>Notices</h1>
+{{for notice in notices:}}
+
+<hr>
+<div class="well">
+<h4>{{=notice.title}}</h4>
+<p>{{=XML(notice.description)}}</p>
+</div>
+
+
+{{pass}}

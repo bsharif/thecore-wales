@@ -80,6 +80,7 @@ def view_event():
 		if auth.has_membership('administrator'):
 			advanced_options=True
 	return locals()
+
 @auth.requires_membership('administrator')
 def edit_event():
 	event_id = request.args(0)
@@ -202,5 +203,10 @@ def new_link():
 		response.flash = "New Link Added"
 		redirect(URL('new_page'))
 		session.new_page = None
+
+	return locals()
+
+def noticeboard():
+	notices = db(db.notices).select(orderby='<random>')
 
 	return locals()
