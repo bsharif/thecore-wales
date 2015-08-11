@@ -30,14 +30,14 @@
 }
 
 
-/*.carousel-control.left, 
+.carousel-control.left, 
 .carousel-control.right {
     background-image: none;
-    width: 5%;
-    height: 50%;
+   /* width: 5%;
+    height: 50%;*/
     color:#000;
 
-}*/
+}
 
 div.index-bottom{
     margin-left: 25px;
