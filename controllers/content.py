@@ -208,5 +208,23 @@ def new_link():
 
 def noticeboard():
 	notices = db(db.notices).select(orderby='<random>')
+	advanced_options=False
+	ecg_poster=False
+	if auth:
+		user_id = auth.user_id
+		if auth.has_membership('administrator'):
+			advanced_options=True
+		if auth.has_membership('ecg_poster'):
+			ecg_poster=True
+	return locals()
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster'))
+def add_notice():
+	form = SQLFORM(db.notices)
+	if form.process().accepted:
+		response.flash = "Added Notice"
+		# session.new_page_title = form.vars.title
+		# session.new_page_id = form.vars.id
+
+		redirect(URL('default','index'))
 	return locals()

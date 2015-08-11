@@ -1,4 +1,10 @@
 <h1>Notices</h1>
+{{if advanced_options or ecg_poster:}}
+            <div id="advanced_options">
+                {{=A('New Notice',_href=URL('content','add_notice',extension=False),_class="btn btn-primary")}}
+        </div>
+{{pass}}			
+
 {{for notice in notices:}}
 
 <hr>
