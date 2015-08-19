@@ -18,14 +18,7 @@ import requests
 
 def index():
     recent_ecg = db(db.blog_posts.category==2).select(orderby=db.blog_posts.created_on).first()
-    advanced_options=False
-    ecg_poster=False
-    if auth:
-        user_id = auth.user_id
-        if auth.has_membership('administrator'):
-            advanced_options=True
-        if auth.has_membership('ecg_poster'):
-            ecg_poster=True
+
     return locals()
 
 def carousel():

@@ -1,3 +1,4 @@
+{{left_sidebar_enabled=True}}
 {{extend 'layout.html'}}
     
 
@@ -20,7 +21,7 @@
       </div>
 </div>
 
-<h3>
+<!-- <h3>
     Managed Sessions
 </h3>
 <div id="managed_sessions" class="panel panel-default">
@@ -37,12 +38,15 @@
     {{=authored_sessions}}
   </div>
 </div>
+ -->
+
+
 <script>
     $(document).ready( function () {
         $('#data_table_upcoming').DataTable( {
             responsive: true,
             scrollX: true,
-            scrollY: 250,
+            // scrollY: 500,
             searching:false,
             paging:false,
             "order": [ 3, 'asc' ],
@@ -53,11 +57,12 @@
 
          });
     } );
+
     $(document).ready( function () {
         $('#data_table_previous').DataTable( {
             responsive: true,
             scrollX: true,
-            scrollY: 250,
+            // scrollY: 500,
             searching:false,
             paging:false,
             "order": [ 3, 'asc' ],
@@ -68,34 +73,47 @@
 
          });
     } );
-    $(document).ready( function () {
-        $('#data_table_leader').DataTable( {
-            responsive: true,
-            scrollX: true,
-            scrollY: 250,
-            searching:false,
-            paging:false,
-            "order": [ 3, 'asc' ],
-            "columnDefs": [
-                            { "orderable": false, "targets": [5,6,7,8,9] }
-                          ]
+    // $(document).ready( function () {
+    //     $('#data_table_leader').DataTable( {
+    //         responsive: true,
+    //         scrollX: true,
+    //         scrollY: 250,
+    //         searching:false,
+    //         paging:false,
+    //         "order": [ 3, 'asc' ],
+    //         "columnDefs": [
+    //                         { "orderable": false, "targets": [5,6,7,8,9] }
+    //                       ]
 
 
-         });
-    } );
-    $(document).ready( function () {
-        $('#data_table_authored').DataTable( {
-            responsive: true,
-            scrollX: true,
-            scrollY: 250,
-            searching:false,
-            paging:false,
-            "order": [ 3, 'asc' ],
-            "columnDefs": [
-                            { "orderable": false, "targets": [5,6,7,8,9] }
-                          ]
+    //      });
+    // } );
+    // $(document).ready( function () {
+    //     $('#data_table_authored').DataTable( {
+    //         responsive: true,
+    //         scrollX: true,
+    //         scrollY: 250,
+    //         searching:false,
+    //         paging:false,
+    //         "order": [ 3, 'asc' ],
+    //         "columnDefs": [
+    //                         { "orderable": false, "targets": [5,6,7,8,9] }
+    //                       ]
 
 
-         });
-    } );
+    //      });
+    // } );
 </script>
+
+
+{{block left_sidebar}}
+<h1>Clinic Sessions</h1>
+<ul class="nav nav-pills nav-stacked">
+
+    {{=LI(A('Home',_href=URL('default','index'),))}}
+    {{=LI(A('Browse Sessions',_href=URL('browse'),))}}
+    {{=LI(A('My Sessions',_href=URL('my_sessions')),_class="active")}}
+</ul>
+
+{{end}}
+

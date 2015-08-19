@@ -1,41 +1,56 @@
-{{left_sidebar_enabled=False}}
+{{left_sidebar_enabled=True}}
+{{right_sidebar_enabled=False}}
+
 {{extend 'layout.html'}}
+
 <h1>Browse Sessions</h1>
-
 <div class="row">
+     <h4> Choose hospital:</h4> 
+	
 
-  <div class="col-md-12">
-           <h4>
-      Choose hospital:
-      </h4> <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-        {{=current_hospital}}<span class="caret"></span>
+
+	<div class="dropdown">
+
+     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        
+
+        {{if current_hospital == 'ALL':}}
+                <span>ALL HOSPITALS</span>
+
+        {{else:}}
+                {{=hospitals_list[current_hospital]}}
+
+        {{pass}}<span class="caret"></span>
       </button>
       <ul class="dropdown-menu" role="menu">
 
-        <li>{{=A('ALL',_href=URL('browse',args=['ALL']))}}</li>
+        <li>{{=A('ALL HOSPITALS',_href=URL('browse',args=['ALL']))}}</li>
         <li class="divider"></li>
         {{for hospital in hospitals_list:}}
           <li>
-              {{=A(hospital,_href=URL('browse',args=[hospital]))}}
-
+              
+				{{=A(hospitals_list[hospital],_href=URL('browse',args=[hospital]))}}
           </li>
         {{pass}}
       </ul>
-    </div>
+      </div>
 </div>
-</div>
-
 <div class="row">
-<div class="col-md-12">
-{{=grid}}
-
-</div>
+	{{=grid}}
 </div>
 
 
 
+{{block left_sidebar}}
+<h1>Clinic Sessions</h1>
+<ul class="nav nav-pills nav-stacked">
 
+    {{=LI(A('Home',_href=URL('default','index'),))}}
+    {{=LI(A('Browse Sessions',_href=URL('browse'),),_class="active")}}
+    {{=LI(A('My Sessions',_href=URL('my_sessions'),_class=""))}}
+</ul>
 
+{{end}}
 
 <script>
 //     initialise the data table
@@ -56,7 +71,3 @@
          });
     } );
 </script>
-
-{{block left_sidebar}}
-{{=LOAD('clinics','clinics_sidebar.load',ajax=True)}}
-{{end}}

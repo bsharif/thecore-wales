@@ -35,7 +35,7 @@ def new_session():
     form = SQLFORM(db.sessions,
                    labels = {'duration':'Duration (minutes)'},
                    col3={'duration':'Please enter time in minutes'})
-
+    form.vars.session_lead = auth.user_id
     if form.process().accepted:
         response.flash = "Session Added"
         redirect(URL('my_sessions'))
@@ -75,7 +75,7 @@ def new_repeating_session():
         session.repeating_basic = {}
         session.repeating_basic['hospital'] = basic_form.vars.hospital
         session.repeating_basic['session_type'] = basic_form.vars.session_type
-        session.repeating_basic['session_lead'] = basic_form.vars.session_lead
+        session.repeating_basic['session_lead'] = auth.user_id
         session.repeating_basic['session_lead_name'] = basic_form.vars.session_lead_name
         session.repeating_basic['session_lead_email'] = basic_form.vars.session_lead_email
         session.repeating_basic['title'] = basic_form.vars.title
@@ -151,13 +151,12 @@ def view_session():
         session.flash = "No session ID provided"
         redirect(request.env.http_referer)
     session_record = db(db.sessions.id==session_id).select().first()
-    display_fields =['hospital','session_type','session_lead','title','description','session_location','start_datetime','duration','max_attendees','attendee_ids']
-    display_labels = {'duration':'Durations (mins)','max_attendees':'Maximum Attendees','attendee_ids':'Currently attending'}
+    display_fields =['hospital','session_type','session_lead_name','title','description','session_location','start_datetime','duration','max_attendees','attendee_ids']
+    display_labels = {'duration':'Durations (mins)','max_attendees':'Maximum Attendees','attendee_ids':'Currently attending','session_lead_name':'Session Lead'}
 
     advanced_options=False
     if auth:
-        user_id = auth.user_id
-        if (session_record.session_lead==user_id)or(session_record.created_by==user_id):
+        if session_record.created_by==auth.user_id:
             advanced_options=True
 
     form=SQLFORM(db.sessions, session_record,
@@ -212,9 +211,9 @@ def browse():
         display_name = default_hospital['hospital_name']
 
     hospital_rows = db(db.hospitals).select()
-    hospitals_list = []
+    hospitals_list = {}
     for row in hospital_rows:
-        hospitals_list.append(row.hospital_code)
+        hospitals_list[row.hospital_code] = row.hospital_name
 
     selected_hospital = request.args(0)
     if (not selected_hospital) and (auth.user):
@@ -276,7 +275,7 @@ def browse():
                         sortable=False,
                         csv=False,
                         user_signature=False,
-                        maxtextlengths={'sessions.hospital':50},
+                        maxtextlength=50,
                         links=[dict(header="Status",body=lambda row: status_label(row)),
                                dict(header="Details",body=lambda row: A('View',_class="btn btn-default",_href=URL('view_session',vars={"s_id":row.id}))),
                                dict(header="Sign Up",body=lambda row: sign_up_button(row))],
@@ -328,7 +327,7 @@ def sign_up():
             session_record.update_record(session_full=True)
 
         session.flash = "Thanks for signing up"
-        redirect(URL('my_sessions'))
+        redirect(URL('clinics','browse'))
     return locals()
 
 @auth.requires_login()
@@ -569,7 +568,7 @@ def my_sessions():
                                     csv=False,
                                     details=False,
                                     sortable=False,
-                                    maxtextlengths={'sessions.hospital' : 100,'sessions.title':100})
+                                    maxtextlength=50)
 
 
     #get old sessions
@@ -585,7 +584,7 @@ def my_sessions():
                                     csv=False,
                                     details=False,
                                     sortable=False,
-                                    maxtextlengths={'sessions.hospital' : 100,'sessions.title':100})
+                                    maxtextlength=50,)
 
 
     #get sessions that user authored
@@ -690,8 +689,39 @@ def admin_page():
         additional_links = None
     elif requested_page=="sessions":
         query = db.sessions
-        display_fields = (db.sessions.hospital,db.sessions.session_type,db.sessions.title,db.sessions.start_datetime,db.sessions.session_lead_name,db.sessions.session_full,db.sessions.current_attendees)
-        additional_links = None
+        additional_links=None
+        display_fields = (db.sessions.hospital,db.sessions.session_type,db.sessions.title,db.sessions.start_datetime,db.sessions.session_lead_name,db.sessions.session_full,db.sessions.current_attendees,db.sessions.session_active)
+        field_headers = {'sessions.start_datetime':"Start Date and Time"}
+
+        # def session_status(row):
+        #     if row.session_active == True:
+        #         return SPAN('Enabled',_class="label label-success")
+        #     elif row.session_active == False:
+        #         return SPAN('Disabled',_class="label label-danger")
+        # def button_options(row):
+        #     if row.session_active == True:
+        #         return A('Disable',_class="btn btn-danger",_href=URL('cancel_session',vars={"s_id":row.id}))
+        #     elif row.session_active == False:
+        #         return A('Enable',_class="btn btn-success",_href=URL('enable_session',vars={"s_id":row.id}))
+
+        # additional_links=[dict(header="Status",body=lambda row: session_status(row)),
+                    # dict(header="Details",body=lambda row: A('View',_class="btn btn-default",_href=URL('view_session',vars={"s_id":row.id}))),
+                    # dict(header="Edit",body=lambda row: A('Edit',_class="btn btn-info",_href=URL('edit_session',vars={"s_id":row.id}))),
+                    # dict(header="Print Report",body=lambda row: A('Print Report',_class="btn btn-info",_href=URL('print_session_report',vars={"s_id":row.id}))),
+                    # dict(header="Change Status",body=lambda row: button_options(row))]
+
+        # grid = SQLFORM.grid(db.sessions,
+        #                             fields=display_fields,
+        #                             links=additional_links,
+        #                             headers=field_headers,
+        #                             searchable=False,
+        #                             create=False,
+        #                             editable=False,
+        #                             deletable=False,
+        #                             csv=False,
+        #                             details=False,
+        #                             sortable=False,                                     
+        #                             maxtextlength=50,)
     elif requested_page=="session_types":
         query = db.session_types
         display_fields = (db.session_types.id, db.session_types.session_type)
@@ -710,21 +740,23 @@ def admin_page():
         query = db.auth_user
         display_fields = (db.auth_user.first_name,db.auth_user.last_name,db.auth_user.email,db.auth_user.default_hospital,db.auth_user.access_key)
         additional_links = [dict(header="Print Report",body=lambda row: A('Print Report',_class="btn btn-info",_href=URL('print_user_report',vars={"u_id":row.id})))]
+    
+
+    # if requested_page != "sessions":
     grid = SQLFORM.grid(query,
-                        searchable=False,
-                        create=True,
-                        editable=True,
-                        deletable=False,
-                        details=True,
-                        paginate=999,
-                        sortable=False,
-                        csv=False,
-                        user_signature=False,
-                        maxtextlength=30,
-                        fields=display_fields,
-                        links=additional_links
-#                         maxtextlengths={'sessions.hospital' : 100,'sessions.title':100}
-                       )
+                    searchable=False,
+                    create=True,
+                    editable=True,
+                    deletable=False,
+                    details=True,
+                    paginate=999,
+                    sortable=False,
+                    csv=False,
+                    user_signature=False,
+                    maxtextlength=30,
+                    fields=display_fields,
+                    links=additional_links,
+                   )
     if grid.element('table'): grid.element('table')['_id'] = 'data_table'
 
     return locals()
