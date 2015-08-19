@@ -17,7 +17,13 @@ import requests
 ##############################
 
 def index():
-    redirect(URL('browse'))
+    page_id=82    
+    page = db(db.static_pages.id==page_id).select().first()
+    advanced_options=False
+    if auth:
+        user_id = auth.user_id
+        if auth.has_membership('administrator'):
+            advanced_options=True
     return locals()
 
 def clinics_sidebar():

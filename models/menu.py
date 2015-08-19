@@ -28,6 +28,12 @@ response.google_analytics_id = None
 #########################################################################
 
 response.menu = [(T('Blog'), False, URL('blog', 'index'), [])]
+response.menu += [(T('Clinics'), False, URL('clinics', 'index'), [
+            (T('General Info'), False, URL('clinics', 'index'), []),
+            (T('Browse Clinics'), False, URL('clinics', 'browse'), []),
+            (T('My Sessions'), False, URL('clinics', 'my_sessions'), []),
+
+  ])]
 # response.menu += [(T('Clinics'), False, URL('clinics', 'browse'), [])]
 #Custom Menu Constructor
 def make_menu(records,sub_records,sub_sub_records):

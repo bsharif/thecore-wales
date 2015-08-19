@@ -18,7 +18,7 @@ db.define_table('sessions',
                 Field('hospital','reference hospitals'), #default is set in the function that creates the form - eg. new_session()
                 Field('session_type','reference session_types'), 
 
-                Field('session_lead','reference auth_user', default=auth.user_id,readable=False,writable=False),
+                Field('session_lead','reference auth_user', default=auth.user_id,readable=False, writable=False),
                 Field('session_lead_name','string'),
                 Field('session_lead_email','string',requires=IS_EMAIL(error_message="Invalid email address")),
                 #author field has been superseded by auth.signature (much more versatile and automatic)

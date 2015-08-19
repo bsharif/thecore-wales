@@ -1,0 +1,24 @@
+{{left_sidebar_enabled=True}}
+{{right_sidebar_enabled=False}}
+
+{{extend 'layout.html'}}
+
+<div class="row" id="main_page_content">
+{{=XML(page.page_content)}}
+</div>
+
+
+
+{{block left_sidebar}}
+{{include 'content/menu_links.html'}}
+
+<h1>Clinic Sessions</h1>
+<ul class="nav nav-pills nav-stacked">
+
+    {{=LI(A('Home',_href=URL('default','index')))}}
+    {{=LI(A('General Info',_href=URL('clinics','index')),_class="active")}}
+    {{=LI(A('Browse Sessions',_href=URL('browse'),))}}
+    {{=LI(A('My Sessions',_href=URL('my_sessions'),_class=""))}}
+</ul>
+
+{{end}}
