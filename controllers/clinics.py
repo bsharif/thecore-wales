@@ -331,27 +331,7 @@ def send_email(session_id):
 
 
 
-def send_email(session_id, user_id):
 
-    session_lead_name = "Dr Sharif"
-    trainee_name = "Dr Trainee"
-    session_datetime = "08/09/2015 - 0900"
-    trainee_email = "ben.sharif@live.com"
-    email_text = "<html> \
-    <h1>TheCore.Wales</h1> \
-    <h3>Sign Up Notification</h3> \
-    <p>Dear " + session_lead_name + "</p> \
-    <p>This email is to notify you that " + trainee_name + "has signed up to attend your clinic on the " + session_datetime + "</p> \
-    <p>If the trainee is not able to attend for any reason please could you notify them by either \
-    replying to this email or contacting them using the email address below:</p>" + trainee_email + "</html>"
-
-    mail_send = mail.send(to=['SharifBS@cardiff.ac.uk'],
-          subject='TestMail-TheCore',
-          # If reply_to is omitted, then mail.settings.sender is used
-          reply_to=trainee_email,
-          message=email_text)
-
-    return mail_send
 
 @auth.requires_login()
 def sign_up():
