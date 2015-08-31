@@ -11,12 +11,12 @@
     return full_name}}
 
 <div class="container-fluid">
-<h1>All Blog Posts</h1>
+<h1>All Posts in The Mess</h1>
 {{for post in all_posts:}}
     <div class="row">
         
             <div id="blog_title">
-                <h1>{{=A(post.title,_href=URL('view',args=[post.id]),_class="text-uppercase blog-title")}}</h1>
+                <h1>{{=A(post.title,_href=URL('view',args=[post.id]),_class="blog-title")}}</h1>
                 <h4>Posted by {{=EM(A(get_user_name(post.created_by),_href=URL('view_user',args=[post.created_by])))}} - {{=SPAN(prettydate(post.created_on,T))}}</h4>
             </div>
             <div id="blog_tags">

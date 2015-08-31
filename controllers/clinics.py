@@ -291,6 +291,45 @@ def browse():
     if grid.element('table'): grid.element('table')['_id'] = 'data_table' #giving an id to the grid container for datatables JS to know what to target
 
     return locals()
+    
+def send_email(session_id):
+    # session_id = 37
+    user_record = db(db.auth_user.id==auth.user_id).select().first()
+    session_record = db(db.sessions.id==session_id).select().first()
+
+    session_lead_name = session_record.session_lead_name
+    session_lead_email_address = session_record.session_lead_email
+    trainee_name = user_record.first_name + " " + user_record.last_name 
+    trainee_email = user_record.email
+    email_subject = "TheCore.Wales - Clinic Signup Notification"
+    email_html ="<html><h1>TheCore.Wales</h1> <p>Dear " + session_lead_name +",</p><p>This is an notification email from TheCore.Wales.</p><hr> \
+                    <p>A trainee has signed up to attend one of your clinic sessions. Details below:</p>  \
+                    <p>Session Title: " + str(session_record.title) + \
+                    "</p> <p>Session Date and Time: " + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) + \
+                    "</p> <p>Session Location: " + str(session_record.session_location) + \
+                    "</p> <p>Trainee Name: " + str(trainee_name) + \
+                    "</p> <p>Trainee Email: " + str(trainee_email) + \
+                    "</p> <p><a href='http://thecore.wales/clinics/view_session?s_id="+\
+                    str(session_id)+"'>Click here</a> to view this session's details online</p>" \
+                    "<p>NOTE: If for any reason this clinic is cancelled or you need to contact the trainee then you can reply to this message to contact the trainee directly.</p> \
+                    <p>Thanks,</p> <p>TheCore.Wales </p></html>"
+    # email_html = "<html><h1>TheCore.Wales</h1></html>"
+
+    
+    from gluon.tools import Mail
+    mail = Mail()
+    mail.settings.server = 'smtp.gmail.com'
+    mail.settings.sender = 'thecorewales.mail@gmail.com'
+    mail.settings.login = 'thecorewales.mail@gmail.com:ionTrate'
+    sent_email = mail.send(to=[session_lead_email_address],
+          subject=email_subject,
+          # If reply_to is omitted, then mail.settings.sender is used
+          reply_to=trainee_email,
+          message=email_html)
+
+    return locals()
+
+
 
 @auth.requires_login()
 def sign_up():
@@ -332,6 +371,8 @@ def sign_up():
         if number_of_attendees == session_record.max_attendees:
             session_record.update_record(session_full=True)
 
+        #send email
+        email_success = send_email(session_id)
         session.flash = "Thanks for signing up"
         redirect(URL('clinics','browse'))
     return locals()
@@ -776,34 +817,6 @@ def check_if_owner(session_id, user_id):
     else:
         return False
     
-    
-def send_email(user_id, subject, session_id, message):
-
-    #first check if user wants to recieve updates
-    user_record = db(db.auth_user.id==user_id).select().first()
-    session_record = db(db.sessions.id==session_id).select().first()
-    result = 999
-    if user_record.email_notifications:
-        email_name = get_name_by_id(user_id)
-        email_address = user_record.email
-        email_subject = subject
-        email_message = message
-        message_text= "Medboard.co.uk \n Hello this is an email from Medboard.co.uk. \n Please see the the message below: \n" + str(message) + "\n This message is related to the following session: \n Session title: " + str(session_record.title) + "\n Session Date: \n" + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) 
-        message_html = "<h1>Medboard.co.uk</h1> <p>Hello. This is an email from Medboard.co.uk. Please see the message below: </p> <hr> <h3>" + email_message + "</h3> <hr> <p>This message is related to the following session:</p> <p>Session Title: " + str(session_record.title) + "</p> <p>Session Date and Time: " + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) + "</p> <p><a href='http://nhshd15.pythonanywhere.com/medboard/default/view_session?s_id="+str(session_id)+"'>Click here</a> to view this session's details</p> <p><a href='http://nhshd15.pythonanywhere.com/medboard/default/my_sessions'>Click here</a> to view all your sessions. </p> "
-
-        send_email = requests.post(
-            "https://api.mailgun.net/v3/medboard.co.uk/messages",
-            auth=("api", "key-bb2f721881bfc7b739162a54a291f281"),
-            data={"from": "Medboard.co.uk <medboard.mail@gmail.com>",
-                  "to": email_name + "<" + email_address + ">",
-                  "subject": "Session Updated",
-                  "text": message_text,
-                  "html": message_html})
-    
-        if send_email.status_code == 200:
-            result = send_email.status_code
-        
-    return result
 
 
 def get_default_hospital(hosp_id):

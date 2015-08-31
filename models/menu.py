@@ -27,7 +27,7 @@ response.google_analytics_id = None
 ## this is the main application menu add/remove items as required
 #########################################################################
 
-response.menu = [(T('Blog'), False, URL('blog', 'index'), [])]
+response.menu = [(T('The Mess'), False, URL('blog', 'index'), [])]
 response.menu += [(T('Clinics'), False, URL('clinics', 'index'), [
             (T('General Info'), False, URL('clinics', 'index'), []),
             (T('Browse Clinics'), False, URL('clinics', 'browse'), []),

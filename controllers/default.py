@@ -21,6 +21,19 @@ def index():
 
     return locals()
 
+def test():
+    # from gluon.tools import Mail
+    # mail = Mail()
+    # mail.settings.server = 'smtp.gmail.com'
+    # mail.settings.sender = 'thecorewales.mail@gmail.com'
+    # mail.settings.login = 'thecorewales.mail@gmail.com:ionTrate'
+    # sent_email = mail.send(to=['SharifBS@cardiff.ac.uk'],
+    #       subject='hello - from localhost',
+    #       # If reply_to is omitted, then mail.settings.sender is used
+    #       reply_to='ben.sharif@live.com',
+    #       message='hi there localhost')
+
+    return locals()
 def carousel():
     
     recent_ecg = db(db.blog_posts.category==2).select(orderby=db.blog_posts.created_on).first()
