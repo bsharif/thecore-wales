@@ -393,15 +393,9 @@ def sign_up():
         if number_of_attendees == session_record.max_attendees:
             session_record.update_record(session_full=True)
 
-<<<<<<< HEAD
         #send email
         email_success = send_email(session_id)
-        session.flash = "Thanks for signing up"
-=======
-        #send an email to notify session lead
-        send_email(session_id, user_id)
         session.flash = "Thanks for signing up. The session lead has been sent an email notifying them of your attendence"
->>>>>>> f6f421649024a22e6acd0d15a4593939cdd4ef8b
         redirect(URL('clinics','browse'))
     return locals()
 
@@ -842,37 +836,7 @@ def check_if_owner(session_id, user_id):
     else:
         return False
     
-<<<<<<< HEAD
-=======
 
-# def send_email(user_id, subject, session_id, message):
-
-#     #first check if user wants to recieve updates
-#     user_record = db(db.auth_user.id==user_id).select().first()
-#     session_record = db(db.sessions.id==session_id).select().first()
-#     result = 999
-#     if user_record.email_notifications:
-#         email_name = get_name_by_id(user_id)
-#         email_address = user_record.email
-#         email_subject = subject
-#         email_message = message
-#         message_text= "Medboard.co.uk \n Hello this is an email from Medboard.co.uk. \n Please see the the message below: \n" + str(message) + "\n This message is related to the following session: \n Session title: " + str(session_record.title) + "\n Session Date: \n" + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) 
-#         message_html = "<h1>Medboard.co.uk</h1> <p>Hello. This is an email from Medboard.co.uk. Please see the message below: </p> <hr> <h3>" + email_message + "</h3> <hr> <p>This message is related to the following session:</p> <p>Session Title: " + str(session_record.title) + "</p> <p>Session Date and Time: " + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) + "</p> <p><a href='http://nhshd15.pythonanywhere.com/medboard/default/view_session?s_id="+str(session_id)+"'>Click here</a> to view this session's details</p> <p><a href='http://nhshd15.pythonanywhere.com/medboard/default/my_sessions'>Click here</a> to view all your sessions. </p> "
-
-#         send_email = requests.post(
-#             "https://api.mailgun.net/v3/medboard.co.uk/messages",
-#             auth=("api", "key-bb2f721881bfc7b739162a54a291f281"),
-#             data={"from": "Medboard.co.uk <medboard.mail@gmail.com>",
-#                   "to": email_name + "<" + email_address + ">",
-#                   "subject": "Session Updated",
-#                   "text": message_text,
-#                   "html": message_html})
-    
-#         if send_email.status_code == 200:
-#             result = send_email.status_code
-        
-#     return result
->>>>>>> f6f421649024a22e6acd0d15a4593939cdd4ef8b
 
 
 def get_default_hospital(hosp_id):
