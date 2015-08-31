@@ -100,8 +100,8 @@ mail = auth.settings.mailer
 # mail.settings.login = myconf.take('smtp.login')
 #>>>>>>email settings
 mail.settings.server = 'smtp.gmail.com:465' 
-mail.settings.sender = 'medboard.mail@gmail.com'         # your email
-mail.settings.login = 'medboard.mail@gmail.com:nhs15hack!'      # your credentials or None
+mail.settings.sender = 'thecorewales.mail@gmail.com'         # your email
+mail.settings.login = 'thecorewales.mail@gmail.com:ionTrate'      # your credentials or None
 
 
 ## configure auth policy

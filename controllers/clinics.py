@@ -200,9 +200,9 @@ def edit_session():
 
     form=SQLFORM(db.sessions, session_record, showid=False)
     if form.process().accepted:
-            for user_id in session_record.attendee_ids:
+            # for user_id in session_record.attendee_ids:
                 #TODO test email function on 'modified_by'
-                email_updates = send_email(user_id, "Medboard: Session Updated", session_id, "Session Details Updated")
+                # email_updates = send_email(user_id, "Medboard: Session Updated", session_id, "Session Details Updated")
             session.flash = "Session Updated"
             redirect(URL('my_sessions'))
     return locals()
@@ -331,6 +331,28 @@ def send_email(session_id):
 
 
 
+def send_email(session_id, user_id):
+
+    session_lead_name = "Dr Sharif"
+    trainee_name = "Dr Trainee"
+    session_datetime = "08/09/2015 - 0900"
+    trainee_email = "ben.sharif@live.com"
+    email_text = "<html> \
+    <h1>TheCore.Wales</h1> \
+    <h3>Sign Up Notification</h3> \
+    <p>Dear " + session_lead_name + "</p> \
+    <p>This email is to notify you that " + trainee_name + "has signed up to attend your clinic on the " + session_datetime + "</p> \
+    <p>If the trainee is not able to attend for any reason please could you notify them by either \
+    replying to this email or contacting them using the email address below:</p>" + trainee_email + "</html>"
+
+    mail_send = mail.send(to=['SharifBS@cardiff.ac.uk'],
+          subject='TestMail-TheCore',
+          # If reply_to is omitted, then mail.settings.sender is used
+          reply_to=trainee_email,
+          message=email_text)
+
+    return mail_send
+
 @auth.requires_login()
 def sign_up():
     session_id = request.vars.s_id
@@ -371,9 +393,15 @@ def sign_up():
         if number_of_attendees == session_record.max_attendees:
             session_record.update_record(session_full=True)
 
+<<<<<<< HEAD
         #send email
         email_success = send_email(session_id)
         session.flash = "Thanks for signing up"
+=======
+        #send an email to notify session lead
+        send_email(session_id, user_id)
+        session.flash = "Thanks for signing up. The session lead has been sent an email notifying them of your attendence"
+>>>>>>> f6f421649024a22e6acd0d15a4593939cdd4ef8b
         redirect(URL('clinics','browse'))
     return locals()
 
@@ -414,17 +442,14 @@ def quit_session():
         session.flash = "No session ID provided"
         redirect(request.env.http_referer)
 
-    if session_record.repeating:
-        redirect(URL('quit_repeating_session',vars={"s_id":session_id}))
+    removal_status = remove_from_session(session_id, user_id)
+    if removal_status == "Removed":
+        session.flash = "You have been removed from the session"
+    elif removal_status == "NotInList":
+        session.flash = "You are not listed as being signed up to this session."
     else:
-        removal_status = remove_from_session(session_id, user_id)
-        if removal_status == "Removed":
-            session.flash = "You have been removed from the session"
-        elif removal_status == "NotInList":
-            session.flash = "You are not listed as being signed up to this session."
-        else:
-            session.flash = "Error. You have not been removed from the session"
-        redirect(URL('my_sessions'))
+        session.flash = "Error. You have not been removed from the session"
+    redirect(URL('my_sessions'))
 
     return locals()
 
@@ -817,6 +842,37 @@ def check_if_owner(session_id, user_id):
     else:
         return False
     
+<<<<<<< HEAD
+=======
+
+# def send_email(user_id, subject, session_id, message):
+
+#     #first check if user wants to recieve updates
+#     user_record = db(db.auth_user.id==user_id).select().first()
+#     session_record = db(db.sessions.id==session_id).select().first()
+#     result = 999
+#     if user_record.email_notifications:
+#         email_name = get_name_by_id(user_id)
+#         email_address = user_record.email
+#         email_subject = subject
+#         email_message = message
+#         message_text= "Medboard.co.uk \n Hello this is an email from Medboard.co.uk. \n Please see the the message below: \n" + str(message) + "\n This message is related to the following session: \n Session title: " + str(session_record.title) + "\n Session Date: \n" + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) 
+#         message_html = "<h1>Medboard.co.uk</h1> <p>Hello. This is an email from Medboard.co.uk. Please see the message below: </p> <hr> <h3>" + email_message + "</h3> <hr> <p>This message is related to the following session:</p> <p>Session Title: " + str(session_record.title) + "</p> <p>Session Date and Time: " + str(session_record.start_datetime.strftime('%d-%m-%Y %H:%M')) + "</p> <p><a href='http://nhshd15.pythonanywhere.com/medboard/default/view_session?s_id="+str(session_id)+"'>Click here</a> to view this session's details</p> <p><a href='http://nhshd15.pythonanywhere.com/medboard/default/my_sessions'>Click here</a> to view all your sessions. </p> "
+
+#         send_email = requests.post(
+#             "https://api.mailgun.net/v3/medboard.co.uk/messages",
+#             auth=("api", "key-bb2f721881bfc7b739162a54a291f281"),
+#             data={"from": "Medboard.co.uk <medboard.mail@gmail.com>",
+#                   "to": email_name + "<" + email_address + ">",
+#                   "subject": "Session Updated",
+#                   "text": message_text,
+#                   "html": message_html})
+    
+#         if send_email.status_code == 200:
+#             result = send_email.status_code
+        
+#     return result
+>>>>>>> f6f421649024a22e6acd0d15a4593939cdd4ef8b
 
 
 def get_default_hospital(hosp_id):
