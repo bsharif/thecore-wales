@@ -26,9 +26,11 @@ db.define_table('menu_links',
 	Field('hierarchy_position','integer',requires=IS_IN_SET(['1','2','3'])),
 	Field('link_position','integer'),
 	Field('parent_link','reference menu_links'),
+	Field('is_special','boolean',default=False),
 	auth.signature,
 	format='%(title)s - %(id)s'
 	)
+
 
 db.menu_links.parent_link.requires=IS_EMPTY_OR(IS_IN_DB(db,db.menu_links.id,'%(title)s - %(id)s'))
 

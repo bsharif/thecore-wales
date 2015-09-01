@@ -108,6 +108,14 @@ def page():
 
 	#get page content
 	page_id=request.args(0)
+
+	#some manual redirects, really poor practice but need to find a better way to do this
+	#THE MESS redirect
+	if page_id == '83':
+		redirect(URL('blog','index'))
+	elif page_id == '69':
+		redirect(URL('clinics','index'))
+
 	page = db(db.static_pages.id==page_id).select().first()
 	
 	#check if page is a public page and if user has appropriate access
