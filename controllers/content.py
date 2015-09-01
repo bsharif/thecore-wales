@@ -113,8 +113,10 @@ def page():
 	#THE MESS redirect
 	if page_id == '83':
 		redirect(URL('blog','index'))
-	elif page_id == '69':
-		redirect(URL('clinics','index'))
+	elif (page_id == '69') or (page_id == '71'):
+		redirect(URL('clinics','browse'))
+	elif page_id == '85':
+		redirect(URL('clinics','my_sessions'))
 
 	page = db(db.static_pages.id==page_id).select().first()
 	
