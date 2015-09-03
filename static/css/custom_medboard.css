@@ -32,7 +32,7 @@
 
 .carousel-control.left, 
 .carousel-control.right {
-    background-image: none;
+    /*background-image: none;*/
    /* width: 5%;
     height: 50%;*/
     color:#000;
@@ -53,10 +53,15 @@ div.index-bottom{
 
 
 body {
-    padding-top:70px;
     background: url(/static/images/cream_dust.png) repeat 0 0;
 
 }
+
+body>div.container-fluid {
+    padding-top: 50px;
+}
+
+
 
 /*ul.nav.navbar-nav > li {
         font-size: 14px;
@@ -68,8 +73,8 @@ body {
     }
 
 ul.nav.navbar-nav > li > a{
-        font-size: 14px;
-        padding: 0px;
+        /*font-size: 14px;*/
+        /*padding: 0px;*/
         /*margin: 0 0 0 0;*/
     }*/
 /*fix for navbar collapsing too late*/

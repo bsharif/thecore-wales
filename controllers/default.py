@@ -21,6 +21,7 @@ def index():
 
     return locals()
 
+
 def test():
     # from gluon.tools import Mail
     # mail = Mail()
