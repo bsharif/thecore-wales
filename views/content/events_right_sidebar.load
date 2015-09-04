@@ -50,7 +50,7 @@ Advanced Options - Events
 	{{=A('More Info',_href=URL('events',args=[event.id],extension=False),_class="btn btn-default")}}
   </div>
 </div>
-<hr>
+
 
 
 {{pass}}

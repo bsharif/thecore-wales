@@ -28,7 +28,7 @@ RIGHT
 {{if blog_post_record:}}
     <div class="row">
         <div id="blog_title">
-            {{=H1(blog_post_record.title,_class="")}}
+            {{=H2(blog_post_record.title)}}
         </div>
         {{if advanced_options:}}
             <div id="advanced_options">
@@ -36,13 +36,15 @@ RIGHT
         </div>
         {{pass}}
         <div id="post_details">
-            <h4>Posted by {{=EM(A(user_name,_href=URL('view_user',args=[blog_post_record.created_by])))}} under {{=A(category_record.category_name,_href=URL('view_category',args=[category_record.id]))}} - {{=SPAN(prettydate(blog_post_record.created_on,T))}}</h4>
+            <h4>Posted by {{=A(user_name,_href=URL('view_user',args=[blog_post_record.created_by]))}} under {{=A(category_record.category_name,_href=URL('view_category',args=[category_record.id]))}} </h4>
+            <span class="glyphicon glyphicon-time"></span> {{=SPAN(prettydate(blog_post_record.created_on,T))}}
             
         </div>
         <hr>
        <div id="blog_content">
             {{=XML(blog_post_record.body)}}
         </div>
+        {{if blog_post_record.blog_tags:}}
         <div id="blog_tags">
             <br><h4>Tags:
                     {{for tag in blog_post_record.blog_tags:}}
@@ -50,6 +52,7 @@ RIGHT
                     {{pass}}
                 </h4>
         </div>
+        {{pass}}
     </div>  <hr>
 
 <h3>Comments</h3>

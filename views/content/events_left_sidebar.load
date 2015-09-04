@@ -1,5 +1,5 @@
 <br><br><ul class="nav nav-pills nav-stacked">
   {{=LI(A('Home',_href=URL('default','index',extension=False)))}}
-  {{=LI(A('Blog',_href=URL('blog','index',extension=False)))}}
+  {{=LI(A('The Mess',_href=URL('blog','index',extension=False)))}}
   {{=LI(A('Events',_href=URL('content','events',extension=False)),_class="active")}}
 </ul>
