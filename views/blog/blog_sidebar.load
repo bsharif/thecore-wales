@@ -1,8 +1,7 @@
+{{import random}}
 <div id="about_blog">
-        {{=H1(A('The Mess',_href=URL('blog','index',extension=False),_class="blog-title"))}}
-        <p class="lead">
-         
-        </p>
+        <h1>{{=A('The Mess',_href=URL('blog','index',extension=False),_class="blog-title")}}</h1>
+        
         
 </div>
 
@@ -21,23 +20,31 @@
         </div>
         {{pass}}
 <div id="navigation">
+<div class="well">
 <h3>Most recent post:</h3>
-<ul>
-{{=LI(A(most_recent_post['title'],_href=URL('view',args=[most_recent_post.id],extension=False)))}}
-</ul>
+{{=A(most_recent_post['title'],_href=URL('view',args=[most_recent_post.id],extension=False))}}
+</div>
+<div class="well">
 <h3>Categories</h3>
 <ul>
 {{for category in blog_categories:}}
 {{=LI(A(category.category_name,_href=URL('view_category',args=[category.id],extension=False)))}}
 {{pass}}
 </ul>
-<h3>Tags:</h3>
-{{for tag in blog_tags:}}
-{{=SPAN(A(tag.tagname,_href=URL('view_tag',args=[tag.id],extension=False),_class='label label-default'))}}
-{{pass}}
-<h3>Users:</h3>
-{{for user in users_list:}}
-{{=SPAN(A(users_list[user],_href=URL('view_user',args=[user],extension=False),_class='label label-primary'))}}
-{{pass}}
+</div> 
+<div class="well">
+<h3>Tags</h3>
 
+{{for tag in blog_tags:}}
+{{label_color=random.choice(styling_list)}}
+{{=SPAN(A(tag.tagname,_href=URL('view_tag',args=[tag.id],extension=False),_class=label_color))}}
+{{pass}}
+</div>
+<div class="well">
+<h3>Users</h3>
+{{for user in users_list:}}
+{{label_color=random.choice(styling_list)}}
+{{=SPAN(A(users_list[user],_href=URL('view_user',args=[user],extension=False),_class=label_color))}}
+{{pass}}
+</div>
 </div>

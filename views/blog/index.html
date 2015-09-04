@@ -11,20 +11,22 @@
     return full_name}}
 
 <div class="container-fluid">
-<h1>All Posts in The Mess</h1>
 {{for post in all_posts:}}
     <div class="row">
-        
+        <br>
             <div id="blog_title">
-                <h1>{{=A(post.title,_href=URL('view',args=[post.id]),_class="blog-title")}}</h1>
-                <h4>Posted by {{=EM(A(get_user_name(post.created_by),_href=URL('view_user',args=[post.created_by])))}} - {{=SPAN(prettydate(post.created_on,T))}}</h4>
+                <h2>{{=A(post.title,_href=URL('view',args=[post.id]),_class="")}}</h2>
+                <h4>Posted by {{=A(get_user_name(post.created_by),_href=URL('view_user',args=[post.created_by]))}}</h4>
+                <span class="glyphicon glyphicon-time"></span> {{=SPAN(prettydate(post.created_on,T))}}</h4>
             </div>
             <div id="blog_tags">
+                {{if post.blog_tags:}}
                 <h4>Tags:
                     {{for tag in post.blog_tags:}}
                         {{=SPAN(A(tag.tagname,_href=URL('view_category',args=[tag.id],extension=False),_class='label label-default'))}}
                     {{pass}}
                 </h4>
+                {{pass}}
             </div>
         
     </div>  <hr>

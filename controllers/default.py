@@ -18,6 +18,7 @@ import requests
 
 def index():
     recent_ecg = db(db.blog_posts.category==2).select(orderby=db.blog_posts.created_on).first()
+    styling_list = ['panel panel-default','panel panel-primary','panel panel-success','panel panel-info','panel panel-warning']
 
     return locals()
 

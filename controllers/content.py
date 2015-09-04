@@ -220,6 +220,8 @@ def noticeboard():
 	notices = db(db.notices).select(orderby='<random>')
 	advanced_options=False
 	ecg_poster=False
+	styling_list = ['panel panel-default','panel panel-primary','panel panel-success','panel panel-info','panel panel-warning']
+
 	if auth:
 		user_id = auth.user_id
 		if auth.has_membership('administrator'):

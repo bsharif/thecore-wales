@@ -101,6 +101,7 @@ def blog_sidebar():
     blog_categories = db(db.blog_categories).select()
     blog_tags = db(db.blog_tags).select()
     users_list = get_users_list()
+    styling_list = ['label label-default','label label-primary','label label-success','label label-info','label label-warning']
     advanced_options=False
     ecg_poster=False
     if auth:

@@ -1,6 +1,6 @@
 {{right_sidebar_enabled = False}}
 {{extend 'layout.html'}}
-
+{{import random}}
 {{block header}}
     <header id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -16,7 +16,7 @@
             <div class="carousel-inner" role="listbox">
               <div class="item active">
                   <a href="http://thecore.wales/">
-                    {{=IMG(_src=URL('static','images/cardiff_bay.jpg'),_class="center-block")}}
+                  {{=IMG(_src=URL('static','images/cardiff_bay.jpg'),_class="img-responsive center-block")}}
                     <div class="carousel-caption">
                       <h1 class="carousel-heading">The Core</h1>
                       <p><span class="surround-text">The Ultimate Online Resource for Core Medical Trainees in Wales</span></p>
@@ -80,7 +80,7 @@
       </header>
 {{end}}
       
-  
+
   <div class="index-bottom">
   <div class="row">
     <div class="col-md-1"></div>
@@ -88,23 +88,23 @@
         
           <div id="index_box2" class="row">
                 <h1>Get Started</h1><hr>
-                  <div class="panel panel-default">
+                  <div class="{{=random.choice(styling_list)}}">
+                    <div class="panel-heading">
+                    <h4 class="panel-title">
+                          {{=A('Register',_href=URL('user',args='register'))}}</h4>  
+                    </div>
                     <div class="panel-body" >
-                      <h4>
-                          {{=A('Register',_href=URL('user',args='register'))}}</h4>
-
-                          <hr>
                           {{=A('Register',_href=URL('user',args='register'))}} now to be able to sign up to sessions, manage existing ones and customise settings. 
                     </div>
                   </div>
           </div>
           <div id="index_box3" class="row">
                   <div class="panel panel-default">
-                    <div class="panel-body" >
-                      <h4>
+                    <div class="panel-heading">
+                    <h4 class="panel-title">
                           {{=A('About The Core',_href=URL('about'))}}</h4>
-
-                          <hr>
+                    </div>
+                    <div class="panel-body">
                           Find out {{=A('more',_href=URL('content','page',args=['40']))}} about The Core and how it works. <br><br>
                     </div>
                   </div>
