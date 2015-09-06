@@ -46,6 +46,15 @@
     }
 }
 /*----------------------------------------------------*/
+/*-----CAROUSEL MOBILE FIX------*/
+/*@media (max-width: 767px) {
+    .carousel-inner .item { 
+        display:block;
+        padding-bottom:10px;
+    }
+    
+}*/
+/*--------------------*/
 
 div.index-bottom{
     margin-left: 25px;
