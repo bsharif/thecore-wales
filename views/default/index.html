@@ -2,21 +2,21 @@
 {{extend 'layout.html'}}
 {{import random}}
 {{block header}}
-    <header id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <header id="carousel-thecore" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-              <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-              <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+              <li data-target="#carousel-thecore" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel-thecore" data-slide-to="1"></li>
+              <li data-target="#carousel-thecore" data-slide-to="2"></li>
+              <li data-target="#carousel-thecore" data-slide-to="3"></li>
+              <li data-target="#carousel-thecore" data-slide-to="4"></li>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
               <div class="item active">
                   <a href="http://thecore.wales/">
-                  {{=IMG(_src=URL('static','images/cardiff_bay.jpg'),_class="img-responsive center-block")}}
+                  {{=IMG(_src=URL('static','images/cardiff_bay_large.jpg'),_class="img-responsive center-block",_width="auto",_height="600")}}
                     <div class="carousel-caption">
                       <h1 class="carousel-heading">The Core</h1>
                       <p><span class="surround-text">The Ultimate Online Resource for Core Medical Trainees in Wales</span></p>
@@ -26,7 +26,7 @@
               <div class="item">
                   <a href="http://thecore.wales/clinics/">
 
-                    {{=IMG(_src=URL('static','images/nature1.jpg'),_class="img-responsive center-block")}}
+                    {{=IMG(_src=URL('static','images/clinic_w.jpg'),_class="img-responsive center-block",_width="auto",_height="600")}}                    
                     <div class="carousel-caption">
                       <h1>Book Clinics</h1>
                       <p><span class="surround-text">Struggling to attend clinics? Book now.</span></p>
@@ -36,7 +36,7 @@
               <div class="item">
                   <a href="http://thecore.wales/">
 
-                    {{=IMG(_src=URL('static','images/headlines.jpg'),_class="img-responsive center-block")}}
+                    {{=IMG(_src=URL('static','images/headlines.jpg'),_class="img-responsive center-block",_width="auto",_height="600")}}
                     <div class="carousel-caption">
                       <h1>Behind the Headlines</h1>
                       <p><span class="surround-text">The real evidence behind the news stories</span></p>
@@ -46,7 +46,7 @@
               <div class="item">
                   <a href="http://thecore.wales/content/events">
                     
-                    {{=IMG(_src=URL('static','images/nature5.jpg'),_class="img-responsive center-block")}}
+                    {{=IMG(_src=URL('static','images/rcp_events.jpg'),_class="img-responsive center-block",_width="auto",_height="600")}}
                     <div class="carousel-caption">
                       <h1>Events</h1>
                       <p><span class="surround-text">Find events related to CMT</span></p>
@@ -57,7 +57,7 @@
               <div class="item">
                     <a href="http://thecore.wales/blog/view/{{=recent_ecg.id}}">
                       
-                      {{=IMG(_src=URL('static','images/ecg_carousel.jpg'),_class="img-responsive center-block")}}
+                      {{=IMG(_src=URL('static','images/ecg_original_trim_c.jpg'),_class="img-responsive center-block",_width="auto",_height="600")}}
                       <div class="carousel-caption">
                         <h1>ECG of the Week</h1>
                         <p><span class="surround-text">Discuss and contribute</span></p>
@@ -68,11 +68,11 @@
             </div>
 
             <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <a class="left carousel-control" href="#carousel-thecore" role="button" data-slide="prev">
               <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <a class="right carousel-control" href="#carousel-thecore" role="button" data-slide="next">
               <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
@@ -117,13 +117,3 @@
       </div>
       </div>
   </div>
-<script type="text/javascript">
-//   $( document ).ready(function() {
-//     $('#carousel-example-generic').attr("data-interval","false");
-//     $('.carousel-control').hide();
-//     $('.carousel-inner .item').css('display','block');
-//     $('.carousel-inner .item').css('padding-bottom','10px');
-// });
-
-
-</script>
