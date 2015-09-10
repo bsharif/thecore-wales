@@ -49,13 +49,15 @@
 }
 /*----------------------------------------------------*/
 /*-----CAROUSEL MOBILE FIX------*/
-/*@media (max-width: 767px) {
+@media (max-width: 767px) {
     .carousel-inner .item { 
-        display:block;
-        padding-bottom:10px;
+        /*display:block;
+        padding-bottom:10px;*/
+        max-height: 200px;
+        min-height: 200px;
     }
     
-}*/
+}
 /*--------------------*/
 
 div.index-bottom{
