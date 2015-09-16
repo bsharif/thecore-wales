@@ -23,7 +23,7 @@ def index():
     return locals()
 
 
-def test():
+def test(): 
     # from gluon.tools import Mail
     # mail = Mail()
     # mail.settings.server = 'smtp.gmail.com'

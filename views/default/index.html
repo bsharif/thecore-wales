@@ -1,6 +1,5 @@
 {{right_sidebar_enabled = False}}
 {{extend 'layout.html'}}
-{{import random}}
 {{block header}}
     <header id="carousel-thecore" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -34,7 +33,7 @@
                   </a>
               </div>
               <div class="item">
-                  <a href="http://thecore.wales/">
+                  <a href="http://thecore.wales/blog/view_category/4">
 
                     {{=IMG(_src=URL('static','images/headlines.jpg'),_class="img-responsive center-block",_width="auto",_height="600")}}
                     <div class="carousel-caption">
@@ -88,7 +87,7 @@
         
           <div id="index_box2" class="row">
                 <h1>Get Started</h1><hr>
-                  <div class="{{=random.choice(styling_list)}}">
+                  <div class="panel panel-default">
                     <div class="panel-heading">
                     <h4 class="panel-title">
                           {{=A('Register',_href=URL('user',args='register'))}}</h4>  

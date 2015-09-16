@@ -1,4 +1,3 @@
-{{import random}}
 <h1>Notices</h1> <hr>
 {{if advanced_options or ecg_poster:}}
             <div id="advanced_options">
@@ -7,8 +6,7 @@
 {{pass}}			
 
 {{for notice in notices:}}
-{{label_color=random.choice(styling_list)}}
-<div class="{{=label_color}}">
+<div class="panel panel-default">
 <div class="panel-heading">
 	<h4 class="panel-title">{{=notice.title}}</h4>
 </div>
