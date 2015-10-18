@@ -8,6 +8,11 @@
 
 }*/
 
+li > a.dropdown-toggle {
+  padding-left: 2px;
+  /*padding-right: 15px;*/
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
@@ -64,7 +69,7 @@ div.index-bottom{
     margin-left: 25px;
     margin-right: 25px;
 }
-#main_page_content > hr {
+hr {
     border: 0;
     height: 2px;
     background: #333;
