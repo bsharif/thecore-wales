@@ -3,6 +3,7 @@
 import datetime
 from gluon.tools import prettydate
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def get_user_name(user_id):
     user_record = db(db.auth_user.id==user_id).select().first()
     first_name = user_record.first_name
@@ -10,13 +11,14 @@ def get_user_name(user_id):
     full_name = str(first_name +" " + last_name)
     return full_name
 
-
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def index():
     all_posts = db(db.blog_posts).select(orderby=~db.blog_posts.created_on)
     most_recent_post = db(db.blog_posts).select(orderby=~db.blog_posts.created_on).first()
     # session.most_recent_post = most_recent_post
     return locals()
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def view():
     post_id = int(request.args(0))
     blog_post_record = db(db.blog_posts.id==post_id).select().first()
@@ -33,6 +35,7 @@ def view():
     return locals()
 
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def view_user():
     user_id = int(request.args(0))
     user_name = get_user_name(user_id)
@@ -40,6 +43,7 @@ def view_user():
     all_posts = db(db.blog_posts.created_by==user_id).select(orderby=~db.blog_posts.created_on)
     return locals()
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def view_category():
     category_id = int(request.args(0))
     category_name = db(db.blog_categories.id==category_id).select().first()
@@ -47,6 +51,7 @@ def view_category():
 
     return locals()
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def view_tag():
     tag_id = int(request.args(0))
     tag_name = db(db.blog_tags.id==tag_id).select().first()
@@ -72,7 +77,7 @@ def new_tag():
         redirect(URL('blog','index'))
     return locals()
 
-@auth.requires_login()
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def post_comment():
     blog_post_id = request.args(0)
     form = SQLFORM(db.blog_comments,fields=['comment_body'])
@@ -96,6 +101,7 @@ def get_users_list():
         user_dict[user] = user_name
     return user_dict
 
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def blog_sidebar():
     most_recent_post = db(db.blog_posts).select(orderby=db.blog_posts.created_on).first()
     blog_categories = db(db.blog_categories).select()
