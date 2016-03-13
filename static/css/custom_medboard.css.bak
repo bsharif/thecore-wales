@@ -1,0 +1,89 @@
+/*.surround-text {
+	color: white;
+	padding: 2px 12px 2px 8px;
+	background: #222;
+	text-transform: uppercase;
+	opacity: 0.7;
+    font-size: 20px;        
+
+}*/
+
+li > a.dropdown-toggle {
+  padding-left: 2px;
+  /*padding-right: 15px;*/
+}
+
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+
+@media all {
+    /* Carousel base class */
+    .carousel {
+      max-height: 100%;
+      max-height: 380px;
+      margin-bottom: 0px;
+      height:auto;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+      z-index: 10;
+        background: rgba(0, 0, 0, 0.45);
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+      max-height: 100%;
+      max-height: 380px;
+      /*background-color: #777;*/
+      /*BACKGROUND COLOR MAKES RIGHT/LEFT ARROWS DARKER GREY */
+    }
+    .carousel-inner > .item > img {
+       position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 40%;
+      max-width: 100%;
+      max-height: 380px;
+      width: auto;
+      margin-right:auto;
+      margin-left:auto;
+      height:auto;
+
+    }
+}
+/*----------------------------------------------------*/
+/*-----CAROUSEL MOBILE FIX------*/
+@media (max-width: 767px) {
+    .carousel-inner .item { 
+        /*display:block;
+        padding-bottom:10px;*/
+        max-height: 200px;
+        min-height: 200px;
+    }
+    
+}
+/*--------------------*/
+
+div.index-bottom{
+    margin-left: 25px;
+    margin-right: 25px;
+}
+hr {
+    border: 0;
+    height: 2px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+
+}
+
+
+body {
+    background: url(/static/images/cream_dust.png) repeat 0 0;
+
+}
+
+body>div.container-fluid {
+    padding-top: 50px;
+}
+

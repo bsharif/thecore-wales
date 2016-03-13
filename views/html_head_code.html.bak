@@ -1,7 +1,5 @@
 <!-- CUSTOM CSS ########################### -->
 <link rel="stylesheet" href="{{=URL('static','css/custom_medboard.css')}}">
-<link rel="stylesheet" href="{{=URL('static','css/core_styles.css')}}">
-
 <!--     ############################################################################################################################################ -->
     <!--     DATATABLES.net CSS -->
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css">

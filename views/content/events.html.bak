@@ -8,7 +8,7 @@
         <div class="col-md-2">
             <time datetime="{{=event.event_date.strftime('%Y-%m-%d')}}" class="icon">
               <em>{{=event.event_date.strftime('%A')}}</em>
-              <strong>{{=event.event_date.strftime("%B '%y")}}</strong>
+              <strong>{{=event.event_date.strftime('%B "%y')}}</strong>
               <span>{{=event.event_date.strftime('%d')}}</span>
             </time>    
         </div>
