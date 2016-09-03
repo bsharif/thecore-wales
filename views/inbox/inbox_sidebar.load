@@ -1,0 +1,34 @@
+{{import random}}
+<div id="about_blog">
+        <h1>{{=A('Inbox',_href=URL('inbox','index',extension=False),_class="blog-title")}}</h1>
+        
+        
+</div>
+
+{{if advanced_options:}}
+            <div id="advanced_options">
+                {{=A('New Inbox Post',_href=URL('new_post',extension=False),_class="btn btn-primary")}}
+                {{=A('New Category',_href=URL('new_category',extension=False),_class="btn btn-primary")}}
+				{{if request.args(0):}}
+                {{=A('Edit Post',_href=URL('edit_blog_post',args=[request.args(0)],extension=False),_class="btn btn-primary")}} 
+                {{pass}}
+        </div>
+        {{pass}}
+{{if ecg_poster:}}
+            <div id="ecg_poster">
+                {{=A('New ECG',_href=URL('new_post',extension=False),_class="btn btn-primary")}}
+        </div>
+        {{pass}}
+<div id="navigation">
+<div class="well">
+<h3>Most recent post:</h3>
+{{=A(most_recent_post['title'],_href=URL('view',args=[most_recent_post.id],extension=False))}}
+</div>
+<div class="well">
+<h3>Categories</h3>
+<ul>
+{{for category in blog_categories:}}
+{{=LI(A(category.category_name,_href=URL('view_category',args=[category.id],extension=False)))}}
+{{pass}}
+</ul>
+</div> 

@@ -103,7 +103,7 @@ def get_users_list():
 
 @auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster') or auth.has_membership('medic_user'))
 def blog_sidebar():
-    most_recent_post = db(db.blog_posts).select(orderby=db.blog_posts.created_on).first()
+    most_recent_post = db(db.blog_posts).select(orderby=~db.blog_posts.created_on).first()
     blog_categories = db(db.blog_categories).select()
     blog_tags = db(db.blog_tags).select()
     users_list = get_users_list()

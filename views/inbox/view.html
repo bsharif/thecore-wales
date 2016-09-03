@@ -1,0 +1,58 @@
+{{from gluon.tools import prettydate}}
+{{right_sidebar_enabled=False}}
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+
+{{block left_sidebar}}
+LEFT
+{{end}}
+
+{{block right_sidebar}}
+RIGHT
+{{end}}
+
+{{def get_user_name(user_id):
+    user_record = db(db.auth_user.id==user_id).select().first()
+    first_name = user_record.first_name
+    last_name = user_record.last_name
+    full_name = str(first_name + " " + last_name)
+    return full_name}}
+
+{{def get_tag_name(tag_id):
+    tag_record = db(db.blog_tags.id==tag_id).select().first()
+    tag_name = tag_record.tagname
+    return tag_name
+    }}
+
+
+{{if inbox_post_record:}}
+    <div class="row">
+        <div id="blog_title">
+            {{=H2(inbox_post_record.title)}}
+        </div>
+        {{if advanced_options:}}
+            <div id="advanced_options">
+                {{=A('Edit Post',_href=URL('edit_inbox_post',args=[inbox_post_record.id]),_class="btn btn-primary")}}
+        </div>
+        {{pass}}
+        <div id="post_details">
+            <h4>Category - {{=A(category_record.category_name,_href=URL('view_category',args=[category_record.id]))}} </h4>
+            <span class="glyphicon glyphicon-time"></span> {{=SPAN(prettydate(inbox_post_record.created_on,T))}}
+            
+        </div>
+        <hr>
+       <div id="blog_content">
+            {{=XML(inbox_post_record.body)}}
+        </div>
+        
+    </div>  <hr>
+{{pass}}
+
+
+{{block left_sidebar}}
+{{=LOAD('inbox','inbox_sidebar.load',ajax=True)}}
+{{end}}
+
+{{block right_sidebar}}
+{{=LOAD('content','events_right_sidebar.load',ajax=True)}}
+{{end}}

@@ -1,0 +1,41 @@
+{{from gluon.tools import prettydate}}
+{{right_sidebar_enabled=False}}
+{{left_sidebar_enabled=True}}
+{{extend 'layout.html'}}
+
+{{def get_user_name(user_id):
+    user_record = db(db.auth_user.id==user_id).select().first()
+    first_name = user_record.first_name
+    last_name = user_record.last_name
+    full_name = str(first_name + " " + last_name)
+    return full_name}}
+
+
+{{def get_category_name(category_id):
+    category_record = db(db.inbox_categories.id==category_id).select().first()
+    category_name = category_record.category_name
+    return category_name
+    }}
+<div class="container-fluid">
+{{for post in all_posts:}}
+    <div class="row">
+        <br>
+            <div id="blog_title">
+                <h2>{{=A(post.title,_href=URL('view',args=[post.id]),_class="")}}</h2>
+                {{category_name = get_category_name(post.category)}}
+                <h4>Category - {{=A(category_name,_href=URL('view_category',args=[post.category]))}} </h4>
+                <span class="glyphicon glyphicon-time"></span> {{=SPAN(prettydate(post.created_on,T))}}</h4>
+            </div>
+            
+        
+    </div>  <hr>
+{{pass}}
+
+
+</div>
+
+
+
+{{block left_sidebar}}
+{{=LOAD('inbox','inbox_sidebar.load',ajax=True)}}
+{{end}}

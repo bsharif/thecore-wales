@@ -117,6 +117,8 @@ def page():
 		redirect(URL('clinics','browse'))
 	elif page_id == '85':
 		redirect(URL('clinics','my_sessions'))
+	elif page_id == '103':
+		redirect(URL('inbox','index'))
 
 	page = db(db.static_pages.id==page_id).select().first()
 	
