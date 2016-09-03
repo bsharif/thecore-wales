@@ -1,4 +1,4 @@
-# coding: utf8
+# -*- coding: utf-8 -*-
 {
 '!langcode!': 'uk',
 '!langname!': 'Українська',
@@ -10,6 +10,8 @@
 '%d secods ago': '%d %%{секунду} тому',
 '%d weeks ago': '%d %%{тиждень} тому',
 '%d years ago': '%d %%{рік} тому',
+'%d-%m-%y': '%d-%m-%y',
+'%d-%m-%y %H:%M': '%d-%m-%y %H:%M',
 '%s %%{row} deleted': 'Вилучено %s %%{рядок}',
 '%s %%{row} updated': 'Змінено %s %%{рядок}',
 '%s selected': 'Вибрано %s %%{запис}',
@@ -83,7 +85,9 @@
 'Edit current record': 'Редагувати поточний запис',
 'Edit Page': 'Редагувати сторінку',
 'Email and SMS': 'Ел.пошта та SMS',
+'Enter a time between 5 and 500 minutes': 'Enter a time between 5 and 500 minutes',
 'enter a value': 'введіть значення',
+'Enter an integer between %(min)g and %(max)g': 'Enter an integer between %(min)g and %(max)g',
 'enter an integer between %(min)g and %(max)g': 'введіть ціле число між %(min)g та %(max)g',
 'Error!': 'Помилка!',
 'Errors': 'Помилки',
@@ -120,6 +124,7 @@
 'Layout Plugins': 'Втулки макетів',
 'Layouts': 'Макети',
 'Live Chat': 'Чат',
+'Log In': 'Log In',
 'Logged in': 'Вхід здійснено',
 'Logged out': 'Вихід здійснено',
 'Login': 'Вхід',
@@ -185,6 +190,7 @@
 'Save profile': 'Зберегти параметри',
 'Semantic': 'Семантика',
 'Services': 'Сервіс',
+'Sign Up': 'Sign Up',
 'Size of cache:': 'Розмір кешу:',
 'state': 'стан',
 'Statistics': 'Статистика',
