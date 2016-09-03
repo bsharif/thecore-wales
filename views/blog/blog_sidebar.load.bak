@@ -1,0 +1,50 @@
+{{import random}}
+<div id="about_blog">
+        <h1>{{=A('The Mess',_href=URL('blog','index',extension=False),_class="blog-title")}}</h1>
+        
+        
+</div>
+
+{{if advanced_options:}}
+            <div id="advanced_options">
+                {{=A('New Blog Post',_href=URL('new_post',extension=False),_class="btn btn-primary")}}
+                {{=A('New Tag',_href=URL('new_tag',extension=False),_class="btn btn-primary")}}
+				{{if request.args(0):}}
+                {{=A('Edit Post',_href=URL('edit_blog_post',args=[request.args(0)],extension=False),_class="btn btn-primary")}} 
+                {{pass}}
+        </div>
+        {{pass}}
+{{if ecg_poster:}}
+            <div id="ecg_poster">
+                {{=A('New ECG',_href=URL('new_post',extension=False),_class="btn btn-primary")}}
+        </div>
+        {{pass}}
+<div id="navigation">
+<div class="well">
+<h3>Most recent post:</h3>
+{{=A(most_recent_post['title'],_href=URL('view',args=[most_recent_post.id],extension=False))}}
+</div>
+<div class="well">
+<h3>Categories</h3>
+<ul>
+{{for category in blog_categories:}}
+{{=LI(A(category.category_name,_href=URL('view_category',args=[category.id],extension=False)))}}
+{{pass}}
+</ul>
+</div> 
+<div class="well">
+<h3>Tags</h3>
+
+{{for tag in blog_tags:}}
+{{label_color=random.choice(styling_list)}}
+{{=SPAN(A(tag.tagname,_href=URL('view_tag',args=[tag.id],extension=False),_class=label_color))}}
+{{pass}}
+</div>
+<div class="well">
+<h3>Users</h3>
+{{for user in users_list:}}
+{{label_color=random.choice(styling_list)}}
+{{=SPAN(A(users_list[user],_href=URL('view_user',args=[user],extension=False),_class=label_color))}}
+{{pass}}
+</div>
+</div>
