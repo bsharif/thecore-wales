@@ -12,6 +12,11 @@
 </div>
 <div class="panel-body">
 <p>{{=XML(notice.description)}}</p>
+
+{{if advanced_options or ecg_poster:}}
+{{=A('Delete',_href=URL('content','delete_notice',vars={'record_id':notice.id},extension=False),_class="btn btn-danger")}}
+{{pass}}
+
 </div></div>
 
 

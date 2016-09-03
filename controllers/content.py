@@ -89,7 +89,7 @@ def edit_event():
     				A('Cancel Edit',_href=URL('view_event',args=[event_id]),_class="btn btn-danger"), \
     				_class="col-sm-9 col-sm-offset-4")]
 
-	form = SQLFORM(db.events, event, buttons=buttons)
+	form = SQLFORM(db.events, event, buttons=buttons, deletable=True)
 	if form.process().accepted:
 		response.flash = "Event Edited"
 		redirect(URL('view_event',args=[event_id]))
@@ -242,3 +242,13 @@ def add_notice():
 
 		redirect(URL('default','index'))
 	return locals()
+
+@auth.requires(lambda: auth.has_membership('administrator') or auth.has_membership('ecg_poster'))
+def delete_notice():
+	record = db.notices(request.vars.record_id) or redirect(URL('default','index'))
+	form = SQLFORM(db.notices, record, deletable=True)
+	if form.process().accepted:
+	   response.flash = 'form accepted'
+	elif form.errors:
+	   response.flash = 'form has errors'
+	return dict(form=form)
